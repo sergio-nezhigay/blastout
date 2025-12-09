@@ -1,0 +1,29 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {}
+    },
+    "13608375-b086-4634-863b-df6b4d0bc7ca": {
+      "type": "product-recommendations",
+      "settings": {
+        "layout": "layout-1",
+        "max_products": 8,
+        "show_unavailable_products": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "13608375-b086-4634-863b-df6b4d0bc7ca"
+  ]
+}

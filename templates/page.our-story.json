@@ -1,0 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "breadcrumbs": true,
+        "show_page_title": true,
+        "page_title_alignment": "text-center",
+        "info_title": "",
+        "info_content": "",
+        "section_width": "max-w-narrower",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "seo_content_Na8hYq": {
+      "type": "seo-content",
+      "name": "t:sections.seo-content.name",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "НАША ІСТОРІЯ",
+        "heading_size": "h5",
+        "text": "",
+        "content_alignment": "center",
+        "section_width": "max-w-narrower",
+        "color_scheme": "",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
+      }
+    },
+    "multitile_CYXX3V": {
+      "type": "multitile",
+      "blocks": {
+        "tile_88rUKU": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 2,
+            "color_scheme": "scheme-1",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-start",
+            "content_alignment": "align-start text-start",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "bottom",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "<p><strong>З чого розпочалась історія бренду?<\/strong> <br\/>З мрії, котра дивним чином перетворилась на сміливість, потім на рішучість а вже далі на потужну енергію, яка безперервно зростає, не дає ні на мить скласти руки, спонукає вірити в краще й безупинно рухатися. А головне - перебувати в захваті від цього руху.<br\/><br\/>Коли я подумки малюю героїню бренду, я уявно наділяю її сильним характером. Інколи вона може бути раптово вибуховою, надміру емоційною, темпераментною, але й разом з тим чуттєвою, ніжною беззаперечною інтелектуалкою. Це жінка, якій хочеться довіряти, це особистість, яка вміє вести за собою і перетворювати все навкруги в Любов.<br\/><br\/>Бренд <strong>Blast Out Studio<\/strong> абсолютно точно не є зважено прописаним бізнес планом. Тут зовсім про інше...для мене є надважливими люди, які нас обирають. Кожна придбана тканина, підібраний колір нитки, форма ґудзика, відкориговане безліч разів лекало - це мій невербальний прояв любові до цього світу, до людей якими я надихаюсь, до своєї команди, яку вчусь надихати і яка надихає мене, до жінок, яким подобається наш продукт і які кожен день дарують всім нам нові сенси.<br\/><br\/><strong>Оксана Вишня<\/strong>,<br\/>засновниця Blastout<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "0"
+          }
+        },
+        "tile_egnfeD": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 2,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "auto",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/46447-min.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "1"
+          }
+        }
+      },
+      "block_order": [
+        "tile_88rUKU",
+        "tile_egnfeD"
+      ],
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "0",
+        "spacing_bottom": "1"
+      }
+    },
+    "multitile_UhNHCT": {
+      "type": "multitile",
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    },
+    "multitile_6ipE4M": {
+      "type": "multitile",
+      "blocks": {
+        "tile_mMjrM8": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 6,
+            "row_factor": 2,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/976d3ff713796679525133bcefe8e8a8_b72ddcbb-abf8-40df-9145-6cbf4bc56587.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        }
+      },
+      "block_order": [
+        "tile_mMjrM8"
+      ],
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-narrower",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "seo_content_Na8hYq",
+    "multitile_CYXX3V",
+    "multitile_UhNHCT",
+    "multitile_6ipE4M"
+  ]
+}

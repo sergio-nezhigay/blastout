@@ -1,0 +1,166 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "breadcrumbs": true,
+        "show_page_title": false,
+        "page_title_alignment": "text-center",
+        "info_title": "Opening hours",
+        "info_content": "<p>Monday to Friday 9am to 9pm (GMT)<br/>Saturday 10am to 6pm<br/>Sunday 10am to 4pm</p>",
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
+      }
+    },
+    "seo_content_9FH7hJ": {
+      "type": "seo-content",
+      "name": "t:sections.seo-content.name",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "КОНТАКТИ",
+        "heading_size": "h5",
+        "text": "<p><strong>ВІДДІЛ МАРКЕТИНГУ:</strong><br/>blastoutmarketing@gmail.com<br/>+38 050 250 20 40<br/><br/><strong>ДЛЯ КЛІЄНТІВ:</strong><br/>blastoutua@gmail.com<br/>+38 050 250 20 40<br/><br/><strong>СТУДІЯ:</strong><br/>КИЇВ, УКРАЇНА<br/>ВУЛ. ОЛЬГИНСЬКА, 6 <br/><br/>ПН-СБ<br/>11.00-20.00<br/>НД<br/>11.00-19.00</p>",
+        "content_alignment": "center",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_inner": "1",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "form": {
+      "type": "form-contact",
+      "blocks": {
+        "field_qaqAeN": {
+          "type": "field",
+          "settings": {
+            "column_factor": "3",
+            "heading": "First Name",
+            "type": "text",
+            "required": false,
+            "checked": false,
+            "placeholder": "",
+            "binding": "first_name",
+            "label_description": "",
+            "option_1": "",
+            "option_2": "",
+            "option_3": "",
+            "option_4": ""
+          }
+        },
+        "field_p8UeqH": {
+          "type": "field",
+          "settings": {
+            "column_factor": "3",
+            "heading": "Last Name",
+            "type": "text",
+            "required": false,
+            "checked": false,
+            "placeholder": "",
+            "binding": "last_name",
+            "label_description": "",
+            "option_1": "",
+            "option_2": "",
+            "option_3": "",
+            "option_4": ""
+          }
+        },
+        "field_CQfU3F": {
+          "type": "field",
+          "settings": {
+            "column_factor": "6",
+            "heading": "Contact Method",
+            "type": "checkbox",
+            "required": false,
+            "checked": false,
+            "placeholder": "",
+            "binding": "custom",
+            "label_description": "How do you want us to contact you?",
+            "option_1": "Email",
+            "option_2": "Phone",
+            "option_3": "SMS",
+            "option_4": ""
+          }
+        }
+      },
+      "block_order": [
+        "field_qaqAeN",
+        "field_p8UeqH",
+        "field_CQfU3F"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "max-w-page",
+        "color_scheme": "scheme-1",
+        "spacing_top": "2",
+        "spacing_bottom": "1"
+      }
+    },
+    "map": {
+      "type": "map",
+      "disabled": true,
+      "settings": {
+        "api_key": "AIzaSyAgZ_45n_1PvfdBIpZkCO_dWDvLJOxSr8g",
+        "address_query": "Nugle 2 broj 6 ,Bugojno, Bosnia",
+        "zoom_level": 13,
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "1762727153d06c0aa3": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_4nhqcz": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_4nhqcz"
+      ],
+      "settings": {
+        "section_layout": "normal",
+        "spacing_inner": "2",
+        "section_width": "max-w-fluid",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "seo_content_9FH7hJ",
+    "form",
+    "map",
+    "1762727153d06c0aa3"
+  ]
+}

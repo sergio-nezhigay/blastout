@@ -1,0 +1,51 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "seo_content_JApz4C": {
+      "type": "seo-content",
+      "disabled": true,
+      "name": "t:sections.seo-content.name",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "",
+        "heading_size": "h5",
+        "text": "",
+        "content_alignment": "center",
+        "section_width": "max-w-narrower",
+        "color_scheme": "",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "h1 {font-size: 24px; }"
+      ],
+      "settings": {
+        "breadcrumbs": false,
+        "show_page_title": true,
+        "page_title_alignment": "text-center",
+        "info_title": "",
+        "info_content": "",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "0",
+        "spacing_bottom": "0"
+      }
+    }
+  },
+  "order": [
+    "seo_content_JApz4C",
+    "main"
+  ]
+}

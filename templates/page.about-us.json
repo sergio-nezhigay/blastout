@@ -1,0 +1,671 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1658995208ad05f95f": {
+      "type": "hero-banner",
+      "blocks": {
+        "e3867974-072c-4cfe-968e-a10d22e8941a": {
+          "type": "slide",
+          "settings": {
+            "banner_layout": "hero-banner--full",
+            "color_scheme": "",
+            "header_menu_text_color": "#ffffff",
+            "heading": "<p>Highlight your promotion<\/p>",
+            "subheading": "Highlight your promotion",
+            "subheading_link": "",
+            "text": "<p>Highlight your promotion<\/p>",
+            "button_link_1": "\/",
+            "button_link_1_type": "button",
+            "button_label_1": "View more",
+            "button_style_1": "button--filled",
+            "button_link_2": "\/",
+            "button_label_2": "View more",
+            "button_style_2": "button--outlined",
+            "content_position": "end",
+            "content_alignment": "center",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "enable_media_overlay_desktop": true,
+            "content_position_mobile": "center",
+            "content_alignment_mobile": "center",
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "enable_media_overlay_mobile": true
+          }
+        }
+      },
+      "block_order": [
+        "e3867974-072c-4cfe-968e-a10d22e8941a"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_transparent_header": true,
+        "slider_height_auto": false,
+        "slider_height": 100,
+        "slideshow_autoplay_interval": 6,
+        "show_slideshow_navigation": true,
+        "slideshow_navigation_position": "hero__swiper-buttons--start",
+        "color_scheme_arrows": "",
+        "show_slideshow_pagination": true,
+        "slideshow_pagination_style": "style-1",
+        "floating_bar": false,
+        "main_product": ""
+      }
+    },
+    "9585dbdf-5519-43bd-a4c5-6aa99afe9a31": {
+      "type": "seo-content",
+      "disabled": true,
+      "settings": {
+        "section_layout": "normal",
+        "heading": "ABOUT US",
+        "heading_size": "h5",
+        "text": "<p><strong>BLAST OUT<\/strong> is a Ukrainian brand that follows the principles of sustainable fashion and focuses on blending elegant clothing with everyday wear for the urban routine. Oksana Vyshnia, the brand’s Creative Director, strives to create clothing that reveals women’s individuality and allows them to express it freely and confidently.<\/p><p>At the core of <strong>BLAST OUT STUDIO<\/strong> lies the balance between femininity and masculinity, which merge into a universal, timeless capsule wardrobe that highlights the diversity of each woman’s personal style and daily life. Minimalist oversized suits and textured outerwear combined with sensual dresses and practical sportswear — the <strong>BLAST OUT STUDIO<\/strong> collection includes all the essential elements of a modern urban dress code. The brand adheres to a <strong>sustainable approach<\/strong> to production: all garments are made locally in the Kyiv studio using <strong>deadstock fabrics<\/strong>. That’s why every collection is always produced in <strong>limited quantities<\/strong>. The cut of each piece is perfected thanks to the craftsmanship of <strong>BLAST OUT STUDIO’s<\/strong> tailors.<br\/><strong>OKSANA VYSHNIA<\/strong><br\/>Founder of <strong>BLAST OUT<\/strong><\/p><p><strong>BLAST OUT STUDIO<\/strong> is a story told through clothing: whatever look you choose, you’ll feel true to yourself.<\/p><p><strong>Contact Information:<\/strong><br\/>SP Burkovska Mariia Maksymivna<br\/>TIN: 3755009588<br\/><br\/>Ukraine, 01001, Kyiv region,<br\/>Kyiv, 6 Olhynska St.<br\/><a href=\"mailto:burkovskayamaria3@gmail.com\">burkovskayamaria3@gmail.com<\/a><br\/>+38 (096) 825-73-57<\/p>",
+        "content_alignment": "center",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "1"
+      }
+    },
+    "seo_content_dGBCDC": {
+      "type": "seo-content",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "ПРО НАС",
+        "heading_size": "h5",
+        "text": "<p><strong>BLAST OUT<\/strong> - український бренд, який дотримується принципів стійкої моди та орієнтований на поєднання елегантного одягу із повсякденним для міської рутини. Оксана Вишня, креативний директор бренду, прагне створювати одяг, який розкриватиме індивідуальність жінок і дозволить їм проявляти її вільно та впевнено.<br\/><\/p>",
+        "content_alignment": "center",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "1"
+      }
+    },
+    "b9e1f375-bbe3-49e0-b449-eff934bd3497": {
+      "type": "blog-articles",
+      "disabled": true,
+      "settings": {
+        "heading": "Blog",
+        "heading_size": "h3",
+        "blog": "",
+        "button_text": "Visit Blog",
+        "layout": "layout-2",
+        "card_media_aspect_ratio": "3\/4",
+        "show_excerpt": true,
+        "show_date": true,
+        "show_author": true,
+        "show_read_more": true,
+        "content_alignment": "text-center",
+        "button_style": "button--filled",
+        "spacing_inner": "4",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_grid": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "multitile_3QQGpq": {
+      "type": "multitile",
+      "blocks": {
+        "tile_W7VTXY": {
+          "type": "tile",
+          "disabled": true,
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 2,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/46446-min.png",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        },
+        "tile_AtQaAU": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 6,
+            "row_factor": 1,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "5\/4",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/DSC04613.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        },
+        "tile_dzee9e": {
+          "type": "tile",
+          "disabled": true,
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 2,
+            "color_scheme": "scheme-5",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/4Q2A0011.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        },
+        "tile_3w4DBB": {
+          "type": "tile",
+          "disabled": true,
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 1,
+            "color_scheme": "scheme-5",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/DSC04372.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        }
+      },
+      "block_order": [
+        "tile_W7VTXY",
+        "tile_AtQaAU",
+        "tile_dzee9e",
+        "tile_3w4DBB"
+      ],
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-full",
+        "spacing_top": "1",
+        "spacing_bottom": "1"
+      }
+    },
+    "multitile_66cBHD": {
+      "type": "multitile",
+      "blocks": {
+        "tile_i9tQxJ": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 2,
+            "color_scheme": "scheme-1",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "auto",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "bottom",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "<p>В основі <strong>BLAST OUT STUDIO<\/strong> лежить баланс фемінності та маскулінності, які, зливаючись в універсальний позачасовий капсульний гардероб, підкреслюють різноманітність персонального стилю та рутини кожної жінки. Мінімалістичні оверсайз костюми та фактурний верхній одяг в поєднанні з чуттєвими сукнями та практичним спортивним одягом – в лінійці <strong>BLAST OUT STUDIO<\/strong> присутні всі елементи сучасного міського дрес-коду.<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        },
+        "tile_rYEdaQ": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 2,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/46446-min.png",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        }
+      },
+      "block_order": [
+        "tile_i9tQxJ",
+        "tile_rYEdaQ"
+      ],
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "1"
+      }
+    },
+    "seo_content_EEwkrC": {
+      "type": "seo-content",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "",
+        "heading_size": "h5",
+        "text": "<p>Бренд дотримується sustainable підходу до виробництва: одяг виготовляється локально в київській студії із deadstock тканин. Саме тому, усі колекції марки завжди в обмеженій кількості. Крій кожної речі доведений до досконалості завдяки майстерності кравців <strong>BLAST OUT STUDIO<\/strong>.<br\/><\/p>",
+        "content_alignment": "center",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_inner": "2",
+        "spacing_top": "1",
+        "spacing_bottom": "1"
+      }
+    },
+    "multitile_PXNnii": {
+      "type": "multitile",
+      "blocks": {
+        "tile_QNcnp7": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 6,
+            "row_factor": 1,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/4Q2A9426.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        }
+      },
+      "block_order": [
+        "tile_QNcnp7"
+      ],
+      "disabled": true,
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-narrower",
+        "spacing_top": "1",
+        "spacing_bottom": "1"
+      }
+    },
+    "multitile_BYPtNw": {
+      "type": "multitile",
+      "blocks": {
+        "tile_j7AfC9": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 6,
+            "row_factor": 1,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/DSC04613_a736131b-55b5-4714-bfdd-0afd728b1c96.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        }
+      },
+      "block_order": [
+        "tile_j7AfC9"
+      ],
+      "disabled": true,
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-narrower",
+        "spacing_top": "1",
+        "spacing_bottom": "1"
+      }
+    },
+    "multitile_hEDB6K": {
+      "type": "multitile",
+      "blocks": {
+        "tile_rrzaGz": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 6,
+            "row_factor": 1,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/4Q2A0011.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        }
+      },
+      "block_order": [
+        "tile_rrzaGz"
+      ],
+      "disabled": true,
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-narrower",
+        "spacing_top": "1",
+        "spacing_bottom": "1"
+      }
+    },
+    "multitile_xG47Vf": {
+      "type": "multitile",
+      "blocks": {
+        "tile_EfyeDf": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 6,
+            "row_factor": 1,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/DSC04372.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        }
+      },
+      "block_order": [
+        "tile_EfyeDf"
+      ],
+      "disabled": true,
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-narrower",
+        "spacing_top": "1",
+        "spacing_bottom": "1"
+      }
+    },
+    "multitile_cmMKVP": {
+      "type": "multitile",
+      "blocks": {
+        "tile_dGXK9a": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 6,
+            "row_factor": 1,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/86172-000861720026.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        }
+      },
+      "block_order": [
+        "tile_dGXK9a"
+      ],
+      "disabled": true,
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-narrower",
+        "spacing_top": "1",
+        "spacing_bottom": "1"
+      }
+    },
+    "multitile_mGwVX3": {
+      "type": "multitile",
+      "blocks": {
+        "tile_f9aNyJ": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 2,
+            "color_scheme": "",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "media",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "background",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "image": "shopify:\/\/shop_images\/4Q2A0011.jpg",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        },
+        "tile_3CiPaN": {
+          "type": "tile",
+          "settings": {
+            "show_on": "both",
+            "column_factor": 3,
+            "row_factor": 2,
+            "color_scheme": "scheme-1",
+            "gradient_background_color": "",
+            "tile_aspect_ratio": "auto",
+            "content_position_vertical": "justify-center",
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
+            "media_position": "bottom",
+            "heading": "",
+            "heading_size": "h3",
+            "text": "<p><strong>BLAST OUT STUDIO<\/strong> — це історія, яка розкривається через одяг: який би образ ви не обрали, ви будете відчувати себе вірними собі.<br\/><strong>ОКСАНА ВИШНЯ<\/strong><br\/>Засновниця <strong>BLAST OUT<\/strong><\/p><p><strong>Контактні дані:<\/strong><br\/>ФОП БУРКОВСЬКА МАРІЯ МАКСИМІВНА<br\/>ІПН: 3755009588<br\/>Україна, 01001, Київська область, <br\/>м. Київ, вул. Ольгинська, 6.<br\/><a href=\"mailto:burkovskayamaria3@gmail.com\">burkovskayamaria3@gmail.com<\/a><br\/>+38 (096) 825-73-57<\/p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "video_external": "",
+            "show_controls_on_video": false,
+            "video_external_mobile": "",
+            "show_controls_on_video_mobile": false,
+            "spacing_inner": "2"
+          }
+        }
+      },
+      "block_order": [
+        "tile_f9aNyJ",
+        "tile_3CiPaN"
+      ],
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "1",
+        "spacing_bottom": "1"
+      }
+    }
+  },
+  "order": [
+    "1658995208ad05f95f",
+    "9585dbdf-5519-43bd-a4c5-6aa99afe9a31",
+    "seo_content_dGBCDC",
+    "b9e1f375-bbe3-49e0-b449-eff934bd3497",
+    "multitile_3QQGpq",
+    "multitile_66cBHD",
+    "seo_content_EEwkrC",
+    "multitile_PXNnii",
+    "multitile_BYPtNw",
+    "multitile_hEDB6K",
+    "multitile_xG47Vf",
+    "multitile_cmMKVP",
+    "multitile_mGwVX3"
+  ]
+}

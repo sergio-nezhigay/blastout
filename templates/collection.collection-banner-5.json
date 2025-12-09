@@ -1,0 +1,200 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_banner_jWtyM4": {
+      "type": "page-banner",
+      "disabled": true,
+      "settings": {
+        "enable_transparent_header": true,
+        "heading": "",
+        "heading_size": "h3",
+        "text": "",
+        "show_default_description": true,
+        "show_on_description": "desktop",
+        "content_position": "center",
+        "content_alignment": "center",
+        "media_position": "background",
+        "page_menu": "",
+        "enable_breadcrumbs": true,
+        "section_height": "50svh",
+        "content_width": "100%",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "section_height_mobile": "50svh",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "section_width": "max-w-narrow",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_media": "scheme-6",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "featured_collections_ybC3xQ": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_slide_LQym8A": {
+          "type": "collection-slide",
+          "settings": {
+            "collection": "",
+            "heading": "Shampoo",
+            "heading_size": "h4",
+            "subheading": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_slide_LQym8A"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "layout-2",
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "content_padding": "0",
+        "button_label": "",
+        "button_link": "shopify://collections",
+        "button_style": "button--filled",
+        "card_layout": "product",
+        "card_style": "compact",
+        "image_aspect_ratio": "3/4",
+        "card_content_alignment": "start",
+        "card_title_style": "card-single-text",
+        "collection_product_count": "show",
+        "slides_per_view": 3,
+        "slides_per_view_mobile": 1,
+        "show_carousel_arrows": true,
+        "slideshow_alignment_center": false,
+        "enable_slideshow_overflow": false,
+        "slideshow_border": "none",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "color_scheme_for_cards": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "disabled": true,
+      "custom_css": [
+        ".block-text_card_bMpqkN {order: 1;}"
+      ],
+      "settings": {
+        "show_top_border_for_utilities_bar": false,
+        "enable_products_count": true,
+        "enable_sorting": true,
+        "enable_opened_accordions": false,
+        "filters": "drawer",
+        "products_per_row": "4",
+        "products_per_row_mobile": "1",
+        "products_per_page": 19,
+        "pagination_style": "default",
+        "enable_infinity_scroll": false,
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-5",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "f8303da3-c3cb-4a90-a63a-7a628615aa6f": {
+      "type": "seo-content",
+      "disabled": true,
+      "settings": {
+        "section_layout": "normal",
+        "heading": "Heading for SEO Content",
+        "heading_size": "h4",
+        "text": "<p>Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand.</p>",
+        "content_alignment": "center",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-5",
+        "spacing_inner": "2",
+        "spacing_top": "4",
+        "spacing_bottom": "4"
+      }
+    },
+    "collection_banner_section_8zDxaC": {
+      "type": "collection-banner-section",
+      "blocks": {
+        "product_item_X6j9pn": {
+          "type": "product_item",
+          "settings": {
+            "product": "mid-lenght-top",
+            "custom_image": "shopify://shop_images/IMG_9362.jpg",
+            "is_wide": true
+          }
+        },
+        "product_item_R9Wb6M": {
+          "type": "product_item",
+          "settings": {
+            "product": "light-gray-shorts",
+            "custom_image": "shopify://shop_images/IMG_9363.jpg",
+            "is_wide": true
+          }
+        },
+        "product_item_h7xGhQ": {
+          "type": "product_item",
+          "settings": {
+            "product": "pants-blue-stripes",
+            "custom_image": "shopify://shop_images/IMG_9360.jpg",
+            "is_wide": true
+          }
+        },
+        "product_item_gNbhaM": {
+          "type": "product_item",
+          "settings": {
+            "product": "hoodie-blue-stripes",
+            "custom_image": "shopify://shop_images/IMG_9361.jpg",
+            "is_wide": true
+          }
+        }
+      },
+      "block_order": [
+        "product_item_X6j9pn",
+        "product_item_R9Wb6M",
+        "product_item_h7xGhQ",
+        "product_item_gNbhaM"
+      ],
+      "name": "Collection Description",
+      "settings": {
+        "custom_class": "",
+        "max_width": "1400px",
+        "background_color": "rgba(0,0,0,0)",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_horizontal_desktop": 40,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_horizontal_mobile": 0,
+        "show_title": true,
+        "title": "UPGRADE x BLAST OUT",
+        "title_size_desktop": 32,
+        "title_size_mobile": 24,
+        "title_color": "#000000",
+        "show_description": true,
+        "description": "",
+        "description_size_desktop": 16,
+        "description_size_mobile": 14,
+        "description_color": "#000000",
+        "description_alignment": "center",
+        "description_max_width": 450
+      }
+    }
+  },
+  "order": [
+    "page_banner_jWtyM4",
+    "featured_collections_ybC3xQ",
+    "main",
+    "f8303da3-c3cb-4a90-a63a-7a628615aa6f",
+    "collection_banner_section_8zDxaC"
+  ]
+}

@@ -1,0 +1,106 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "full-width-banner",
+      "blocks": {
+        "heading_KKwpjb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Never miss a beat with our latest <em>news</em>",
+            "heading_size": "h1"
+          }
+        },
+        "breadcrumbs_EnCfjq": {
+          "type": "breadcrumbs",
+          "settings": {
+            "show_on": "both"
+          }
+        }
+      },
+      "block_order": [
+        "heading_KKwpjb",
+        "breadcrumbs_EnCfjq"
+      ],
+      "settings": {
+        "enable_transparent_header": true,
+        "media_position": "background",
+        "section_height": "half",
+        "content_position": "center",
+        "content_alignment": "center",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "aspect_ratio": "auto",
+        "section_height_mobile": "half",
+        "content_position_mobile": "center",
+        "content_alignment_mobile": "center",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "aspect_ratio_mobile": "auto",
+        "section_width": "max-w-full",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_content": "scheme-6",
+        "spacing_inner": "2",
+        "spacing_top": "0",
+        "spacing_bottom": "2"
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "disabled": true,
+      "settings": {
+        "enable_filtering_by_tags": true,
+        "articles_per_page": 6,
+        "pagination_style": "load_more",
+        "enable_infinity_scroll": false,
+        "show_excerpt": false,
+        "show_date": true,
+        "show_author": true,
+        "content_alignment": "text-left",
+        "card_media_aspect_ratio": "3/4",
+        "section_width": "max-w-narrow",
+        "color_scheme": "",
+        "spacing_grid": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "blog_articles_xDDpJD": {
+      "type": "blog-articles",
+      "name": "t:sections.blog-articles.name",
+      "settings": {
+        "heading": "Featured <em>Articles</em>",
+        "heading_size": "h3",
+        "blog": "",
+        "button_text": "Visit Blog",
+        "layout": "layout-1",
+        "card_media_aspect_ratio": "3/4",
+        "show_excerpt": true,
+        "show_date": true,
+        "show_author": true,
+        "show_read_more": true,
+        "content_alignment": "text-center",
+        "button_style": "button--text",
+        "spacing_inner": "4",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_grid": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main",
+    "blog_articles_xDDpJD"
+  ]
+}

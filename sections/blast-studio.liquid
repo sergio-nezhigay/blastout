@@ -1,0 +1,57 @@
+<style>
+.main-title-studio{
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+}
+.main-subtitle-studio{
+    font-size: 16px;
+    line-height: normal;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    max-width: 727px;
+    margin: 0 auto;
+}
+.main-section-studio{
+    padding: 0 36px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+@media(max-width: 767px){
+    .main-subtitle-studio{
+        font-size: 13px;
+    }
+}
+</style>
+<section class="main-section-studio container max-w-page">
+    {% if section.settings.main_title != blank %}
+        <h2 class='main-title-studio section__heading h3'>{{ section.settings.main_title }}</h2>
+    {% endif %}
+    {% if section.settings.main_subtitle != blank %}
+        <div class="main-subtitle-studio">{{ section.settings.main_subtitle }}</div>
+    {% endif %}
+</section>
+{%- schema -%}
+{
+  "name": "Blast studio",
+  "settings": [
+    {
+        "type": "text",
+        "id": "main_title",
+        "label": "Title"
+    },
+    {
+        "type": "richtext",
+        "id": "main_subtitle",
+        "label": "Subtitle"
+    },
+  ],
+  "presets": [
+    {
+        "name": "Blast studio"
+    }
+  ]
+}
+{% endschema %}
