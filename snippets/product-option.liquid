@@ -12,9 +12,6 @@
   endif
 
   assign label_hidden = label_hidden | default: false
-  if swatch_value
-    assign label_hidden = true
-  endif
 
   # rendering option only if it has a variant and is not the first option
   assign render_variant = true
@@ -101,12 +98,9 @@
     endif
   else
     assign input_class = class
-    assign label_hidden = true
+    assign label_hidden = false
   endif
 
-  if swatch_value
-    assign label_hidden = true
-  endif
 -%}
 
 {% if render_variant %}
@@ -143,10 +137,6 @@
       {% endif %}
     {% endif %}
   {% endcomment %}
-
-    {% if swatch_value %}
-      {% render 'swatch', swatch: swatch_value, shape: block.settings.swatch_shape, variant_img: variant_img, where: where %}
-    {% endif %}
 
     <span class="{% if label_hidden %}visually-hidden{% endif %}">{{ value }}</span>
 

@@ -142,11 +142,6 @@
       endcomment
 
       assign label_hidden = false
-      assign swatch_value = value.swatch | default: false
-
-      if value.swatch or variant_img
-        assign label_hidden = true
-      endif
 
       render 'product-option', id: input_id, name: input_name, value: value, option: option, form_id: product_form_id, checked: value.selected, disabled: option_disabled, visually_hidden: true, additional_props: input_dataset, variant_img: variant_image_test, swatch_value: swatch_value, label_hidden: label_hidden, label_unavailable: label_unavailable, block: block, product: product, where: 'main-product'
     -%}

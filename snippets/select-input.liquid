@@ -59,10 +59,6 @@
 
         <div class="dropdown__button" data-option-name="{{- option_name -}}">
 
-          {% if swatch_value %}
-            {% render 'swatch', swatch: swatch_value, shape: shape %}
-          {% endif %}
-
           <span data-label>{{- label | escape -}}</span>
 
           {% render 'icon', icon_name: 'theme-chevron-down', class: 'icon' %}

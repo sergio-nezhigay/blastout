@@ -88,14 +88,6 @@
             {{ option.name }}
           </label>
           <div class="select">
-            {%- if picker_type == 'swatch_dropdown' -%}
-              <span
-                data-selected-value
-                class="dropdown-swatch"
-              >
-                {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
-              </span>
-            {%- endif -%}
 
             {%- liquid
               assign select_input_id = 'Option-' | append: section.id | append: '-' | append: forloop.index0
