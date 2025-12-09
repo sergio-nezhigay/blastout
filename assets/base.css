@@ -3037,8 +3037,13 @@ fieldset.product__variant-options legend strong {
 .product-option__input + .product-option__label--image {
   --variant-option-label--border-radius: 0;
   position: relative;
-  display: block;
-  width: 3rem; height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.8rem;
+  min-width: 2.8rem;
+  height: auto;
+  width: auto;
   transform: none; transition: none; background: none;
   overflow: hidden;
   border: 0.1rem solid rgba(var(--color-foreground), 0.15);
