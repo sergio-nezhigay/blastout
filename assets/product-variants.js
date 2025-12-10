@@ -399,6 +399,14 @@ if (!customElements.get('product-info')) {
       handleUpdateProductInfo(productUrl) {
         return html => {
           const variant = this.getSelectedVariant(html);
+          console.log('🔍 Variant changed:', {
+            id: variant?.id,
+            available: variant?.available,
+            title: variant?.title,
+            inventory_quantity: variant?.inventory_quantity,
+            inventory_management: variant?.inventory_management,
+            inventory_policy: variant?.inventory_policy
+          });
 
           // this.pickupAvailability?.update(variant);
           this.updateOptionValues(html);
@@ -457,17 +465,26 @@ if (!customElements.get('product-info')) {
             `#Quantity-Rules-${this.dataset.section}`
           )?.classList.remove("hidden");
 
-          const submitButton = html.getElementById(`ProductSubmitButton-${this.sectionId}`);
-          const hasPreOrder = html.querySelector('product-form')?.hasAttribute('data-has-pre-order');
+          // Get inventory data from HTML
+          const inventoryElement = html.getElementById(`Inventory-${this.sectionId}`);
+          const inventoryQuantity = inventoryElement ? parseInt(inventoryElement.dataset.inventoryQuantity) : null;
+          const isOutOfStock = inventoryQuantity !== null && inventoryQuantity <= 0;
 
-          // Если предзаказ - кнопка всегда активна
-          if (hasPreOrder) {
-            this.productForm?.toggleSubmitButton(false);
+          console.log('📦 Inventory check:', {
+            inventoryQuantity,
+            isOutOfStock,
+            variantAvailable: variant?.available
+          });
+
+          // Update button text based on variant availability and inventory
+          if (!variant) {
+            this.productForm?.toggleSubmitButton(true, window.variantStrings.unavailable);
+          } else if (!variant.available || isOutOfStock) {
+            // Unavailable or out of stock = preorder (always enabled)
+            this.productForm?.toggleSubmitButton(false, window.variantStrings.preOrder);
           } else {
-            this.productForm?.toggleSubmitButton(
-              submitButton?.hasAttribute("disabled") ?? true,
-              window.variantStrings.soldOut
-            );
+            // Available = normal add to cart
+            this.productForm?.toggleSubmitButton(false);
           }
 
           publish(PUB_SUB_EVENTS.variantChange, {
@@ -948,23 +965,19 @@ if (!customElements.get('product-form')) {
       }
 
       toggleSubmitButton(disable = true, text) {
-        // Если это предзаказ - кнопка всегда активна
-        if (this.hasAttribute("data-has-pre-order")) {
-          this.submitButton.removeAttribute("disabled");
-          this.submitButtonText.textContent = window.variantStrings.preOrder;
-          return;
-        }
+        console.log('🔘 toggleSubmitButton called:', { disable, text });
 
         if (disable) {
           this.submitButton.setAttribute("disabled", "disabled");
           if (text) this.submitButtonText.textContent = text;
         } else {
           this.submitButton.removeAttribute("disabled");
-          this.submitButtonText.textContent = this.hasAttribute(
-            "data-has-selling-plan"
-          )
-            ? window.variantStrings.addSubscriptionToCart
-            : window.variantStrings.addToCart;
+          // Use text parameter if provided, otherwise default to add to cart
+          this.submitButtonText.textContent = text || (
+            this.hasAttribute("data-has-selling-plan")
+              ? window.variantStrings.addSubscriptionToCart
+              : window.variantStrings.addToCart
+          );
         }
       }
 
