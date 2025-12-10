@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# Scripts with API tokens (do not commit!)
+update-inventory-policy.js
+UPDATE-INVENTORY-INSTRUCTIONS.md
+
+# Shopify CLI
+.shopify/
+
+# Build files
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.temp
