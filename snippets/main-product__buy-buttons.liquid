@@ -29,10 +29,14 @@
       assign current_selling_plan_allocation = current_variant.selling_plan_allocations | first
     endif
 
-    # preorder - если товар недоступен, это предзаказ
+    # preorder - если товар недоступен или нет на складе, это предзаказ
     assign product_preorder = false
-    if current_variant.available == false and current_variant != nil
-      assign product_preorder = true
+    if current_variant != nil
+      if current_variant.available == false
+        assign product_preorder = true
+      elsif current_variant.inventory_management != nil and current_variant.inventory_quantity <= 0
+        assign product_preorder = true
+      endif
     endif
   -%}
 

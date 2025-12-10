@@ -859,6 +859,15 @@ if (!customElements.get('product-form')) {
         this.hideErrors = this.dataset.hideErrors === "true";
       }
 
+      connectedCallback() {
+        // Log initial state on page load
+        console.log('🎬 Initial page load:', {
+          hasPreOrder: this.hasAttribute('data-has-pre-order'),
+          buttonText: this.submitButtonText?.textContent.trim(),
+          disabled: this.submitButton?.disabled
+        });
+      }
+
       onSubmitHandler(evt) {
         evt.preventDefault();
         if (
