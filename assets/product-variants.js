@@ -399,14 +399,7 @@ if (!customElements.get('product-info')) {
       handleUpdateProductInfo(productUrl) {
         return html => {
           const variant = this.getSelectedVariant(html);
-          console.log('🔍 Variant changed:', {
-            id: variant?.id,
-            available: variant?.available,
-            title: variant?.title,
-            inventory_quantity: variant?.inventory_quantity,
-            inventory_management: variant?.inventory_management,
-            inventory_policy: variant?.inventory_policy
-          });
+
 
           // this.pickupAvailability?.update(variant);
           this.updateOptionValues(html);
@@ -470,11 +463,7 @@ if (!customElements.get('product-info')) {
           const inventoryQuantity = inventoryElement ? parseInt(inventoryElement.dataset.inventoryQuantity) : null;
           const isOutOfStock = inventoryQuantity !== null && inventoryQuantity <= 0;
 
-          console.log('📦 Inventory check:', {
-            inventoryQuantity,
-            isOutOfStock,
-            variantAvailable: variant?.available
-          });
+
 
           // Update button text based on variant availability and inventory
           if (!variant) {
@@ -861,11 +850,7 @@ if (!customElements.get('product-form')) {
 
       connectedCallback() {
         // Log initial state on page load
-        console.log('🎬 Initial page load:', {
-          hasPreOrder: this.hasAttribute('data-has-pre-order'),
-          buttonText: this.submitButtonText?.textContent.trim(),
-          disabled: this.submitButton?.disabled
-        });
+
       }
 
       onSubmitHandler(evt) {
@@ -974,7 +959,7 @@ if (!customElements.get('product-form')) {
       }
 
       toggleSubmitButton(disable = true, text) {
-        console.log('🔘 toggleSubmitButton called:', { disable, text });
+
 
         if (disable) {
           this.submitButton.setAttribute("disabled", "disabled");
