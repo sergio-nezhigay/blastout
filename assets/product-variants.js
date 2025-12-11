@@ -476,6 +476,15 @@ if (!customElements.get('product-info')) {
             this.productForm?.toggleSubmitButton(false);
           }
 
+          const preorderNote = this.querySelector('.preorder-note');
+          if (preorderNote) {
+            if (!variant || !variant.available || isOutOfStock) {
+              preorderNote.classList.remove('hidden');
+            } else {
+              preorderNote.classList.add('hidden');
+            }
+          }
+
           publish(PUB_SUB_EVENTS.variantChange, {
             data: {
               sectionId: this.sectionId,

@@ -474,11 +474,9 @@
     });
     </script>
 
-    {% if product.metafields.custom.preorder %}
-      <div class="preorder-note">
-        {{ 'product.preorder_warning_html' | t }}
-      </div>
-    {% endif %}
+    <div class="preorder-note {% if current_variant.available and current_variant.inventory_quantity > 0 %}hidden{% endif %}">
+      {{ 'product.preorder_warning_html' | t }}
+    </div>
 
         {%- assign product_block_class = 'product__buy-buttons' | append: ' ' | append: product_block_class -%}
         <div class="{{ product_block_class }}" {{ block.shopify_attributes }}>
