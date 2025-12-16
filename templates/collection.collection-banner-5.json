@@ -128,7 +128,7 @@
         "product_item_X6j9pn": {
           "type": "product_item",
           "settings": {
-            "product": "mid-lenght-top",
+            "product": "hoodie",
             "custom_image": "shopify://shop_images/IMG_9362.jpg",
             "is_wide": true
           }
@@ -136,7 +136,7 @@
         "product_item_R9Wb6M": {
           "type": "product_item",
           "settings": {
-            "product": "light-gray-shorts",
+            "product": "hoodie",
             "custom_image": "shopify://shop_images/IMG_9363.jpg",
             "is_wide": true
           }
@@ -144,7 +144,7 @@
         "product_item_h7xGhQ": {
           "type": "product_item",
           "settings": {
-            "product": "pants-blue-stripes",
+            "product": "set-of-long-sleeve-and-t-shirt-1",
             "custom_image": "shopify://shop_images/IMG_9360.jpg",
             "is_wide": true
           }
@@ -152,7 +152,7 @@
         "product_item_gNbhaM": {
           "type": "product_item",
           "settings": {
-            "product": "hoodie-blue-stripes",
+            "product": "set-of-long-sleeve-and-t-shirt-1",
             "custom_image": "shopify://shop_images/IMG_9361.jpg",
             "is_wide": true
           }
@@ -185,7 +185,7 @@
         "description_size_desktop": 16,
         "description_size_mobile": 14,
         "description_color": "#000000",
-        "description_alignment": "center",
+        "description_alignment": "flex-start",
         "description_max_width": 450
       }
     }

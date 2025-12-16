@@ -128,80 +128,48 @@
         "product_item_X6j9pn": {
           "type": "product_item",
           "settings": {
-            "product": "milk-viscose-pants",
-            "custom_image": "shopify://shop_images/46435-min.png",
+            "product": "talicoat",
+            "custom_image": "shopify://shop_images/574514-min.jpg",
             "is_wide": true
           }
         },
         "product_item_R9Wb6M": {
           "type": "product_item",
           "settings": {
-            "product": "light-gray-shorts",
-            "custom_image": "shopify://shop_images/46436-min.png",
+            "product": "kimono-olives",
+            "custom_image": "shopify://shop_images/574512-min.jpg",
             "is_wide": true
           }
         },
         "product_item_gNbhaM": {
           "type": "product_item",
           "settings": {
-            "product": "hoodie-blue-stripes",
-            "custom_image": "shopify://shop_images/46437-min.png",
+            "product": "jacket-with-fur-trim",
+            "custom_image": "shopify://shop_images/85984-min_9faa60c2-7660-4964-bae2-90431e34e863.jpg",
             "is_wide": true
           }
         },
         "product_item_h7xGhQ": {
           "type": "product_item",
           "settings": {
-            "product": "jacket-herringbone",
-            "custom_image": "shopify://shop_images/46438-min.png",
+            "product": "kimono-olives",
+            "custom_image": "shopify://shop_images/754643-min.jpg",
             "is_wide": true
           }
         },
         "product_item_9tErKz": {
           "type": "product_item",
           "settings": {
-            "product": "one-piece-black",
-            "custom_image": "shopify://shop_images/46439-min.png",
+            "product": "kimono-olives",
+            "custom_image": "shopify://shop_images/574513-min.jpg",
             "is_wide": true
           }
         },
-        "product_item_G7gYTn": {
+        "product_item_MkkVAr": {
           "type": "product_item",
           "settings": {
-            "product": "milk-top-1",
-            "custom_image": "shopify://shop_images/46440-min.png",
-            "is_wide": true
-          }
-        },
-        "product_item_ci9yRz": {
-          "type": "product_item",
-          "settings": {
-            "product": "pants-herringbone",
-            "custom_image": "shopify://shop_images/46441-min.png",
-            "is_wide": true
-          }
-        },
-        "product_item_kQcRPT": {
-          "type": "product_item",
-          "settings": {
-            "product": "vest-herringbone-olive",
-            "custom_image": "shopify://shop_images/46442-min.png",
-            "is_wide": true
-          }
-        },
-        "product_item_VpR4LC": {
-          "type": "product_item",
-          "settings": {
-            "product": "hoodie-blue-stripes",
-            "custom_image": "shopify://shop_images/46443-min.png",
-            "is_wide": true
-          }
-        },
-        "product_item_NcQ8Dz": {
-          "type": "product_item",
-          "settings": {
-            "product": "white-monochrome-shore",
-            "custom_image": "shopify://shop_images/46444-min.png",
+            "product": "jacket-with-fur-trim",
+            "custom_image": "shopify://shop_images/574515-min.jpg",
             "is_wide": true
           }
         }
@@ -212,11 +180,7 @@
         "product_item_gNbhaM",
         "product_item_h7xGhQ",
         "product_item_9tErKz",
-        "product_item_G7gYTn",
-        "product_item_ci9yRz",
-        "product_item_kQcRPT",
-        "product_item_VpR4LC",
-        "product_item_NcQ8Dz"
+        "product_item_MkkVAr"
       ],
       "name": "Collection Description",
       "settings": {
@@ -230,14 +194,14 @@
         "padding_bottom_mobile": 40,
         "padding_horizontal_mobile": 0,
         "show_title": true,
-        "title": "SUMMER 25'",
+        "title": "HOLIDAY 25/26",
         "title_size_desktop": 32,
         "title_size_mobile": 24,
         "title_color": "#000000",
         "show_description": true,
-        "description": "<h6>У колекції SS25 зібрано все для комфортного літа, яке можна проживати за власним сценарієм: у місті, на островах, у горах чи в будь-яких інших локаціях. Це одяг про тілесність, спокій і природну сексуальність, що зчитується у силуетах, формах та кольорах. </h6>",
+        "description": "<p>Blast Out Studio випустив новий дроп, створений для сяйва та особливих моментів, які можна створювати щодня. Ця колекція про розкіш, настрій і самовираження, а не про конкретні дати чи події. </p>",
         "description_size_desktop": 16,
-        "description_size_mobile": 14,
+        "description_size_mobile": 12,
         "description_color": "#000000",
         "description_alignment": "center",
         "description_max_width": 450

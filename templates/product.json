@@ -203,7 +203,7 @@
         "product_media_with_thumbs": "none",
         "product_media_thumbs_ratio": "square",
         "product_media_thumbs_object_fit": "cover",
-        "gallery_arrows_show_on": "mobile",
+        "gallery_arrows_show_on": "none",
         "display_media_gallery_pagination": "none",
         "media_gallery_info": "",
         "metafield_as_seen_on": "theme.as_seen_on",
@@ -283,6 +283,7 @@
         "collapsible_DYfCGt",
         "collapsible_QcDnKh"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "content_heading": "Similar items",
@@ -427,11 +428,11 @@
     "featured_products_BqxbPM": {
       "type": "featured-products",
       "blocks": {
-        "collection_iHRrac": {
+        "collection_zQxF9J": {
           "type": "collection",
           "settings": {
             "title": "",
-            "collection": "pants-and-shorts",
+            "collection": "",
             "products": "{{ product.metafields[\"shopify--discovery--product_recommendation\"].related_products.value }}",
             "vendor": "",
             "collection_of_products": "",
@@ -446,7 +447,7 @@
         }
       },
       "block_order": [
-        "collection_iHRrac"
+        "collection_zQxF9J"
       ],
       "name": "t:sections.featured-products.name",
       "settings": {

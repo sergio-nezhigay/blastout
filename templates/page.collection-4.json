@@ -32,7 +32,7 @@
         "heading": "WINTER 25/26",
         "heading_size": "h5",
         "text": "<p>Enter your long text content here. This can include your store description or more detailed description of your brand.</p>",
-        "content_alignment": "center",
+        "content_alignment": "start",
         "section_width": "max-w-narrower",
         "color_scheme": "",
         "spacing_inner": "2",

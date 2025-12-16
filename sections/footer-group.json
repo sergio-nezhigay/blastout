@@ -20,7 +20,7 @@
             "title": "Fast global shipping",
             "subheading": "",
             "link_label": "",
-            "link": "\/",
+            "link": "/",
             "icon": "theme-box"
           }
         },
@@ -30,7 +30,7 @@
             "title": "Free returns",
             "subheading": "",
             "link_label": "",
-            "link": "\/",
+            "link": "/",
             "icon": "theme-return"
           }
         },
@@ -40,7 +40,7 @@
             "title": "100% secure payments",
             "subheading": "",
             "link_label": "",
-            "link": "\/",
+            "link": "/",
             "icon": "option-lock"
           }
         },
@@ -51,7 +51,7 @@
             "title": "Customer satisfaction",
             "subheading": "",
             "link_label": "",
-            "link": "\/",
+            "link": "/",
             "icon": "option-heart"
           }
         }
@@ -87,7 +87,7 @@
             "column_factor": 3,
             "row_factor": 1,
             "heading": "Newsletter",
-            "text": "<p>Sign up to receive 10% off your first order<\/p>",
+            "text": "<p>Sign up to receive 10% off your first order</p>",
             "content_position_vertical": "start",
             "content_alignment": "start",
             "content_alignment_for_mobile": "center"
@@ -96,8 +96,12 @@
         "logo_footer_4nKtFK": {
           "type": "logo_footer",
           "settings": {
-            "main_logo": "shopify:\/\/shop_images\/IMG_4564.svg",
-            "logoCopyright": "© 2022 Blast Out Studio. Всі права захищені."
+            "column_factor": 1,
+            "row_factor": 1,
+            "main_logo": "shopify://shop_images/IMG_4564.svg",
+            "logo_width_mobile": 100,
+            "logoCopyright": "© 2022 Blast Out Studio. Всі права захищені.",
+            "content_position_vertical": "start"
           }
         },
         "link_list_6FaNjd": {
@@ -194,7 +198,7 @@
             "column_factor": 3,
             "row_factor": 1,
             "heading": "",
-            "text": "<p>Copyright © [year] DigiFist. All rights reserved. Powered by Shopify.<\/p>",
+            "text": "<p>Copyright © [year] DigiFist. All rights reserved. Powered by Shopify.</p>",
             "content_position_vertical": "center",
             "content_alignment": "start",
             "content_alignment_for_mobile": "center"

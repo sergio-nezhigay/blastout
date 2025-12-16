@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "type_heading_font": "mono",
+    "type_heading_font": "sans_serif_n4",
     "heading_font_scale": 69,
     "heading_letter_spacing": "-0.04em",
     "heading_text_transform": "none",

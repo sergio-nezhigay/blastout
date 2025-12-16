@@ -204,7 +204,7 @@
         "enable_opened_accordions": false,
         "filters": "drawer",
         "products_per_row": "4",
-        "products_per_row_mobile": "1",
+        "products_per_row_mobile": "2",
         "products_per_page": 19,
         "pagination_style": "default",
         "enable_infinity_scroll": false,
@@ -229,12 +229,58 @@
         "spacing_top": "4",
         "spacing_bottom": "4"
       }
+    },
+    "featured_products_nEbPgt": {
+      "type": "featured-products",
+      "blocks": {
+        "collection_wdpVCG": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "",
+            "products": [],
+            "vendor": "",
+            "collection_of_products": "",
+            "show_unavailable_products": false,
+            "card_text_heading": "",
+            "card_text_button_label": "",
+            "card_text_button_style": "button--filled",
+            "card_text_button_link": "",
+            "content_position": "center",
+            "content_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_wdpVCG"
+      ],
+      "disabled": true,
+      "name": "t:sections.featured-products.name",
+      "settings": {
+        "layout": "layout-1",
+        "heading": "Best Sellers",
+        "heading_size": "h3",
+        "subheading": "",
+        "button_label": "View all",
+        "button_link": "",
+        "button_style": "button--filled",
+        "max_products": 8,
+        "enable_slideshow_overflow": false,
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 0,
+        "tab_button_style": "button--filled",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
     }
   },
   "order": [
     "page_banner_jWtyM4",
     "featured_collections_ybC3xQ",
     "main",
-    "f8303da3-c3cb-4a90-a63a-7a628615aa6f"
+    "f8303da3-c3cb-4a90-a63a-7a628615aa6f",
+    "featured_products_nEbPgt"
   ]
 }

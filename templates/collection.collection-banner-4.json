@@ -128,7 +128,7 @@
         "product_item_X6j9pn": {
           "type": "product_item",
           "settings": {
-            "product": "mid-lenght-top",
+            "product": "t-shirt-independent-strong-girls-club",
             "custom_image": "shopify://shop_images/IMG_9358.jpg",
             "is_wide": true
           }
@@ -136,7 +136,7 @@
         "product_item_R9Wb6M": {
           "type": "product_item",
           "settings": {
-            "product": "light-gray-shorts",
+            "product": "velvet-suit",
             "custom_image": "shopify://shop_images/IMG_9355.jpg",
             "is_wide": true
           }
@@ -144,7 +144,7 @@
         "product_item_gNbhaM": {
           "type": "product_item",
           "settings": {
-            "product": "hoodie-blue-stripes",
+            "product": "long-faux-fur-coat",
             "custom_image": "shopify://shop_images/IMG_9354.jpg",
             "is_wide": true
           }
@@ -152,7 +152,7 @@
         "product_item_h7xGhQ": {
           "type": "product_item",
           "settings": {
-            "product": "pants-blue-stripes",
+            "product": "milk-blouse",
             "custom_image": "shopify://shop_images/IMG_9359.jpg",
             "is_wide": true
           }
@@ -160,7 +160,7 @@
         "product_item_9tErKz": {
           "type": "product_item",
           "settings": {
-            "product": "white-tricot-shorts",
+            "product": "eco-fur-coat-emeral-queen",
             "custom_image": "shopify://shop_images/IMG_9356.jpg",
             "is_wide": true
           }
@@ -191,7 +191,7 @@
         "title_color": "#000000",
         "show_description": true,
         "description": "<p>Вінтажний шик у поєднанні з богемною легкістю та незабутньою атмосферою.</p>",
-        "description_size_desktop": 16,
+        "description_size_desktop": 14,
         "description_size_mobile": 14,
         "description_color": "#000000",
         "description_alignment": "center",

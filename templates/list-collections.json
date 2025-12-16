@@ -111,6 +111,16 @@
             "heading_size": "h6",
             "subheading": ""
           }
+        },
+        "collection_3GBw77": {
+          "type": "collection",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "collection": "holiday-collection",
+            "heading": "HOLIDAY 25/26",
+            "heading_size": "h6",
+            "subheading": ""
+          }
         }
       },
       "block_order": [
@@ -118,7 +128,8 @@
         "collection_4bXr8z",
         "collection_nmMjBb",
         "collection_kVKTxN",
-        "collection_FDWMjL"
+        "collection_FDWMjL",
+        "collection_3GBw77"
       ],
       "settings": {
         "collections_to_show": "selected",
