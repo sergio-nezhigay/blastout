@@ -69,7 +69,9 @@
             {%- liquid
               assign option_key = 'product_options.' | append: option.name | downcase
               assign translated_option = option_key | t
-              if translated_option contains 'translation missing'
+              assign translated_lower = translated_option | downcase
+
+              if translated_lower contains 'translation missing'
                 echo option.name
               else
                 echo translated_option
@@ -96,7 +98,9 @@
             {%- liquid
               assign option_key = 'product_options.' | append: option.name | downcase
               assign translated_option = option_key | t
-              if translated_option contains 'translation missing'
+              assign translated_lower = translated_option | downcase
+
+              if translated_lower contains 'translation missing'
                 echo option.name
               else
                 echo translated_option
