@@ -33,7 +33,13 @@
       {% when 'Text_message' %}
         <a href='{{ block.settings.main_url-product }}' class="main-message-container" target="blank">
           {% if block.settings.main_text-product != blank %}
-            <div class='main-message-text'>{{ block.settings.main_text-product }}</div>
+            {%- assign text_key = block.settings.main_text-product | strip_html | strip -%}
+            {%- assign translated_text = text_key | t -%}
+            {%- if translated_text contains 'translation missing' -%}
+              <div class='main-message-text'>{{ block.settings.main_text-product }}</div>
+            {%- else -%}
+              <div class='main-message-text'>{{ translated_text }}</div>
+            {%- endif -%}
           {% endif %}
           {% if block.settings.main_icon-product != blank %}
             {{ block.settings.main_icon-product | image_url: width: block.settings.main_icon-product.width | image_tag: class: "main-icon-message"  }}
@@ -364,7 +370,7 @@
         <!-- Кнопка -->
         <div class="product-size-wishlist-wrapper">
           <button id="sizeGuideTrigger" class="size-guide-trigger">
-            SIZE GUIDE
+            {{ 'product.size_guide' | t }}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <path d="M5 7L2 10V8C2 7.5 1.8 7.3 1.5 7.3C1.2 7.3 1 7.5 1 8V10.7C1 10.9 1.1 11 1.3 11H4C4.2 11 4.4 10.9 4.4 10.7C4.4 10.5 4.2 10.3 4 10.3H2.5L5.5 7.3C5.7 7.1 5.7 6.9 5.5 6.7C5.3 6.5 5.1 6.5 5 6.7Z" fill="#000"/>

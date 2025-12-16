@@ -91,7 +91,7 @@
         "text_message_48XXJ7": {
           "type": "Text_message",
           "settings": {
-            "main_text-product": "<p>Написати менеджеру</p>",
+            "main_text-product": "<p>product.contact_manager</p>",
             "main_url-product": "https://t.me/+380502502040",
             "main_icon-product": "shopify://shop_images/telegram-logo-Vy5zx6bE.webp"
           }
