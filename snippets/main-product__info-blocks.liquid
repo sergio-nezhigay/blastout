@@ -380,56 +380,8 @@
   <button id="sizeGuideClose" class="size-guide-close" aria-label="Close size guide">×</button>
 
   <div class="size-guide-content">
-    <h2 class="size-guide-title">{{ settings.size_guide_title | default: 'SIZE GUIDE' }}</h2>
+    {% render 'size-guide', product: product %}
 
-    <div class="size-guide-table-wrapper">
-      {%- liquid
-        assign size_table_html = settings.size_guide_table_html
-        assign current_product_type = product.type | strip | downcase
-
-        # Check Exception 1
-        if settings.size_guide_exception_1_type != blank and settings.size_guide_exception_1_html != blank
-          assign exception_type_1 = settings.size_guide_exception_1_type | strip | downcase
-          if current_product_type == exception_type_1
-            assign size_table_html = settings.size_guide_exception_1_html
-          endif
-        endif
-
-        # Check Exception 2
-        if settings.size_guide_exception_2_type != blank and settings.size_guide_exception_2_html != blank
-          assign exception_type_2 = settings.size_guide_exception_2_type | strip | downcase
-          if current_product_type == exception_type_2
-            assign size_table_html = settings.size_guide_exception_2_html
-          endif
-        endif
-
-        # Check Exception 3
-        if settings.size_guide_exception_3_type != blank and settings.size_guide_exception_3_html != blank
-          assign exception_type_3 = settings.size_guide_exception_3_type | strip | downcase
-          if current_product_type == exception_type_3
-            assign size_table_html = settings.size_guide_exception_3_html
-          endif
-        endif
-
-        # Check Exception 4
-        if settings.size_guide_exception_4_type != blank and settings.size_guide_exception_4_html != blank
-          assign exception_type_4 = settings.size_guide_exception_4_type | strip | downcase
-          if current_product_type == exception_type_4
-            assign size_table_html = settings.size_guide_exception_4_html
-          endif
-        endif
-
-        # Check Exception 5
-        if settings.size_guide_exception_5_type != blank and settings.size_guide_exception_5_html != blank
-          assign exception_type_5 = settings.size_guide_exception_5_type | strip | downcase
-          if current_product_type == exception_type_5
-            assign size_table_html = settings.size_guide_exception_5_html
-          endif
-        endif
-      -%}
-
-      {{ size_table_html }}
-    </div>
   </div>
 </div>
 

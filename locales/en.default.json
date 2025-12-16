@@ -451,5 +451,17 @@
       "image_before": "Image before",
       "image_after": "Image after"
     }
+  },
+  "size_guide": {
+    "title": "SIZE GUIDE",
+    "size": "SIZE",
+    "chest": "CHEST",
+    "waist": "WAIST",
+    "hips": "HIPS",
+    "eu": "EU",
+    "us": "US",
+    "uk": "UK",
+    "cm": "CM",
+    "length": "LENGTH"
   }
 }
