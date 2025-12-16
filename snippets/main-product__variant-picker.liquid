@@ -66,7 +66,15 @@
       {%- if picker_type == 'swatch' or picker_type == 'button' -%}
         <fieldset class="js product__variant-options product-form__input product-form__input--button">
           <legend class="form__label">
-            {{ option.name }}
+            {%- liquid
+              assign option_key = 'product_options.' | append: option.name | downcase
+              assign translated_option = option_key | t
+              if translated_option contains 'translation missing'
+                echo option.name
+              else
+                echo translated_option
+              endif
+            -%}
             <span data-selected-value>
               {{- option.selected_value -}}
             </span>
@@ -85,7 +93,15 @@
 
         <div class="product-form__input product-form__input--dropdown">
           <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
-            {{ option.name }}
+            {%- liquid
+              assign option_key = 'product_options.' | append: option.name | downcase
+              assign translated_option = option_key | t
+              if translated_option contains 'translation missing'
+                echo option.name
+              else
+                echo translated_option
+              endif
+            -%}
           </label>
           <div class="select">
 

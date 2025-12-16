@@ -464,5 +464,12 @@
     "uk": "UK",
     "cm": "CM",
     "length": "LENGTH"
+  },
+  "product_options": {
+    "size": "SIZE",
+    "color": "COLOUR",
+    "colour": "COLOUR",
+    "material": "MATERIAL",
+    "style": "STYLE"
   }
 }
