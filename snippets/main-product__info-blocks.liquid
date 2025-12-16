@@ -35,8 +35,9 @@
           {% if block.settings.main_text-product != blank %}
             {%- assign text_key = block.settings.main_text-product | strip_html | strip -%}
             {%- assign translated_text = text_key | t -%}
-            {%- if translated_text contains 'translation missing' -%}
-              <div class='main-message-text'>{{ block.settings.main_text-product }}</div>
+            {%- assign text_lower = translated_text | downcase -%}
+            {%- if text_lower contains 'translation missing' -%}
+              <div class='main-message-text'>{{ block.settings.main_text-product | strip_html }}</div>
             {%- else -%}
               <div class='main-message-text'>{{ translated_text }}</div>
             {%- endif -%}
