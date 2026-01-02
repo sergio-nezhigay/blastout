@@ -454,7 +454,7 @@
         {%- assign current_variant = product.selected_or_first_available_variant -%}
         {%- assign product_block_class = 'product__inventory-notice' | append: ' ' | append: product_block_class -%}
         <div
-          class="{{ product_block_class }} product__text product__text--body caption {% unless current_variant.inventory_quantity <= block.settings.inventory_threshold and current_variant.available and current_variant.inventory_management == 'shopify' %}hidden{% endunless %}"
+          class="{{ product_block_class }} product__text product__text--body caption {% unless current_variant.inventory_quantity <= block.settings.inventory_threshold and current_variant.inventory_quantity > 0 and current_variant.inventory_management == 'shopify' %}hidden{% endunless %}"
           id="Inventory-{{ section.id }}"
           role="status"
           data-inventory-notice

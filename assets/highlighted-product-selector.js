@@ -270,7 +270,14 @@ if (!customElements.get('product-selector')) {
       const destination = this.closest('.product').querySelector('[data-inventory-notice]');
       const source = html.querySelector('[data-inventory-notice]');
 
-      if (source && destination) destination.innerHTML = source.innerHTML;
+      if (source && destination) {
+        destination.innerHTML = source.innerHTML;
+        if (source.classList.contains('hidden')) {
+          destination.classList.add('hidden');
+        } else {
+          destination.classList.remove('hidden');
+        }
+      }
     }
 
     updatePickupAvailability() {
