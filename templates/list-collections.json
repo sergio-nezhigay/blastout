@@ -44,7 +44,7 @@
       "settings": {
         "section_layout": "normal",
         "heading": "КОЛЕКЦІЇ",
-        "heading_size": "h5",
+        "heading_size": "h4",
         "text": "",
         "content_alignment": "center",
         "section_width": "max-w-narrower",
@@ -61,10 +61,10 @@
           "type": "collection",
           "settings": {
             "color_scheme": "scheme-1",
-            "collection": "pre-summer-copy",
+            "collection": "pre-summer-lookbook",
             "image": "shopify://shop_images/IMG_8200.jpg",
             "heading": "PRE SUMMER",
-            "heading_size": "h6",
+            "heading_size": "h4",
             "subheading": ""
           }
         },
@@ -72,10 +72,10 @@
           "type": "collection",
           "settings": {
             "color_scheme": "scheme-1",
-            "collection": "summer-25-copy",
+            "collection": "summer-25-lookbook",
             "image": "shopify://shop_images/46439-min.png",
             "heading": "SUMMER 25'",
-            "heading_size": "h6",
+            "heading_size": "h4",
             "subheading": ""
           }
         },
@@ -83,10 +83,10 @@
           "type": "collection",
           "settings": {
             "color_scheme": "scheme-1",
-            "collection": "pre-fall-1",
+            "collection": "pre-fall-lookbook",
             "image": "shopify://shop_images/IMG_8182.jpg",
             "heading": "PRE FALL",
-            "heading_size": "h6",
+            "heading_size": "h4",
             "subheading": ""
           }
         },
@@ -94,10 +94,10 @@
           "type": "collection",
           "settings": {
             "color_scheme": "scheme-1",
-            "collection": "new-year-collection-copy",
+            "collection": "new-year-collection-lookbook",
             "image": "shopify://shop_images/IMG_9356.jpg",
             "heading": "NEW YEAR",
-            "heading_size": "h6",
+            "heading_size": "h4",
             "subheading": ""
           }
         },
@@ -105,10 +105,10 @@
           "type": "collection",
           "settings": {
             "color_scheme": "scheme-1",
-            "collection": "blast-out-studio-x-upgrade-copy",
+            "collection": "blast-out-studio-x-upgrade-lookbook",
             "image": "shopify://shop_images/IMG_9360.jpg",
             "heading": "BLAST OUT STUDIO X UPGRADE",
-            "heading_size": "h6",
+            "heading_size": "h4",
             "subheading": ""
           }
         },
@@ -116,9 +116,9 @@
           "type": "collection",
           "settings": {
             "color_scheme": "scheme-1",
-            "collection": "holiday-collection",
+            "collection": "holiday-collection-lookbook",
             "heading": "HOLIDAY 25/26",
-            "heading_size": "h6",
+            "heading_size": "h4",
             "subheading": ""
           }
         }

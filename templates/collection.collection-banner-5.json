@@ -108,18 +108,17 @@
     },
     "f8303da3-c3cb-4a90-a63a-7a628615aa6f": {
       "type": "seo-content",
-      "disabled": true,
       "settings": {
         "section_layout": "normal",
-        "heading": "Heading for SEO Content",
-        "heading_size": "h4",
-        "text": "<p>Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand.</p>",
-        "content_alignment": "center",
+        "heading": "UPGRADE x BLAST OUT",
+        "heading_size": "h2",
+        "text": "",
+        "content_alignment": "start",
         "section_width": "max-w-fluid",
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-1",
         "spacing_inner": "2",
-        "spacing_top": "4",
-        "spacing_bottom": "4"
+        "spacing_top": "2",
+        "spacing_bottom": "0"
       }
     },
     "collection_banner_section_8zDxaC": {
@@ -136,7 +135,7 @@
         "product_item_R9Wb6M": {
           "type": "product_item",
           "settings": {
-            "product": "hoodie",
+            "product": "washed-joggers",
             "custom_image": "shopify://shop_images/IMG_9363.jpg",
             "is_wide": true
           }
@@ -144,7 +143,7 @@
         "product_item_h7xGhQ": {
           "type": "product_item",
           "settings": {
-            "product": "set-of-long-sleeve-and-t-shirt-1",
+            "product": "set-of-long-sleeve-and-t-shirt",
             "custom_image": "shopify://shop_images/IMG_9360.jpg",
             "is_wide": true
           }
@@ -152,7 +151,7 @@
         "product_item_gNbhaM": {
           "type": "product_item",
           "settings": {
-            "product": "set-of-long-sleeve-and-t-shirt-1",
+            "product": "set-of-long-sleeve-and-t-shirt",
             "custom_image": "shopify://shop_images/IMG_9361.jpg",
             "is_wide": true
           }
@@ -172,11 +171,11 @@
         "padding_top_desktop": 60,
         "padding_bottom_desktop": 60,
         "padding_horizontal_desktop": 40,
-        "padding_top_mobile": 40,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 40,
         "padding_horizontal_mobile": 0,
         "show_title": true,
-        "title": "UPGRADE x BLAST OUT",
+        "title": "",
         "title_size_desktop": 32,
         "title_size_mobile": 24,
         "title_color": "#000000",

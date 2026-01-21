@@ -99,7 +99,7 @@
             "column_factor": 1,
             "row_factor": 1,
             "main_logo": "shopify://shop_images/IMG_4564.svg",
-            "logo_width_mobile": 100,
+            "logo_width_mobile": 160,
             "logoCopyright": "© 2022 Blast Out Studio. Всі права захищені.",
             "content_position_vertical": "start"
           }
@@ -124,7 +124,7 @@
             "row_factor": 1,
             "menu_layout": "vertical",
             "menu": "contact-new",
-            "title": "КОНТАКТИ",
+            "title": "BRAND",
             "title_url": "",
             "menu_link_opacity": 100,
             "show_first_menu_on_mobile": true

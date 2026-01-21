@@ -1,0 +1,481 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "main",
+    "166904322806a89075",
+    "977cac03-4044-4567-8907-fa55103a47eb",
+    "multitile_KDV8BX",
+    "recommendations",
+    "featured_products_BqxbPM"
+  ],
+  "sections": {
+    "166904322806a89075": {
+      "settings": {
+        "color_scheme": "",
+        "section_layout": "normal",
+        "section_width": "max-w-page",
+        "spacing_bottom": "2",
+        "spacing_inner": "2",
+        "spacing_top": "2"
+      },
+      "type": "apps"
+    },
+    "977cac03-4044-4567-8907-fa55103a47eb": {
+      "block_order": [
+        "collapsible_BxQcN6",
+        "collapsible_pR4zmY",
+        "collapsible_DYfCGt",
+        "collapsible_QcDnKh"
+      ],
+      "blocks": {
+        "collapsible_BxQcN6": {
+          "settings": {
+            "block_type": "collapsible",
+            "content": "<p>{{ product.metafields.custom.more_info | metafield_tag }}</p>",
+            "heading": "More info",
+            "link": "",
+            "page": ""
+          },
+          "type": "collapsible"
+        },
+        "collapsible_DYfCGt": {
+          "disabled": true,
+          "settings": {
+            "block_type": "collapsible",
+            "content": "<p>Stylist tips can be entered here.</p>",
+            "heading": "Stylist tip",
+            "link": "",
+            "page": ""
+          },
+          "type": "collapsible"
+        },
+        "collapsible_QcDnKh": {
+          "settings": {
+            "block_type": "link",
+            "content": "",
+            "heading": "Contact Us",
+            "link": "",
+            "page": ""
+          },
+          "type": "collapsible"
+        },
+        "collapsible_pR4zmY": {
+          "settings": {
+            "block_type": "collapsible",
+            "content": "<p>Прати при температурі ...</p>",
+            "heading": "Склад і догляд",
+            "link": "",
+            "page": ""
+          },
+          "type": "collapsible"
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "content_heading": "Similar items",
+        "content_type": "products",
+        "featured_image_aspect_ratio": "4/3",
+        "flip_desktop": true,
+        "flip_mobile": true,
+        "heading": "",
+        "heading_size": "h5",
+        "open_first_collapsible": true,
+        "section_width": "max-w-fluid",
+        "spacing_bottom": "2",
+        "spacing_top": "6"
+      },
+      "type": "complete-the-set"
+    },
+    "featured_products_BqxbPM": {
+      "block_order": [
+        "collection_zQxF9J"
+      ],
+      "blocks": {
+        "collection_zQxF9J": {
+          "settings": {
+            "card_text_button_label": "",
+            "card_text_button_link": "",
+            "card_text_button_style": "button--filled",
+            "card_text_heading": "",
+            "collection": "",
+            "collection_of_products": "",
+            "content_alignment": "center",
+            "content_position": "center",
+            "products": "{{ product.metafields[\"shopify--discovery--product_recommendation\"].related_products.value }}",
+            "show_unavailable_products": false,
+            "title": "",
+            "vendor": ""
+          },
+          "type": "collection"
+        }
+      },
+      "name": "t:sections.featured-products.name",
+      "settings": {
+        "button_label": "",
+        "button_link": "",
+        "button_style": "button--filled",
+        "color_scheme": "",
+        "enable_slideshow_overflow": false,
+        "heading": "",
+        "heading_size": "h3",
+        "layout": "layout-1",
+        "max_products": 8,
+        "section_width": "max-w-fluid",
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 0,
+        "spacing_bottom": "2",
+        "spacing_top": "2",
+        "subheading": "",
+        "tab_button_style": "button--filled"
+      },
+      "type": "featured-products"
+    },
+    "main": {
+      "block_order": [
+        "badge_Hkd38r",
+        "1e0c79e9-7de0-4eee-b9c5-f27132635fb8",
+        "description_8bxf9G",
+        "8effeb43-55b7-4ec4-ab9b-68bcd89b865b",
+        "e6d841d6-2f71-40b3-956a-912df13f9f6e",
+        "1e939cd6-0958-4135-a9e5-c50faef01437",
+        "1e939cd6-0955-4135-a9e5-c50faef01437",
+        "8604a6ff-ad0b-44dd-8068-1de4e062f8e8",
+        "text_message_48XXJ7",
+        "b2dabe12-2158-4ba6-bc54-9baae453acf5",
+        "1ad0121e-439d-45c0-b45d-4f080836ade5",
+        "7be6b89c-da83-4ff2-9b85-44fb28cbfa27",
+        "content_grid_W3Mqy6",
+        "content_grid_iCJFCN",
+        "content_grid_HTRRPP",
+        "content_grid_AAkHkC",
+        "complementary_products_tKerNK"
+      ],
+      "blocks": {
+        "1ad0121e-439d-45c0-b45d-4f080836ade5": {
+          "disabled": true,
+          "settings": {
+            "heading": "Secure online payment",
+            "heading_secondary": "Free delivery and shipping",
+            "icon": "theme-check",
+            "link_to_resource": "none",
+            "metafield_for_product_variant": "",
+            "show_block_content": true,
+            "spacing_bottom": "1",
+            "text_before_link": false
+          },
+          "type": "text"
+        },
+        "1e0c79e9-7de0-4eee-b9c5-f27132635fb8": {
+          "settings": {
+            "heading_size": "h6",
+            "spacing_bottom": "1"
+          },
+          "type": "title"
+        },
+        "1e939cd6-0955-4135-a9e5-c50faef01437": {
+          "settings": {
+            "show_subscription_custom_info": "",
+            "show_subscription_policy": true,
+            "show_subscription_title": true,
+            "spacing_bottom": "1"
+          },
+          "type": "purchase_options"
+        },
+        "1e939cd6-0958-4135-a9e5-c50faef01437": {
+          "settings": {
+            "enable_back_in_stock": true,
+            "picker_type": "swatch",
+            "size_guide_page": "size-guide",
+            "sizes_option": "Size",
+            "spacing_bottom": "4",
+            "title": "Variant picker",
+            "variant_options_with_thumbnails": "Color"
+          },
+          "type": "variant_picker"
+        },
+        "7be6b89c-da83-4ff2-9b85-44fb28cbfa27": {
+          "settings": {
+            "spacing_bottom": "1"
+          },
+          "type": "pickup-availability"
+        },
+        "8604a6ff-ad0b-44dd-8068-1de4e062f8e8": {
+          "settings": {
+            "layout": "inline",
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false,
+            "show_quantity": true,
+            "spacing_bottom": "4"
+          },
+          "type": "buy_buttons"
+        },
+        "8effeb43-55b7-4ec4-ab9b-68bcd89b865b": {
+          "settings": {
+            "show_price_custom_info": "",
+            "show_price_shipping_info": false,
+            "show_price_tax_info": true,
+            "spacing_bottom": "1"
+          },
+          "type": "price"
+        },
+        "b2dabe12-2158-4ba6-bc54-9baae453acf5": {
+          "disabled": true,
+          "settings": {
+            "heading": "Free delivery and shipping",
+            "heading_secondary": "Secure online payment",
+            "icon": "theme-check",
+            "link_to_resource": "none",
+            "metafield_for_product_variant": "",
+            "show_block_content": true,
+            "spacing_bottom": "1",
+            "text_before_link": false
+          },
+          "type": "text"
+        },
+        "badge_Hkd38r": {
+          "settings": {
+            "show_badges": true,
+            "show_badges_discount": true,
+            "show_badges_sold": true,
+            "spacing_bottom": "1"
+          },
+          "type": "badge"
+        },
+        "complementary_products_tKerNK": {
+          "disabled": true,
+          "settings": {
+            "heading": "You may also like",
+            "icon": "theme-box",
+            "limit": 4,
+            "spacing_bottom": "1"
+          },
+          "type": "complementary_products"
+        },
+        "content_grid_AAkHkC": {
+          "disabled": true,
+          "settings": {
+            "heading": "Free climate compensated shipping",
+            "icon": "theme-box"
+          },
+          "type": "content_grid"
+        },
+        "content_grid_HTRRPP": {
+          "disabled": true,
+          "settings": {
+            "heading": "100% secure payments",
+            "icon": "theme-box"
+          },
+          "type": "content_grid"
+        },
+        "content_grid_W3Mqy6": {
+          "disabled": true,
+          "settings": {
+            "heading": "fast global shipping",
+            "icon": "theme-box"
+          },
+          "type": "content_grid"
+        },
+        "content_grid_iCJFCN": {
+          "disabled": true,
+          "settings": {
+            "heading": "Free returns",
+            "icon": "theme-box"
+          },
+          "type": "content_grid"
+        },
+        "description_8bxf9G": {
+          "settings": {
+            "behaviour": "plain",
+            "heading": "",
+            "icon": "theme-box",
+            "metafield_for_product_variant": "",
+            "show_block_content": true,
+            "spacing_bottom": "1",
+            "text_truncate": 3
+          },
+          "type": "description"
+        },
+        "e6d841d6-2f71-40b3-956a-912df13f9f6e": {
+          "settings": {
+            "inventory_threshold": 15,
+            "notice_just_text": true,
+            "spacing_bottom": "1"
+          },
+          "type": "inventory_notice"
+        },
+        "text_message_48XXJ7": {
+          "settings": {
+            "main_icon-product": "shopify://shop_images/telegram-logo-Vy5zx6bE.webp",
+            "main_text-product": "<p>product.contact_manager</p>",
+            "main_url-product": "https://t.me/+380502502040"
+          },
+          "type": "Text_message"
+        }
+      },
+      "settings": {
+        "color_scheme": "scheme-1",
+        "color_scheme_gallery": "",
+        "display_media_gallery_pagination": "none",
+        "display_media_zoom": "click",
+        "enable_actions_bar": true,
+        "enable_sticky_info": true,
+        "gallery_arrows_show_on": "none",
+        "grid_content_alignment": "start",
+        "grid_gap": "2",
+        "media_gallery_info": "",
+        "media_grid_position": "start",
+        "media_grid_size": "large",
+        "media_transparent_background": true,
+        "metafield_as_seen_on": "theme.as_seen_on",
+        "product_media_aspect_ratio": "fit",
+        "product_media_layout": "product__media-layout--grid",
+        "product_media_layout_mobile": "product__media-layout--full--sm",
+        "product_media_object_fit": "cover",
+        "product_media_thumbs_object_fit": "cover",
+        "product_media_thumbs_ratio": "square",
+        "product_media_with_thumbs": "none",
+        "product_slider_auto_height": false,
+        "section_width": "max-w-fluid",
+        "spacing_bottom": "0",
+        "spacing_grid": 1.6,
+        "spacing_top": "2"
+      },
+      "type": "main-product"
+    },
+    "multitile_KDV8BX": {
+      "block_order": [
+        "tile_qpzFf7",
+        "tile_kkJDV4",
+        "tile_aT3xD9"
+      ],
+      "blocks": {
+        "tile_aT3xD9": {
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "color_scheme": "scheme-8",
+            "column_factor": 3,
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "start",
+            "content_position_vertical": "justify-center",
+            "content_width_mobile": 100,
+            "gradient_background_color": "",
+            "heading": "Amazing details. Organic fabrics.",
+            "heading_size": "h3",
+            "media_position": "background",
+            "row_factor": 1,
+            "show_controls_on_video": false,
+            "show_controls_on_video_mobile": false,
+            "show_on": "both",
+            "spacing_inner": "6",
+            "text": "",
+            "tile_aspect_ratio": "auto",
+            "video_external": "",
+            "video_external_mobile": ""
+          },
+          "type": "tile"
+        },
+        "tile_kkJDV4": {
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "color_scheme": "",
+            "column_factor": 3,
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "start",
+            "content_position_vertical": "justify-center",
+            "content_width_mobile": 100,
+            "gradient_background_color": "",
+            "heading": "",
+            "heading_size": "h3",
+            "media_position": "background",
+            "row_factor": 2,
+            "show_controls_on_video": false,
+            "show_controls_on_video_mobile": false,
+            "show_on": "both",
+            "spacing_inner": "2",
+            "text": "",
+            "tile_aspect_ratio": "auto",
+            "video_external": "",
+            "video_external_mobile": ""
+          },
+          "type": "tile"
+        },
+        "tile_qpzFf7": {
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--filled",
+            "color_scheme": "",
+            "column_factor": 3,
+            "content_alignment": "align-center text-center",
+            "content_alignment_for_mobile": "start",
+            "content_position_vertical": "justify-center",
+            "content_width_mobile": 100,
+            "gradient_background_color": "",
+            "heading": "",
+            "heading_size": "h3",
+            "media_position": "background",
+            "row_factor": 1,
+            "show_controls_on_video": false,
+            "show_controls_on_video_mobile": false,
+            "show_on": "both",
+            "spacing_inner": "2",
+            "text": "",
+            "tile_aspect_ratio": "1/1",
+            "video_external": "",
+            "video_external_mobile": ""
+          },
+          "type": "tile"
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "block_order_mobile": false,
+        "color_scheme": "",
+        "heading": "",
+        "heading_alignment": "start",
+        "heading_size": "h3",
+        "section_width": "max-w-fluid",
+        "spacing_bottom": "2",
+        "spacing_tile": "default",
+        "spacing_top": "2"
+      },
+      "type": "multitile"
+    },
+    "recommendations": {
+      "disabled": true,
+      "settings": {
+        "button_label": "View all",
+        "button_link": "",
+        "button_style": "button--filled",
+        "color_scheme": "",
+        "enable_slideshow_overflow": false,
+        "heading": "You may also like",
+        "heading_size": "h4",
+        "layout": "layout-1",
+        "max_products": 8,
+        "section_width": "max-w-fluid",
+        "show_navigation_arrows": true,
+        "show_unavailable_products": false,
+        "slider_autoplay": 10,
+        "spacing_bottom": "4",
+        "spacing_top": "4",
+        "subheading": "",
+        "tabs_button_style": "tab-btn-filled"
+      },
+      "type": "product-recommendations"
+    }
+  }
+}

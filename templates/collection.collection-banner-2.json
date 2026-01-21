@@ -108,18 +108,17 @@
     },
     "f8303da3-c3cb-4a90-a63a-7a628615aa6f": {
       "type": "seo-content",
-      "disabled": true,
       "settings": {
         "section_layout": "normal",
-        "heading": "Heading for SEO Content",
-        "heading_size": "h4",
-        "text": "<p>Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand.</p>",
-        "content_alignment": "center",
+        "heading": "SUMMER 25'",
+        "heading_size": "h2",
+        "text": "<h6>У колекції SS25 зібрано все для комфортного літа, яке можна проживати за власним сценарієм: у місті, на островах, у горах чи в будь-яких інших локаціях. Це одяг про тілесність, спокій і природну сексуальність, що зчитується у силуетах, формах та кольорах. </h6>",
+        "content_alignment": "start",
         "section_width": "max-w-fluid",
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-1",
         "spacing_inner": "2",
-        "spacing_top": "4",
-        "spacing_bottom": "4"
+        "spacing_top": "2",
+        "spacing_bottom": "0"
       }
     },
     "collection_banner_section_8zDxaC": {
@@ -128,7 +127,7 @@
         "product_item_X6j9pn": {
           "type": "product_item",
           "settings": {
-            "product": "milk-viscose-pants",
+            "product": "white-drift-tricot",
             "custom_image": "shopify://shop_images/46435-min.png",
             "is_wide": true
           }
@@ -136,7 +135,7 @@
         "product_item_R9Wb6M": {
           "type": "product_item",
           "settings": {
-            "product": "light-gray-shorts",
+            "product": "kimono-with-a-hood",
             "custom_image": "shopify://shop_images/46436-min.png",
             "is_wide": true
           }
@@ -144,7 +143,7 @@
         "product_item_gNbhaM": {
           "type": "product_item",
           "settings": {
-            "product": "hoodie-blue-stripes",
+            "product": "hoodie-beige-strips",
             "custom_image": "shopify://shop_images/46437-min.png",
             "is_wide": true
           }
@@ -168,7 +167,7 @@
         "product_item_G7gYTn": {
           "type": "product_item",
           "settings": {
-            "product": "milk-top-1",
+            "product": "mid-lenght-top",
             "custom_image": "shopify://shop_images/46440-min.png",
             "is_wide": true
           }
@@ -176,7 +175,7 @@
         "product_item_ci9yRz": {
           "type": "product_item",
           "settings": {
-            "product": "pants-herringbone",
+            "product": "pants-herringbone-olive",
             "custom_image": "shopify://shop_images/46441-min.png",
             "is_wide": true
           }
@@ -200,7 +199,7 @@
         "product_item_NcQ8Dz": {
           "type": "product_item",
           "settings": {
-            "product": "white-monochrome-shore",
+            "product": "white-monochrome-shore-longsleeve",
             "custom_image": "shopify://shop_images/46444-min.png",
             "is_wide": true
           }
@@ -226,20 +225,20 @@
         "padding_top_desktop": 60,
         "padding_bottom_desktop": 60,
         "padding_horizontal_desktop": 40,
-        "padding_top_mobile": 40,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 40,
         "padding_horizontal_mobile": 0,
         "show_title": true,
-        "title": "SUMMER 25'",
+        "title": "",
         "title_size_desktop": 32,
         "title_size_mobile": 24,
         "title_color": "#000000",
         "show_description": true,
-        "description": "<h6>У колекції SS25 зібрано все для комфортного літа, яке можна проживати за власним сценарієм: у місті, на островах, у горах чи в будь-яких інших локаціях. Це одяг про тілесність, спокій і природну сексуальність, що зчитується у силуетах, формах та кольорах. </h6>",
+        "description": "",
         "description_size_desktop": 16,
         "description_size_mobile": 14,
         "description_color": "#000000",
-        "description_alignment": "center",
+        "description_alignment": "flex-start",
         "description_max_width": 450
       }
     }

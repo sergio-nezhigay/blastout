@@ -47,15 +47,15 @@
                 %}
                 <li>
                   {%- if count_of_items > 0 -%}
-                    <button type="button" class="menu-link h4" data-ref="{{ link_handle }}">
-                      {{ link.title }}
-                      {% render 'icon', icon_name: 'theme-chevron', class: 'icon' %}
-                    </button>
-                  {%- else -%}
-                    <a href="{{ link.url }}" class="h4" {% if link.current %}aria-current="page"{% endif %}>
-                      {{ link.title | escape }}
-                    </a>
-                  {%- endif -%}
+  <button type="button" class="menu-link h4" data-ref="{{ link_handle }}">
+    {{ link.title }}
+    {% render 'icon', icon_name: 'theme-chevron', class: 'icon' %}
+  </button>
+{%- else -%}
+  <a href="{{ link.url }}" class="h4" {% if link.current %}aria-current="page"{% endif %}>
+    {{ link.title | escape }}
+  </a>
+{%- endif -%}
                 </li>
               {% endfor %}
             </ul>

@@ -98,6 +98,7 @@
             "content_position_mobile": "center",
             "content_alignment_mobile": "center",
             "image_mobile": "shopify://shop_images/633fbe3ee62d95183fab2c8c10069085.jpg",
+            "video_mobile": "shopify://files/videos/blast.mp4",
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
             "enable_media_overlay_mobile": true
@@ -121,7 +122,7 @@
         "show_slideshow_pagination": true,
         "slideshow_pagination_style": "style-2",
         "floating_bar": false,
-        "main_product": "black-leather-bomber"
+        "main_product": "alladin-pants-with-cucumber-print"
       }
     },
     "featured_products_4eL4yE": {
@@ -1283,18 +1284,11 @@
             "title": "",
             "collection": "",
             "products": [
-              "bermuda-herringbone",
-              "untitled-may20_16-00",
-              "black-jacket",
-              "blue-joggers",
-              "cardigan",
-              "brown-cashmere-jumper",
-              "butter-joggers",
-              "untitled-jun3_14-29",
-              "caramel-leather-shales",
-              "cashmere-gaiters",
-              "crop-trench-we-stand",
-              "eco-fur-coat-emeral-queen"
+              "alladin-pants-with-cucumber-print",
+              "olive-aladdin",
+              "kaftan-with-cucumber-print",
+              "black-organza-blouse",
+              "talicoat"
             ],
             "vendor": "",
             "collection_of_products": "",
@@ -1315,7 +1309,7 @@
       "settings": {
         "layout": "layout-1",
         "heading": "НОВІ НАДХОДЖЕННЯ",
-        "heading_size": "h5",
+        "heading_size": "h4",
         "subheading": "",
         "button_label": "ПОКАЗАТИ БІЛЬШЕ",
         "button_link": "shopify://collections/нові-надходження",
@@ -1461,7 +1455,7 @@
       "name": "t:sections.dual-tiles.name",
       "settings": {
         "section_layout": "seperated",
-        "block_size": "half",
+        "block_size": "full",
         "block_order_mobile": false,
         "heading": "ПРО НАС ПИШУТЬ",
         "heading_size": "h4",

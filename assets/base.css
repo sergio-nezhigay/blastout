@@ -3531,9 +3531,25 @@ localization-form {
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
 }
-.no-scrollbar::-webkit-scrollbar {
-  width: 0;
-  display: none;
+
+
+@media screen and (max-width: 749px) {
+  
+  .no-scrollbar {
+    scrollbar-width: auto;        
+    -ms-overflow-style: auto;    
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    display: block;              
+  }
+
+  .no-scrollbar::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 4px;
+  }
 }
 
 .slim-scrollbar {
@@ -4972,7 +4988,22 @@ body .atw-button {
   margin-bottom: 10px;
 }
 
+.menu-link--parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
 
+.menu-link__label {
+  flex: 1;
+}
+
+.menu-link__toggle {
+  background: none;
+  border: 0;
+  padding-left: 1rem;
+}
 
 
 

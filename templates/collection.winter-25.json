@@ -110,12 +110,12 @@
       "type": "seo-content",
       "settings": {
         "section_layout": "normal",
-        "heading": "NEW YEAR",
+        "heading": "PRE SUMMER",
         "heading_size": "h2",
-        "text": "<h6>Вінтажний шик у поєднанні з богемною легкістю та незабутньою атмосферою.  М’які силуети, шляхетні фактури та делікатний блиск створюють ідеальний настрій для свят, коли хочеться сяяти природно і з шармом.</h6>",
+        "text": "<h6>Новий дроп — це м’який вступ перед основною колекцією. Кожен айтем буде доречним, як цього літа, так і в наступні сезони. При цьому уже традиційно в колекціях Blast Out Studio відчувається камерна естетика, продумана простота, емоційна тиша. А кожна річ створена для жінки, яка знає чого хоче і не більше не намагається щось довести іншим. </h6>",
         "content_alignment": "start",
         "section_width": "max-w-fluid",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-5",
         "spacing_inner": "2",
         "spacing_top": "2",
         "spacing_bottom": "0"
@@ -127,40 +127,72 @@
         "product_item_X6j9pn": {
           "type": "product_item",
           "settings": {
-            "product": "t-shirt-independent-strong-girls-club",
-            "custom_image": "shopify://shop_images/IMG_9358.jpg",
+            "product": "jacket-herringbone",
+            "custom_image": "shopify://shop_images/IMG_8200.jpg",
             "is_wide": true
           }
         },
         "product_item_R9Wb6M": {
           "type": "product_item",
           "settings": {
-            "product": "velvet-suit",
-            "custom_image": "shopify://shop_images/IMG_9355.jpg",
+            "product": "camel-top",
+            "custom_image": "shopify://shop_images/IMG_8193.jpg",
             "is_wide": true
           }
         },
         "product_item_gNbhaM": {
           "type": "product_item",
           "settings": {
-            "product": "gray-cotton-jeans",
-            "custom_image": "shopify://shop_images/IMG_9354.jpg",
+            "product": "elongated-beige-top",
+            "custom_image": "shopify://shop_images/46432-min.png",
             "is_wide": true
           }
         },
-        "product_item_h7xGhQ": {
+        "product_item_wbMy6Y": {
           "type": "product_item",
           "settings": {
-            "product": "milk-blouse",
-            "custom_image": "shopify://shop_images/IMG_9359.jpg",
+            "product": "",
+            "custom_image": "shopify://shop_images/IMG_8194.jpg",
             "is_wide": true
           }
         },
-        "product_item_9tErKz": {
+        "product_item_VTqrKx": {
           "type": "product_item",
           "settings": {
-            "product": "white-jersey-19",
-            "custom_image": "shopify://shop_images/IMG_9356.jpg",
+            "product": "cropped-milk-top",
+            "custom_image": "shopify://shop_images/IMG_8198.jpg",
+            "is_wide": true
+          }
+        },
+        "product_item_pBRq9h": {
+          "type": "product_item",
+          "settings": {
+            "product": "",
+            "custom_image": "shopify://shop_images/IMG_8196.jpg",
+            "is_wide": true
+          }
+        },
+        "product_item_EFtQhB": {
+          "type": "product_item",
+          "settings": {
+            "product": "ivory-dress",
+            "custom_image": "shopify://shop_images/46433-min.png",
+            "is_wide": true
+          }
+        },
+        "product_item_iQUAYw": {
+          "type": "product_item",
+          "settings": {
+            "product": "jacket-herringbone",
+            "custom_image": "shopify://shop_images/IMG_8197.jpg",
+            "is_wide": true
+          }
+        },
+        "product_item_7PBYCH": {
+          "type": "product_item",
+          "settings": {
+            "product": "gray-melange-shorts",
+            "custom_image": "shopify://shop_images/46434-min.png",
             "is_wide": true
           }
         }
@@ -169,8 +201,12 @@
         "product_item_X6j9pn",
         "product_item_R9Wb6M",
         "product_item_gNbhaM",
-        "product_item_h7xGhQ",
-        "product_item_9tErKz"
+        "product_item_wbMy6Y",
+        "product_item_VTqrKx",
+        "product_item_pBRq9h",
+        "product_item_EFtQhB",
+        "product_item_iQUAYw",
+        "product_item_7PBYCH"
       ],
       "name": "Collection Description",
       "settings": {
@@ -189,8 +225,8 @@
         "title_size_mobile": 24,
         "title_color": "#000000",
         "show_description": true,
-        "description": "<h6><br/></h6>",
-        "description_size_desktop": 14,
+        "description": "<h6></h6><h6></h6>",
+        "description_size_desktop": 16,
         "description_size_mobile": 14,
         "description_color": "#000000",
         "description_alignment": "flex-start",

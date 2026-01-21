@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "shopify theme dev --store=fcbbdb-2.myshopify.com --theme 154745143513",
-    "push": "shopify theme push --store=fcbbdb-2.myshopify.com --theme 154745143513",
-    "pull": "shopify theme pull --store=fcbbdb-2.myshopify.com --theme 154745143513"
+    "dev": "shopify theme dev --store=fcbbdb-2.myshopify.com --theme 156835545305",
+    "push": "shopify theme push --store=fcbbdb-2.myshopify.com --theme 156835545305",
+    "pull": "shopify theme pull --store=fcbbdb-2.myshopify.com --theme 156835545305"
   },
   "keywords": [],
   "author": "",
