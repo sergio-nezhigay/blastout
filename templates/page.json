@@ -29,11 +29,11 @@
     "main": {
       "type": "main-page",
       "custom_css": [
-        "h1 {font-size: 24px; }"
+        "h1 {font-size: 24px;}"
       ],
       "settings": {
         "breadcrumbs": false,
-        "show_page_title": true,
+        "show_page_title": false,
         "page_title_alignment": "text-center",
         "info_title": "",
         "info_content": "",

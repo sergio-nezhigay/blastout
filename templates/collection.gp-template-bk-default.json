@@ -1,0 +1,286 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "page_banner_jWtyM4",
+    "featured_collections_ybC3xQ",
+    "main",
+    "f8303da3-c3cb-4a90-a63a-7a628615aa6f",
+    "featured_products_nEbPgt"
+  ],
+  "sections": {
+    "f8303da3-c3cb-4a90-a63a-7a628615aa6f": {
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-5",
+        "content_alignment": "center",
+        "heading": "Heading for SEO Content",
+        "heading_size": "h4",
+        "section_layout": "normal",
+        "section_width": "max-w-fluid",
+        "spacing_bottom": "4",
+        "spacing_inner": "2",
+        "spacing_top": "4",
+        "text": "<p>Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand.</p>"
+      },
+      "type": "seo-content"
+    },
+    "featured_collections_ybC3xQ": {
+      "block_order": [
+        "collection_slide_LQym8A"
+      ],
+      "blocks": {
+        "collection_slide_LQym8A": {
+          "settings": {
+            "collection": "",
+            "heading": "Shampoo",
+            "heading_size": "h4",
+            "subheading": ""
+          },
+          "type": "collection-slide"
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "button_label": "",
+        "button_link": "shopify://collections",
+        "button_style": "button--filled",
+        "card_content_alignment": "start",
+        "card_layout": "product",
+        "card_style": "compact",
+        "card_title_style": "card-single-text",
+        "collection_product_count": "show",
+        "color_scheme": "",
+        "color_scheme_for_cards": "",
+        "content_padding": "0",
+        "enable_slideshow_overflow": false,
+        "heading": "",
+        "heading_size": "h3",
+        "image_aspect_ratio": "3/4",
+        "layout": "layout-2",
+        "section_width": "max-w-page",
+        "show_carousel_arrows": true,
+        "slides_per_view": 3,
+        "slides_per_view_mobile": 1,
+        "slideshow_alignment_center": false,
+        "slideshow_border": "none",
+        "spacing_bottom": "2",
+        "spacing_top": "2",
+        "subheading": ""
+      },
+      "type": "featured-collections"
+    },
+    "featured_products_nEbPgt": {
+      "block_order": [
+        "collection_wdpVCG"
+      ],
+      "blocks": {
+        "collection_wdpVCG": {
+          "settings": {
+            "card_text_button_label": "",
+            "card_text_button_link": "",
+            "card_text_button_style": "button--filled",
+            "card_text_heading": "",
+            "collection": "",
+            "collection_of_products": "",
+            "content_alignment": "center",
+            "content_position": "center",
+            "products": [],
+            "show_unavailable_products": false,
+            "title": "",
+            "vendor": ""
+          },
+          "type": "collection"
+        }
+      },
+      "disabled": true,
+      "name": "t:sections.featured-products.name",
+      "settings": {
+        "button_label": "View all",
+        "button_link": "",
+        "button_style": "button--filled",
+        "color_scheme": "",
+        "enable_slideshow_overflow": false,
+        "heading": "Best Sellers",
+        "heading_size": "h3",
+        "layout": "layout-1",
+        "max_products": 8,
+        "section_width": "max-w-page",
+        "show_navigation_arrows": true,
+        "slideshow_autoplay_interval": 0,
+        "spacing_bottom": "2",
+        "spacing_top": "2",
+        "subheading": "",
+        "tab_button_style": "button--filled"
+      },
+      "type": "featured-products"
+    },
+    "main": {
+      "block_order": [
+        "text_card_J6n8hm",
+        "text_card_NeqRrh",
+        "text_card_7fUdKn",
+        "text_card_KMc9bz",
+        "text_card_bMpqkN"
+      ],
+      "blocks": {
+        "text_card_7fUdKn": {
+          "disabled": true,
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--text",
+            "card_image": "shopify://shop_images/8402EE08-7FA4-4383-829B-AD5009A978D5_2000x_jpg.webp",
+            "color_scheme": "scheme-1",
+            "column_factor": 3,
+            "content_alignment": "center",
+            "content_alignment_mobile": "center",
+            "content_position": "center",
+            "content_position_mobile": "center",
+            "link_type": "button",
+            "position": 5,
+            "row_factor": 1,
+            "text": "<h3>Heading goes here</h3>"
+          },
+          "type": "text-card"
+        },
+        "text_card_J6n8hm": {
+          "disabled": true,
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--text",
+            "card_image": "shopify://shop_images/111.webp",
+            "color_scheme": "scheme-2",
+            "column_factor": 1,
+            "content_alignment": "center",
+            "content_alignment_mobile": "center",
+            "content_position": "center",
+            "content_position_mobile": "center",
+            "link_type": "button",
+            "position": 1,
+            "row_factor": 1,
+            "text": "<h3>Beauty in the <em>imperfections</em></h3>"
+          },
+          "type": "text-card"
+        },
+        "text_card_KMc9bz": {
+          "disabled": true,
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--text",
+            "card_image": "shopify://shop_images/0D120AAC-C824-483F-8B59-3E669C046528_600x_jpg.webp",
+            "color_scheme": "scheme-1",
+            "column_factor": 1,
+            "content_alignment": "center",
+            "content_alignment_mobile": "center",
+            "content_position": "center",
+            "content_position_mobile": "center",
+            "link_type": "button",
+            "position": 8,
+            "row_factor": 1,
+            "text": "<h3>Heading goes here</h3>"
+          },
+          "type": "text-card"
+        },
+        "text_card_NeqRrh": {
+          "disabled": true,
+          "settings": {
+            "button_label": "Learn more",
+            "button_link": "",
+            "button_style": "button--text",
+            "card_image": "shopify://shop_images/222.webp",
+            "color_scheme": "scheme-6",
+            "column_factor": 1,
+            "content_alignment": "center",
+            "content_alignment_mobile": "center",
+            "content_position": "center",
+            "content_position_mobile": "center",
+            "link_type": "button",
+            "position": 5,
+            "row_factor": 1,
+            "text": "<h3>Cruelty-free fashion</h3>"
+          },
+          "type": "text-card"
+        },
+        "text_card_bMpqkN": {
+          "disabled": true,
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style": "button--text",
+            "card_image": "shopify://shop_images/9F9AED95-9387-4EB8-9F92-859B92A6C586_600x_jpg.webp",
+            "color_scheme": "scheme-1",
+            "column_factor": 1,
+            "content_alignment": "center",
+            "content_alignment_mobile": "center",
+            "content_position": "center",
+            "content_position_mobile": "center",
+            "link_type": "button",
+            "position": 11,
+            "row_factor": 1,
+            "text": "<h3>Heading goes here</h3>"
+          },
+          "type": "text-card"
+        }
+      },
+      "custom_css": [
+        ".block-text_card_bMpqkN {order: 1;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "enable_infinity_scroll": false,
+        "enable_opened_accordions": false,
+        "enable_products_count": true,
+        "enable_sorting": true,
+        "filters": "drawer",
+        "pagination_style": "default",
+        "products_per_page": 19,
+        "products_per_row": "4",
+        "products_per_row_mobile": "2",
+        "section_width": "max-w-fluid",
+        "show_top_border_for_utilities_bar": false,
+        "spacing_bottom": "6",
+        "spacing_top": "2"
+      },
+      "type": "main-collection"
+    },
+    "page_banner_jWtyM4": {
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "color_scheme_for_media": "scheme-6",
+        "content_alignment": "center",
+        "content_position": "center",
+        "content_width": "100%",
+        "enable_breadcrumbs": true,
+        "enable_transparent_header": true,
+        "heading": "",
+        "heading_size": "h3",
+        "media_position": "background",
+        "page_menu": "",
+        "section_height": "50svh",
+        "section_height_mobile": "50svh",
+        "section_width": "max-w-narrow",
+        "show_controls_on_video": false,
+        "show_controls_on_video_mobile": false,
+        "show_default_description": true,
+        "show_on_description": "desktop",
+        "spacing_bottom": "6",
+        "spacing_top": "2",
+        "text": "",
+        "video_external": "",
+        "video_external_mobile": ""
+      },
+      "type": "page-banner"
+    }
+  }
+}

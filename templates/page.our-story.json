@@ -26,16 +26,17 @@
     },
     "seo_content_Na8hYq": {
       "type": "seo-content",
+      "disabled": true,
       "name": "t:sections.seo-content.name",
       "settings": {
         "section_layout": "normal",
         "heading": "НАША ІСТОРІЯ",
         "heading_size": "h5",
         "text": "",
-        "content_alignment": "center",
-        "section_width": "max-w-narrower",
+        "content_alignment": "start",
+        "section_width": "max-w-page",
         "color_scheme": "",
-        "spacing_inner": "2",
+        "spacing_inner": "0",
         "spacing_top": "2",
         "spacing_bottom": "0"
       }
@@ -56,9 +57,9 @@
             "content_alignment": "align-start text-start",
             "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
             "media_position": "bottom",
-            "heading": "",
-            "heading_size": "h3",
-            "text": "<p><strong>З чого розпочалась історія бренду?<\/strong> <br\/>З мрії, котра дивним чином перетворилась на сміливість, потім на рішучість а вже далі на потужну енергію, яка безперервно зростає, не дає ні на мить скласти руки, спонукає вірити в краще й безупинно рухатися. А головне - перебувати в захваті від цього руху.<br\/><br\/>Коли я подумки малюю героїню бренду, я уявно наділяю її сильним характером. Інколи вона може бути раптово вибуховою, надміру емоційною, темпераментною, але й разом з тим чуттєвою, ніжною беззаперечною інтелектуалкою. Це жінка, якій хочеться довіряти, це особистість, яка вміє вести за собою і перетворювати все навкруги в Любов.<br\/><br\/>Бренд <strong>Blast Out Studio<\/strong> абсолютно точно не є зважено прописаним бізнес планом. Тут зовсім про інше...для мене є надважливими люди, які нас обирають. Кожна придбана тканина, підібраний колір нитки, форма ґудзика, відкориговане безліч разів лекало - це мій невербальний прояв любові до цього світу, до людей якими я надихаюсь, до своєї команди, яку вчусь надихати і яка надихає мене, до жінок, яким подобається наш продукт і які кожен день дарують всім нам нові сенси.<br\/><br\/><strong>Оксана Вишня<\/strong>,<br\/>засновниця Blastout<\/p>",
+            "heading": "НАША ІСТОРІЯ",
+            "heading_size": "h5",
+            "text": "<p><strong>З чого розпочалась історія бренду?</strong> <br/>З мрії, котра дивним чином перетворилась на сміливість, потім на рішучість а вже далі на потужну енергію, яка безперервно зростає, не дає ні на мить скласти руки, спонукає вірити в краще й безупинно рухатися. А головне - перебувати в захваті від цього руху.<br/><br/>Коли я подумки малюю героїню бренду, я уявно наділяю її сильним характером. Інколи вона може бути раптово вибуховою, надміру емоційною, темпераментною, але й разом з тим чуттєвою, ніжною беззаперечною інтелектуалкою. Це жінка, якій хочеться довіряти, це особистість, яка вміє вести за собою і перетворювати все навкруги в Любов.<br/><br/>Бренд <strong>Blast Out Studio</strong> абсолютно точно не є зважено прописаним бізнес планом. Тут зовсім про інше... для мене є надважливими люди, які нас обирають. Кожна придбана тканина, підібраний колір нитки, форма ґудзика, відкориговане безліч разів лекало - це мій невербальний прояв любові до цього світу, до людей якими я надихаюсь, до своєї команди, яку вчусь надихати і яка надихає мене, до жінок, яким подобається наш продукт і які кожен день дарують всім нам нові сенси.<br/><br/><strong>Оксана Вишня</strong>,<br/>засновниця Blastout</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
@@ -66,7 +67,8 @@
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "0"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         },
         "tile_egnfeD": {
@@ -88,12 +90,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/46447-min.jpg",
+            "image": "shopify://shop_images/46447-min.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "1"
+            "spacing_inner": "1",
+            "content_width_mobile": 100
           }
         }
       },
@@ -105,12 +108,12 @@
       "settings": {
         "block_order_mobile": false,
         "heading": "",
-        "heading_size": "h3",
+        "heading_size": "h5",
         "heading_alignment": "start",
         "spacing_tile": "default",
         "color_scheme": "",
         "section_width": "max-w-page",
-        "spacing_top": "0",
+        "spacing_top": "1",
         "spacing_bottom": "1"
       }
     },
@@ -151,12 +154,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/976d3ff713796679525133bcefe8e8a8_b72ddcbb-abf8-40df-9145-6cbf4bc56587.jpg",
+            "image": "shopify://shop_images/976d3ff713796679525133bcefe8e8a8_b72ddcbb-abf8-40df-9145-6cbf4bc56587.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         }
       },

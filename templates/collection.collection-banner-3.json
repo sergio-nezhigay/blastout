@@ -108,18 +108,17 @@
     },
     "f8303da3-c3cb-4a90-a63a-7a628615aa6f": {
       "type": "seo-content",
-      "disabled": true,
       "settings": {
         "section_layout": "normal",
-        "heading": "Heading for SEO Content",
-        "heading_size": "h4",
-        "text": "<p>Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand. Enter your long text content here. This can include your store description or more detailed description of your brand.</p>",
-        "content_alignment": "center",
+        "heading": "PRE FALL 25'",
+        "heading_size": "h2",
+        "text": "<h6>Ця колекція про впевненість бути собою, яка читається у зовнішньому вигляді та відчуттях. Особливу цінність Pre-Fall 2025 створюють лімітовані тканини, з яких пошиті капсули верхнього одягу. Кожна річ існує у невеликій кількості, що дає відчуття ексклюзивності. </h6>",
+        "content_alignment": "start",
         "section_width": "max-w-fluid",
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-1",
         "spacing_inner": "2",
-        "spacing_top": "4",
-        "spacing_bottom": "4"
+        "spacing_top": "2",
+        "spacing_bottom": "0"
       }
     },
     "collection_banner_section_8zDxaC": {
@@ -136,7 +135,7 @@
         "product_item_R9Wb6M": {
           "type": "product_item",
           "settings": {
-            "product": "ivory-dress",
+            "product": "",
             "custom_image": "shopify://shop_images/IMG_8180.jpg",
             "is_wide": true
           }
@@ -144,7 +143,7 @@
         "product_item_gNbhaM": {
           "type": "product_item",
           "settings": {
-            "product": "brown-cashmere-jumper",
+            "product": "",
             "custom_image": "shopify://shop_images/IMG_8186.jpg",
             "is_wide": true
           }
@@ -160,7 +159,7 @@
         "product_item_9tErKz": {
           "type": "product_item",
           "settings": {
-            "product": "beige-safari-overall",
+            "product": "",
             "custom_image": "shopify://shop_images/IMG_8189.jpg",
             "is_wide": true
           }
@@ -184,7 +183,7 @@
         "product_item_kQcRPT": {
           "type": "product_item",
           "settings": {
-            "product": "sweater-milky",
+            "product": "milk-boucle-sweater",
             "custom_image": "shopify://shop_images/IMG_8184.jpg",
             "is_wide": true
           }
@@ -200,7 +199,7 @@
         "product_item_NcQ8Dz": {
           "type": "product_item",
           "settings": {
-            "product": "cashmere-gaiters",
+            "product": "brown-cashmere-jumper",
             "custom_image": "shopify://shop_images/IMG_8183.jpg",
             "is_wide": true
           }
@@ -226,20 +225,20 @@
         "padding_top_desktop": 60,
         "padding_bottom_desktop": 60,
         "padding_horizontal_desktop": 40,
-        "padding_top_mobile": 40,
+        "padding_top_mobile": 0,
         "padding_bottom_mobile": 40,
         "padding_horizontal_mobile": 0,
         "show_title": true,
-        "title": "PRE FALL 25'",
+        "title": "",
         "title_size_desktop": 32,
         "title_size_mobile": 24,
         "title_color": "#000000",
         "show_description": true,
-        "description": "<h6>Ця колекція про впевненість бути собою, яка читається у зовнішньому вигляді та відчуттях. Особливу цінність Pre-Fall 2025 створюють лімітовані тканини, з яких пошиті капсули верхнього одягу. Кожна річ існує у невеликій кількості, що дає відчуття ексклюзивності. </h6>",
+        "description": "",
         "description_size_desktop": 16,
         "description_size_mobile": 14,
         "description_color": "#000000",
-        "description_alignment": "center",
+        "description_alignment": "flex-start",
         "description_max_width": 450
       }
     }

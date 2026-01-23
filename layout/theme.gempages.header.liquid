@@ -64,22 +64,7 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-  
-    {% if customer %}
-        {% # CHEKLY-CUSTOMER-SCRIPT-START # %}
-        <script>
-            window.Shopify = window.Shopify || {};
-            Shopify.customer = {
-                firstName: "{{ customer.first_name }}",
-                lastName: "{{ customer.last_name }}",
-                email: "{{ customer.email }}",
-                phone: "{{ customer.phone }}"
-            };
-        </script>
-        {% # CHEKLY-CUSTOMER-SCRIPT-END # %}
-    {% endif %}
-    <script data-chekly-url="https://chekly-app.com" data-chekly-theme="shopify" data-chekly-script="GLOBAL" src="{{ 'chekly-script.js' | asset_url }}" async></script>
-</head>
+  </head>
 
   <body class="template template--{{ template.name }}{% if template.suffix %} template--{{- template.suffix -}}{% endif %} is-at-top">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
@@ -93,10 +78,10 @@
     </main>
 
     <footer class="js-animation-fade-in">
-      {%- sections 'footer-group' -%}
+      
     </footer>
 
-    {%- sections 'overlay-group' -%}
+    
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{- 'theme.accessibility.refresh_page' | t -}}</li>
@@ -145,39 +130,11 @@
     {% if settings.back_to_top_button != 'disable' %}
       <back-to-top class="hide">
         <button href="#" class="button back-to-top {{ settings.back_to_top_button }}">
-          {% render 'icon', icon_name: 'theme-chevron', class: 'icon--rotate-270' %}
+          
         </button>
       </back-to-top>
     {% endif %}
 
-    {% render 'subify-snippet' %}
     
-    <script>
-document.addEventListener("DOMContentLoaded", function() {
-  var btn = document.querySelector(".shopify-payment-button__button--unbranded");
-  if (btn && btn.textContent.trim() === "Buy it now") {
-    btn.textContent = "Купити зараз";
-  }
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  function fixButtons() {
-    // Динамічна кнопка Buy it now
-    document.querySelectorAll('shopify-payment-button button, .shopify-payment-button__button--unbranded').forEach(function(btn) {
-      var text = btn.textContent.trim();
-      if (text === 'Buy it now' || text === 'Buy Now') {
-        btn.textContent = 'Купити зараз';
-      }
-    });
-  }
-
-  fixButtons();
-
-  // Якщо тема підвантажує форму товару динамічно (AJAX)
-  const observer = new MutationObserver(fixButtons);
-  observer.observe(document.body, { childList: true, subtree: true });
-});
-</script>
   </body>
 </html>

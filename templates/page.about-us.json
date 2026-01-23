@@ -18,15 +18,15 @@
             "banner_layout": "hero-banner--full",
             "color_scheme": "",
             "header_menu_text_color": "#ffffff",
-            "heading": "<p>Highlight your promotion<\/p>",
+            "heading": "<p>Highlight your promotion</p>",
             "subheading": "Highlight your promotion",
             "subheading_link": "",
-            "text": "<p>Highlight your promotion<\/p>",
-            "button_link_1": "\/",
+            "text": "<p>Highlight your promotion</p>",
+            "button_link_1": "/",
             "button_link_1_type": "button",
             "button_label_1": "View more",
             "button_style_1": "button--filled",
-            "button_link_2": "\/",
+            "button_link_2": "/",
             "button_label_2": "View more",
             "button_style_2": "button--outlined",
             "content_position": "end",
@@ -67,7 +67,7 @@
         "section_layout": "normal",
         "heading": "ABOUT US",
         "heading_size": "h5",
-        "text": "<p><strong>BLAST OUT<\/strong> is a Ukrainian brand that follows the principles of sustainable fashion and focuses on blending elegant clothing with everyday wear for the urban routine. Oksana Vyshnia, the brand’s Creative Director, strives to create clothing that reveals women’s individuality and allows them to express it freely and confidently.<\/p><p>At the core of <strong>BLAST OUT STUDIO<\/strong> lies the balance between femininity and masculinity, which merge into a universal, timeless capsule wardrobe that highlights the diversity of each woman’s personal style and daily life. Minimalist oversized suits and textured outerwear combined with sensual dresses and practical sportswear — the <strong>BLAST OUT STUDIO<\/strong> collection includes all the essential elements of a modern urban dress code. The brand adheres to a <strong>sustainable approach<\/strong> to production: all garments are made locally in the Kyiv studio using <strong>deadstock fabrics<\/strong>. That’s why every collection is always produced in <strong>limited quantities<\/strong>. The cut of each piece is perfected thanks to the craftsmanship of <strong>BLAST OUT STUDIO’s<\/strong> tailors.<br\/><strong>OKSANA VYSHNIA<\/strong><br\/>Founder of <strong>BLAST OUT<\/strong><\/p><p><strong>BLAST OUT STUDIO<\/strong> is a story told through clothing: whatever look you choose, you’ll feel true to yourself.<\/p><p><strong>Contact Information:<\/strong><br\/>SP Burkovska Mariia Maksymivna<br\/>TIN: 3755009588<br\/><br\/>Ukraine, 01001, Kyiv region,<br\/>Kyiv, 6 Olhynska St.<br\/><a href=\"mailto:burkovskayamaria3@gmail.com\">burkovskayamaria3@gmail.com<\/a><br\/>+38 (096) 825-73-57<\/p>",
+        "text": "<p><strong>BLAST OUT</strong> is a Ukrainian brand that follows the principles of sustainable fashion and focuses on blending elegant clothing with everyday wear for the urban routine. Oksana Vyshnia, the brand’s Creative Director, strives to create clothing that reveals women’s individuality and allows them to express it freely and confidently.</p><p>At the core of <strong>BLAST OUT STUDIO</strong> lies the balance between femininity and masculinity, which merge into a universal, timeless capsule wardrobe that highlights the diversity of each woman’s personal style and daily life. Minimalist oversized suits and textured outerwear combined with sensual dresses and practical sportswear — the <strong>BLAST OUT STUDIO</strong> collection includes all the essential elements of a modern urban dress code. The brand adheres to a <strong>sustainable approach</strong> to production: all garments are made locally in the Kyiv studio using <strong>deadstock fabrics</strong>. That’s why every collection is always produced in <strong>limited quantities</strong>. The cut of each piece is perfected thanks to the craftsmanship of <strong>BLAST OUT STUDIO’s</strong> tailors.<br/><strong>OKSANA VYSHNIA</strong><br/>Founder of <strong>BLAST OUT</strong></p><p><strong>BLAST OUT STUDIO</strong> is a story told through clothing: whatever look you choose, you’ll feel true to yourself.</p><p><strong>Contact Information:</strong><br/>SP Burkovska Mariia Maksymivna<br/>TIN: 3755009588<br/><br/>Ukraine, 01001, Kyiv region,<br/>Kyiv, 6 Olhynska St.<br/><a href=\"mailto:burkovskayamaria3@gmail.com\">burkovskayamaria3@gmail.com</a><br/>+38 (096) 825-73-57</p>",
         "content_alignment": "center",
         "section_width": "max-w-page",
         "color_scheme": "",
@@ -79,16 +79,16 @@
     "seo_content_dGBCDC": {
       "type": "seo-content",
       "settings": {
-        "section_layout": "normal",
+        "section_layout": "boxed",
         "heading": "ПРО НАС",
         "heading_size": "h5",
-        "text": "<p><strong>BLAST OUT<\/strong> - український бренд, який дотримується принципів стійкої моди та орієнтований на поєднання елегантного одягу із повсякденним для міської рутини. Оксана Вишня, креативний директор бренду, прагне створювати одяг, який розкриватиме індивідуальність жінок і дозволить їм проявляти її вільно та впевнено.<br\/><\/p>",
-        "content_alignment": "center",
+        "text": "<p><strong>BLAST OUT</strong> - український бренд, який дотримується принципів стійкої моди та орієнтований на поєднання елегантного одягу із повсякденним для міської рутини. Оксана Вишня, креативний директор бренду, прагне створювати одяг, який розкриватиме індивідуальність жінок і дозволить їм проявляти її вільно та впевнено.<br/></p>",
+        "content_alignment": "start",
         "section_width": "max-w-page",
         "color_scheme": "",
         "spacing_inner": "2",
-        "spacing_top": "2",
-        "spacing_bottom": "1"
+        "spacing_top": "0",
+        "spacing_bottom": "0"
       }
     },
     "b9e1f375-bbe3-49e0-b449-eff934bd3497": {
@@ -100,7 +100,7 @@
         "blog": "",
         "button_text": "Visit Blog",
         "layout": "layout-2",
-        "card_media_aspect_ratio": "3\/4",
+        "card_media_aspect_ratio": "3/4",
         "show_excerpt": true,
         "show_date": true,
         "show_author": true,
@@ -138,12 +138,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/46446-min.png",
+            "image": "shopify://shop_images/46446-min.png",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         },
         "tile_AtQaAU": {
@@ -154,7 +155,7 @@
             "row_factor": 1,
             "color_scheme": "",
             "gradient_background_color": "",
-            "tile_aspect_ratio": "5\/4",
+            "tile_aspect_ratio": "5/4",
             "content_position_vertical": "justify-center",
             "content_alignment": "align-center text-center",
             "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
@@ -165,12 +166,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/DSC04613.jpg",
+            "image": "shopify://shop_images/DSC04613.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         },
         "tile_dzee9e": {
@@ -193,12 +195,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/4Q2A0011.jpg",
+            "image": "shopify://shop_images/4Q2A0011.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         },
         "tile_3w4DBB": {
@@ -221,12 +224,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/DSC04372.jpg",
+            "image": "shopify://shop_images/DSC04372.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         }
       },
@@ -245,8 +249,8 @@
         "spacing_tile": "default",
         "color_scheme": "",
         "section_width": "max-w-full",
-        "spacing_top": "1",
-        "spacing_bottom": "1"
+        "spacing_top": "0",
+        "spacing_bottom": "0"
       }
     },
     "multitile_66cBHD": {
@@ -262,12 +266,12 @@
             "gradient_background_color": "",
             "tile_aspect_ratio": "auto",
             "content_position_vertical": "justify-center",
-            "content_alignment": "align-center text-center",
+            "content_alignment": "align-start text-start",
             "content_alignment_for_mobile": "align-start--mobile text-start--mobile",
             "media_position": "bottom",
             "heading": "",
             "heading_size": "h3",
-            "text": "<p>В основі <strong>BLAST OUT STUDIO<\/strong> лежить баланс фемінності та маскулінності, які, зливаючись в універсальний позачасовий капсульний гардероб, підкреслюють різноманітність персонального стилю та рутини кожної жінки. Мінімалістичні оверсайз костюми та фактурний верхній одяг в поєднанні з чуттєвими сукнями та практичним спортивним одягом – в лінійці <strong>BLAST OUT STUDIO<\/strong> присутні всі елементи сучасного міського дрес-коду.<\/p>",
+            "text": "<p>В основі <strong>BLAST OUT STUDIO</strong> лежить баланс фемінності та маскулінності, які, зливаючись в універсальний позачасовий капсульний гардероб, підкреслюють різноманітність персонального стилю та рутини кожної жінки. Мінімалістичні оверсайз костюми та фактурний верхній одяг в поєднанні з чуттєвими сукнями та практичним спортивним одягом – в лінійці <strong>BLAST OUT STUDIO</strong> присутні всі елементи сучасного міського дрес-коду.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
@@ -275,7 +279,8 @@
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         },
         "tile_rYEdaQ": {
@@ -297,12 +302,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/46446-min.png",
+            "image": "shopify://shop_images/46446-min.png",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         }
       },
@@ -319,17 +325,17 @@
         "spacing_tile": "default",
         "color_scheme": "",
         "section_width": "max-w-page",
-        "spacing_top": "2",
+        "spacing_top": "1",
         "spacing_bottom": "1"
       }
     },
     "seo_content_EEwkrC": {
       "type": "seo-content",
       "settings": {
-        "section_layout": "normal",
+        "section_layout": "boxed",
         "heading": "",
         "heading_size": "h5",
-        "text": "<p>Бренд дотримується sustainable підходу до виробництва: одяг виготовляється локально в київській студії із deadstock тканин. Саме тому, усі колекції марки завжди в обмеженій кількості. Крій кожної речі доведений до досконалості завдяки майстерності кравців <strong>BLAST OUT STUDIO<\/strong>.<br\/><\/p>",
+        "text": "<p>Бренд дотримується sustainable підходу до виробництва: одяг виготовляється локально в київській студії із deadstock тканин. Саме тому, усі колекції марки завжди в обмеженій кількості. Крій кожної речі доведений до досконалості завдяки майстерності кравців <strong>BLAST OUT STUDIO</strong>.<br/></p>",
         "content_alignment": "center",
         "section_width": "max-w-page",
         "color_scheme": "",
@@ -360,12 +366,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/4Q2A9426.jpg",
+            "image": "shopify://shop_images/4Q2A9426.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         }
       },
@@ -408,12 +415,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/DSC04613_a736131b-55b5-4714-bfdd-0afd728b1c96.jpg",
+            "image": "shopify://shop_images/DSC04613_a736131b-55b5-4714-bfdd-0afd728b1c96.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         }
       },
@@ -456,12 +464,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/4Q2A0011.jpg",
+            "image": "shopify://shop_images/4Q2A0011.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         }
       },
@@ -504,12 +513,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/DSC04372.jpg",
+            "image": "shopify://shop_images/DSC04372.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         }
       },
@@ -552,12 +562,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/86172-000861720026.jpg",
+            "image": "shopify://shop_images/86172-000861720026.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         }
       },
@@ -600,12 +611,13 @@
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
-            "image": "shopify:\/\/shop_images\/4Q2A0011.jpg",
+            "image": "shopify://shop_images/4Q2A0011.jpg",
             "video_external": "",
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         },
         "tile_3CiPaN": {
@@ -623,7 +635,7 @@
             "media_position": "bottom",
             "heading": "",
             "heading_size": "h3",
-            "text": "<p><strong>BLAST OUT STUDIO<\/strong> — це історія, яка розкривається через одяг: який би образ ви не обрали, ви будете відчувати себе вірними собі.<br\/><strong>ОКСАНА ВИШНЯ<\/strong><br\/>Засновниця <strong>BLAST OUT<\/strong><\/p><p><strong>Контактні дані:<\/strong><br\/>ФОП БУРКОВСЬКА МАРІЯ МАКСИМІВНА<br\/>ІПН: 3755009588<br\/>Україна, 01001, Київська область, <br\/>м. Київ, вул. Ольгинська, 6.<br\/><a href=\"mailto:burkovskayamaria3@gmail.com\">burkovskayamaria3@gmail.com<\/a><br\/>+38 (096) 825-73-57<\/p>",
+            "text": "<p><strong>BLAST OUT STUDIO</strong> — це історія, яка розкривається через одяг: який би образ ви не обрали, ви будете відчувати себе вірними собі.<br/><strong>ОКСАНА ВИШНЯ</strong><br/>Засновниця <strong>BLAST OUT</strong></p><p><strong>Контактні дані:</strong><br/>ФОП БУРКОВСЬКА МАРІЯ МАКСИМІВНА<br/>ІПН: 3755009588<br/>Україна, 01001, Київська область, <br/>м. Київ, вул. Ольгинська, 6.<br/><a href=\"mailto:burkovskayamaria3@gmail.com\">burkovskayamaria3@gmail.com</a><br/>+38 (096) 825-73-57</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "button--filled",
@@ -631,7 +643,8 @@
             "show_controls_on_video": false,
             "video_external_mobile": "",
             "show_controls_on_video_mobile": false,
-            "spacing_inner": "2"
+            "spacing_inner": "2",
+            "content_width_mobile": 100
           }
         }
       },
@@ -651,6 +664,21 @@
         "spacing_top": "1",
         "spacing_bottom": "1"
       }
+    },
+    "multitile_QJqXW6": {
+      "type": "multitile",
+      "name": "t:sections.multitile.name",
+      "settings": {
+        "block_order_mobile": false,
+        "heading": "",
+        "heading_size": "h3",
+        "heading_alignment": "start",
+        "spacing_tile": "default",
+        "color_scheme": "",
+        "section_width": "max-w-page",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
     }
   },
   "order": [
@@ -666,6 +694,7 @@
     "multitile_hEDB6K",
     "multitile_xG47Vf",
     "multitile_cmMKVP",
-    "multitile_mGwVX3"
+    "multitile_mGwVX3",
+    "multitile_QJqXW6"
   ]
 }

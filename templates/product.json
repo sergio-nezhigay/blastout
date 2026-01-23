@@ -54,7 +54,7 @@
           "settings": {
             "spacing_bottom": "1",
             "inventory_threshold": 15,
-            "notice_just_text": false
+            "notice_just_text": true
           }
         },
         "1e939cd6-0958-4135-a9e5-c50faef01437": {

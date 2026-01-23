@@ -1,0 +1,57 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_586603012680581835": {
+      "settings": {
+        "checksum": "fd1cb61cb71d474f397e576050059660ac23438889f81ef80e8f7eb32e402ffa_1_1_1_0__1",
+        "gg3z3_BY2bO_description": "Я прочитав(-ла) і розумію Політику конфіденційності та використання файлів cookie",
+        "gg7pfBymT4__placeholder": "Імʼя",
+        "ggIW9_BBLUU_label": "ПРИЄДНАТИСЯ",
+        "ggLyIsJyAAR_placeholder": "Email",
+        "gga7XRHAyMY_text": "<p><span style=\"color:rgb(0,0,0);font-size:17px;\">Короткий список переваг:</span></p>",
+        "ggce39d_hVf_text": "<ol><li>Доступ до нових колекцій першими</li><li>Доступ до закритих інсайдів</li><li>Рекомендаціі стилістів та персональний підбір гардеробу</li></ol>",
+        "gggrfWgyY00_description": "Я хочу отримувати персоналізовані повідомлення комерційного характеру \nвід Blast Out Studio електронною поштою.",
+        "ggh-DwU8A13_errorMessage": "Can’t send email. Please try again later.",
+        "ggh-DwU8A13_successMessage": "Thanks for contacting us. We'll get back to you as soon as possible.",
+        "gglxCXp92R7_text": "<span style=\"color:rgb(0,0,0);\">Приєднуйся до спільноти&nbsp;</span><br><span style=\"color:rgb(0,0,0);font-size:40px;\">Blast Out Studio — першим дізнавайся про нові колекціі та новини бренду</span>",
+        "gguwiZ6UVhW_errorMessage": "Can’t send email. Please try again later.",
+        "gguwiZ6UVhW_successMessage": "Thanks for contacting us. We'll get back to you as soon as possible.",
+        "section_preload": "true"
+      },
+      "type": "gp-section-586603012680581835"
+    },
+    "gp_section_586605613585269595": {
+      "settings": {
+        "checksum": "5afc8fd624da733a11b602b0f642d2414c2e30ed46ca5ea4293eb6858dde06d1_1_1_1_0__1",
+        "ggbMtXvUgGX_text": "<p><span style=\"color:rgb(0,0,0);\">Увесь одяг створюється в Україні, а саме в Києві. Ми віримо в високий стандарт кравецької роботи, де кожен стібок - це творчий акт майстра. Наші кравчині - це справжні майстрині, які присвячують своє життя&nbsp;</span><br><span style=\"color:rgb(0,0,0);\">та енергію створенню неповторного одягу.</span></p>"
+      },
+      "type": "gp-section-586605613585269595"
+    },
+    "gp_section_586605713141269195": {
+      "settings": {
+        "checksum": "6094c2646f0e8865186bc0ea5cc4dc775d9da6b30a38e69bc091f1f1c903be15_1_1_1_0__1"
+      },
+      "type": "gp-section-586605713141269195"
+    },
+    "gp_section_586606183356302171": {
+      "settings": {
+        "checksum": "b5bfe3941d0409f8e26a9c72ef531aea603a237f9277fcd8b142fbeb44a45ba3_1_1_1_0__1"
+      },
+      "type": "gp-section-586606183356302171"
+    }
+  },
+  "order": [
+    "gp_section_586603012680581835",
+    "gp_section_586605613585269595",
+    "gp_section_586605713141269195",
+    "gp_section_586606183356302171"
+  ]
+}
