@@ -160,6 +160,7 @@
     "variant_info_multiple_options": "Beschikbaar in {{ options_count_and_name }} en {{ option_last_count_and_name }}",
     "preorder": "Nu pre-orderen",
     "preorder_badge": "Pre-order",
+    "limited_fabrics_badge": "Beperkte partij stoffen",
     "preorder_info": "Dit product is momenteel beschikbaar voor pre-order.",
     "preorder_notice": "Dit product wordt verzonden op {{date}}.",
     "preorder_warning_html": "* Door op 'Pre-order' te klikken, <strong>erken ik dat ik een pre-order artikel koop, geen product op voorraad<\/strong>, en ga ik akkoord met de Voorwaarden van het pre-order proces.",
