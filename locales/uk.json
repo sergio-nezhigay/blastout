@@ -367,7 +367,6 @@
     "variant_info_multiple_options": "Доступно в {{ options_count_and_name }} та {{ option_last_count_and_name }}",
     "preorder": "Передзамовити зараз",
     "preorder_badge": "Передзамовлення",
-    "limited_fabrics_badge": "Лімітована партія тканин",
     "preorder_info": "Цей товар наразі під передзамовленням.",
     "preorder_notice": "Цей товар буде відправлено {{date}}.",
     "preorder_warning_html": "ВАЖЛИВО! ТОВАРИ ЗА ПОПЕРЕДНІМ ЗАМОВЛЕННЯМ ВИГОТОВЛЯЮТЬСЯ ПРОТЯГОМ 7-15 РОБОЧИХ ДНІВ. ДЯКУЄМО ЗА ВАШУ ДОВІРУ.",

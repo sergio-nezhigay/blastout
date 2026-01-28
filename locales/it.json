@@ -160,7 +160,6 @@
     "variant_info_multiple_options": "Disponibile in {{ options_count_and_name }} e {{ option_last_count_and_name }}",
     "preorder": "Pre-ordina ora",
     "preorder_badge": "Pre-ordine",
-    "limited_fabrics_badge": "Lotto limitato di tessuti",
     "preorder_info": "Questo prodotto è attualmente in pre-ordine.",
     "preorder_notice": "Questo prodotto sarà spedito il {{date}}.",
     "preorder_warning_html": "* Cliccando su 'Pre-ordine', <strong>riconosco che sto acquistando un articolo in pre-ordine, non un prodotto disponibile in magazzino<\/strong> e accetto i Termini e Condizioni del processo di pre-ordine.",

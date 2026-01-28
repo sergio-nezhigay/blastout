@@ -160,7 +160,6 @@
     "variant_info_multiple_options": "Disponível em {{ options_count_and_name }} e {{ option_last_count_and_name }}",
     "preorder": "Pré-encomendar agora",
     "preorder_badge": "Pré-encomenda",
-    "limited_fabrics_badge": "Lote limitado de tecidos",
     "preorder_info": "Este produto está atualmente em pré-encomenda.",
     "preorder_notice": "Este produto será enviado em {{date}}.",
     "preorder_warning_html": "* Ao clicar em 'Pré-encomenda', <strong>reconheço que estou comprando um item em pré-encomenda, não um produto em estoque<\/strong> e concordo com os Termos e Condições do processo de pré-encomenda.",

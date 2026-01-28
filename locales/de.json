@@ -160,7 +160,6 @@
     "variant_info_multiple_options": "Verfügbar in {{ options_count_and_name }} und {{ option_last_count_and_name }}",
     "preorder": "Jetzt vorbestellen",
     "preorder_badge": "Vorbestellung",
-    "limited_fabrics_badge": "Limitierte Stoffcharge",
     "preorder_info": "Dieses Produkt ist derzeit als Vorbestellung verfügbar.",
     "preorder_notice": "Dieses Produkt wird am {{date}} versendet.",
     "preorder_warning_html": "* Durch Klicken auf 'Vorbestellen' <strong>erkenne ich an, dass ich einen vorbestellten Artikel kaufe, keinen vorrätigen Artikel<\/strong> und stimme den Allgemeinen Geschäftsbedingungen des Vorbestellprozesses zu.",

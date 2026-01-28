@@ -160,7 +160,6 @@
     "variant_info_multiple_options": "متوفر في {{ options_count_and_name }} و{{ option_last_count_and_name }}",
     "preorder": "اطلب مسبقًا الآن",
     "preorder_badge": "طلب مسبق",
-    "limited_fabrics_badge": "دفعة محدودة من الأقمشة",
     "preorder_info": "هذا المنتج متاح حاليًا للطلب المسبق.",
     "preorder_notice": "سيتم شحن هذا المنتج في {{date}}.",
     "preorder_warning_html": "* بالنقر على 'طلب مسبق', <strong>أقر بأنني أشتري منتجًا للطلب المسبق، وليس منتجًا متوفرًا في المخزون<\/strong>، وأوافق على الشروط والأحكام الخاصة بعملية الطلب المسبق.",
