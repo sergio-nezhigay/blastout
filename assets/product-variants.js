@@ -447,6 +447,7 @@ if (!customElements.get('product-info')) {
 
           updateSourceFromDestination("ProductPurchaseInfo");
           updateSourceFromDestination("ProductStickyCart");
+          updateSourceFromDestination("Title");
 
           updateSourceFromDestination("price");
           updateSourceFromDestination("Sku", ({ classList }) => classList.contains("hidden"));

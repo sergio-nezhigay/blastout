@@ -3,21 +3,21 @@
 
 <script src="{{ 'product-variants.js' | asset_url }}" defer="defer"></script>
 <style>
-.main-message-container{
-  display: flex;
-  align-items: center;
-  gap: 8px
-}
-.main-message-text a{
-  text-decoration: none;
-}
-.main-message-text p{
-  margin: 0;
-}
-.main-icon-message{
-  width: 12px;
-  height: auto;
-}
+  .main-message-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .main-message-text a {
+    text-decoration: none;
+  }
+  .main-message-text p {
+    margin: 0;
+  }
+  .main-icon-message {
+    width: 12px;
+    height: auto;
+  }
 </style>
 <section
   id="ProductInfo-{{ section.id }}"
@@ -31,19 +31,23 @@
     {%- assign product_block_class = product_block_class | append: ' ' | append: block.settings.heading_size -%}
     {%- case block.type -%}
       {% when 'Text_message' %}
-        <a href='{{ block.settings.main_url-product }}' class="main-message-container" target="blank">
-          {% if block.settings.main_text-product != blank %}
-            {%- assign text_key = block.settings.main_text-product | strip_html | strip -%}
+        <a href="{{ block.settings.main_url-product }}" class="main-message-container" target="blank">
+          {% if block.settings['main_text-product'] != blank %}
+            {%- assign text_key = block.settings['main_text-product'] | strip_html | strip -%}
             {%- assign translated_text = text_key | t -%}
             {%- assign text_lower = translated_text | downcase -%}
             {%- if text_lower contains 'translation missing' -%}
-              <div class='main-message-text'>{{ block.settings.main_text-product | strip_html }}</div>
+              <div class="main-message-text">{{ block.settings['main_text-product'] | strip_html }}</div>
             {%- else -%}
-              <div class='main-message-text'>{{ translated_text }}</div>
+              <div class="main-message-text">{{ translated_text }}</div>
             {%- endif -%}
           {% endif %}
-          {% if block.settings.main_icon-product != blank %}
-            {{ block.settings.main_icon-product | image_url: width: block.settings.main_icon-product.width | image_tag: class: "main-icon-message"  }}
+          {% if block.settings['main_icon-product'] != blank %}
+            {{
+              block.settings['main_icon-product']
+              | image_url: width: block.settings['main_icon-product'].width
+              | image_tag: class: 'main-icon-message'
+            }}
           {% endif %}
         </a>
       {%- when 'divider' -%}
@@ -52,12 +56,23 @@
       {%- when 'title' -%}
         {%- assign product_block_class = 'product__title' | append: ' ' | append: product_block_class -%}
         {%- if current_variant.sku != blank -%}
-          <h5 class="badge badge--bottom-right color-accent-1">
-            SKU: {{ current_variant.sku }}
-          </h5>
+          <h5 class="badge badge--bottom-right color-accent-1">SKU: {{ current_variant.sku }}</h5>
         {%- endif -%}
-        <h1 class="{{ product_block_class }}" {{ block.shopify_attributes }}>
+        {%- liquid
+          assign product_preorder = false
+          if current_variant != null
+            if current_variant.available == false
+              assign product_preorder = true
+            elsif current_variant.inventory_management != null and current_variant.inventory_quantity <= 0
+              assign product_preorder = true
+            endif
+          endif
+        -%}
+        <h1 class="{{ product_block_class }}" {{ block.shopify_attributes }} id="Title-{{ section.id }}">
           {{- product.title | escape -}}
+          {%- if product_preorder -%}
+            <span class="inline-badge">LIMITED</span>
+          {%- endif -%}
         </h1>
       {%- when 'badge' -%}
         {%- assign product_block_class = 'product__badges' | append: ' ' | append: product_block_class -%}
@@ -138,45 +153,44 @@
             else
               echo '<div class="product__text--body-wrapper">'
               if block.settings.heading_secondary != blank
-              echo '<div class="product__text--body">'
+                echo '<div class="product__text--body">'
               else
-              echo '<div class="product__text--body no-animation">'
+                echo '<div class="product__text--body no-animation">'
               endif
-
 
               if block.settings.icon != blank
                 render 'icon', icon_name: block.settings.icon
               endif
               if block.settings.heading != blank or block.settings.metafield_for_product_variant != blank
                 echo '<div class="product__text--content">'
-                  echo metafield_for_product_variant
-                  if block.settings.show_block_content
-                    echo block.settings.heading
-                  endif
+                echo metafield_for_product_variant
+                if block.settings.show_block_content
+                  echo block.settings.heading
+                endif
                 echo '</div>'
               endif
               echo '</div>'
 
               if block.settings.heading_secondary != blank
                 echo '<div class="product__text--body">'
-                  if block.settings.icon != blank
-                    render 'icon', icon_name: block.settings.icon
-                  endif
-                  echo '<div class="product__text--content">'
-                    echo block.settings.heading_secondary
-                  echo '</div>'
+                if block.settings.icon != blank
+                  render 'icon', icon_name: block.settings.icon
+                endif
+                echo '<div class="product__text--content">'
+                echo block.settings.heading_secondary
+                echo '</div>'
                 echo '</div>'
 
                 echo '<div class="product__text--body">'
-                  if block.settings.icon != blank
-                    render 'icon', icon_name: block.settings.icon
-                  endif
-                  echo '<div class="product__text--content">'
-                    echo metafield_for_product_variant
-                    if block.settings.show_block_content
-                      echo block.settings.heading
-                    endif
-                  echo '</div>'
+                if block.settings.icon != blank
+                  render 'icon', icon_name: block.settings.icon
+                endif
+                echo '<div class="product__text--content">'
+                echo metafield_for_product_variant
+                if block.settings.show_block_content
+                  echo block.settings.heading
+                endif
+                echo '</div>'
                 echo '</div>'
               endif
 
@@ -195,37 +209,49 @@
           endunless
         -%}
         {%- assign product_block_class = 'product__price' | append: ' ' | append: product_block_class -%}
-        <div id="price-{{- section.id -}}" role="status" {{ block.shopify_attributes }} class="{{ product_block_class }}">
+        <div
+          id="price-{{- section.id -}}"
+          role="status"
+          {{ block.shopify_attributes }}
+          class="{{ product_block_class }}"
+        >
           {%- unless is_gift_card -%}
-              {%- render 'price', product: product, use_variant: true -%}
-              {% if block.settings.show_price_custom_info != blank or block.settings.show_price_tax_info or block.settings.show_price_shipping_info -%}
-                <script type="text/javascript">
-                  document.addEventListener('DOMContentLoaded', checkWidthsAndUpdateTooltip);
-                  window.addEventListener('resize', checkWidthsAndUpdateTooltip);
-                  function checkWidthsAndUpdateTooltip () {
-                    const priceInfo = document.querySelector('.product__content .product__price--info');
-                    const priceInfoTooltip = document.querySelector('.product__content .tooltip');
-                    // clear styles and classes
-                    priceInfo.style.width = '';
-                    priceInfoTooltip.classList.add('hidden');
-                    // get widths
-                    const productContentWidth = document.querySelector('.product__content').offsetWidth;
-                    const priceContainerWidth = document.querySelector('.product__content .product__price > .price').offsetWidth;
-                    // calculate max width for price info
-                    const infoWidth = productContentWidth - priceContainerWidth - 36;
-                    // check if info width is bigger than max width of the container
-                    const priceInfoWidth = document.querySelector('.product__price--info').offsetWidth;
-                    if (infoWidth > priceInfoWidth) { return; }
-                    // update width and show tooltip
-                    if (window.innerWidth < 750) {
-                      priceInfo.style.width = (infoWidth - 80) + 'px';
-                    } else {
-                      priceInfo.style.width = infoWidth + 'px';
-                    }
-                    priceInfoTooltip.classList.remove('hidden');
+            {%- render 'price', product: product, use_variant: true -%}
+            {% if block.settings.show_price_custom_info != blank
+              or block.settings.show_price_tax_info
+              or block.settings.show_price_shipping_info
+            -%}
+              <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', checkWidthsAndUpdateTooltip);
+                window.addEventListener('resize', checkWidthsAndUpdateTooltip);
+                function checkWidthsAndUpdateTooltip() {
+                  const priceInfo = document.querySelector('.product__content .product__price--info');
+                  const priceInfoTooltip = document.querySelector('.product__content .tooltip');
+                  // clear styles and classes
+                  priceInfo.style.width = '';
+                  priceInfoTooltip.classList.add('hidden');
+                  // get widths
+                  const productContentWidth = document.querySelector('.product__content').offsetWidth;
+                  const priceContainerWidth = document.querySelector(
+                    '.product__content .product__price > .price'
+                  ).offsetWidth;
+                  // calculate max width for price info
+                  const infoWidth = productContentWidth - priceContainerWidth - 36;
+                  // check if info width is bigger than max width of the container
+                  const priceInfoWidth = document.querySelector('.product__price--info').offsetWidth;
+                  if (infoWidth > priceInfoWidth) {
+                    return;
                   }
-                </script>
-              {%- endif -%}
+                  // update width and show tooltip
+                  if (window.innerWidth < 750) {
+                    priceInfo.style.width = infoWidth - 80 + 'px';
+                  } else {
+                    priceInfo.style.width = infoWidth + 'px';
+                  }
+                  priceInfoTooltip.classList.remove('hidden');
+                }
+              </script>
+            {%- endif -%}
           {%- else -%}
             {%- render 'price', product: product, use_variant: true -%}
           {%- endunless -%}
@@ -239,7 +265,6 @@
         </div>
 
       {%- when 'description' -%}
-
         {% capture metafield_for_product_variant %}
           {% if block.settings.metafield_for_product_variant != blank %}
             {%- liquid
@@ -329,7 +354,8 @@
         {%- if product_first_available_variant.sku != blank -%}
           {%- assign product_block_class = 'product__sku' | append: ' ' | append: product_block_class -%}
           <div
-            class="{{ product_block_class }}" {{ block.shopify_attributes }}
+            class="{{ product_block_class }}"
+            {{ block.shopify_attributes }}
             id="Sku-{{ section.id }}"
             role="status"
           >
@@ -372,8 +398,13 @@
         <div class="product-size-wishlist-wrapper">
           <button id="sizeGuideTrigger" class="size-guide-trigger">
             {{ 'product.size_guide' | t }}
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path d="M5 7L2 10V8C2 7.5 1.8 7.3 1.5 7.3C1.2 7.3 1 7.5 1 8V10.7C1 10.9 1.1 11 1.3 11H4C4.2 11 4.4 10.9 4.4 10.7C4.4 10.5 4.2 10.3 4 10.3H2.5L5.5 7.3C5.7 7.1 5.7 6.9 5.5 6.7C5.3 6.5 5.1 6.5 5 6.7Z" fill="#000"/>
               <path d="M11 1.3C11 1.1 10.9 1 10.7 1H8C7.8 1 7.6 1.2 7.6 1.4C7.6 1.6 7.8 1.8 8 1.8H9.5L6.5 4.8C6.3 5 6.3 5.2 6.5 5.4C6.7 5.6 6.9 5.6 7 5.4L10 2.4V4C10 4.2 10.2 4.4 10.4 4.4C10.6 4.4 10.8 4.2 10.8 4V1.3H11Z" fill="#000"/>
             </svg>
@@ -383,59 +414,56 @@
         <!-- Оверлей -->
         <div id="sizeGuideOverlay" class="size-guide-overlay"></div>
 
-       <div id="sizeGuidePanel" class="size-guide-panel">
-  <button id="sizeGuideClose" class="size-guide-close" aria-label="Close size guide">×</button>
+        <div id="sizeGuidePanel" class="size-guide-panel">
+          <button id="sizeGuideClose" class="size-guide-close" aria-label="Close size guide">×</button>
 
-  <div class="size-guide-content">
-    {% render 'size-guide', product: product %}
+          <div class="size-guide-content">
+            {% render 'size-guide', product: product %}
+          </div>
+        </div>
 
-  </div>
-</div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const trigger = document.getElementById('sizeGuideTrigger');
+            const panel = document.getElementById('sizeGuidePanel');
+            const overlay = document.getElementById('sizeGuideOverlay');
+            const closeBtn = document.getElementById('sizeGuideClose');
 
+            function lockScroll() {
+              document.documentElement.classList.add('html-locked');
+              document.body.classList.add('body-locked');
+            }
 
+            function unlockScroll() {
+              document.documentElement.classList.remove('html-locked');
+              document.body.classList.remove('body-locked');
+            }
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const trigger  = document.getElementById('sizeGuideTrigger');
-      const panel    = document.getElementById('sizeGuidePanel');
-      const overlay  = document.getElementById('sizeGuideOverlay');
-      const closeBtn = document.getElementById('sizeGuideClose');
+            function openGuide() {
+              overlay.classList.add('active');
+              panel.classList.add('active');
+              lockScroll();
+            }
 
-      function lockScroll() {
-        document.documentElement.classList.add('html-locked');
-        document.body.classList.add('body-locked');
-      }
+            function closeGuide() {
+              overlay.classList.remove('active');
+              panel.classList.remove('active');
+              unlockScroll();
+            }
 
-      function unlockScroll() {
-        document.documentElement.classList.remove('html-locked');
-        document.body.classList.remove('body-locked');
-      }
+            trigger.addEventListener('click', openGuide);
+            closeBtn.addEventListener('click', closeGuide);
+            overlay.addEventListener('click', closeGuide);
 
-      function openGuide() {
-        overlay.classList.add('active');
-        panel.classList.add('active');
-        lockScroll();
-      }
+            document.addEventListener('keydown', function (e) {
+              if (e.key === 'Escape') closeGuide();
+            });
+          });
+        </script>
 
-      function closeGuide() {
-        overlay.classList.remove('active');
-        panel.classList.remove('active');
-        unlockScroll();
-      }
-
-      trigger.addEventListener('click', openGuide);
-      closeBtn.addEventListener('click', closeGuide);
-      overlay.addEventListener('click', closeGuide);
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeGuide();
-      });
-    });
-    </script>
-
-    <div class="preorder-note {% if current_variant.available and current_variant.inventory_quantity > 0 %}hidden{% endif %}">
-      {{ 'product.preorder_warning_html' | t }}
-    </div>
+        <div class="preorder-note {% if current_variant.available and current_variant.inventory_quantity > 0 %}hidden{% endif %}">
+          {{ 'product.preorder_warning_html' | t }}
+        </div>
 
         {%- assign product_block_class = 'product__buy-buttons' | append: ' ' | append: product_block_class -%}
         <div class="{{ product_block_class }}" {{ block.shopify_attributes }}>
@@ -463,7 +491,9 @@
           {{ block.shopify_attributes }}
         >
           {%- if product.metafields.theme.preorder.value -%}
-            {% assign product_preorder_date = product.metafields.theme.preorder_shipping_date.value | date: '%b %d, %Y' %}
+            {% assign product_preorder_date = product.metafields.theme.preorder_shipping_date.value
+              | date: '%b %d, %Y'
+            %}
             <div class="product__preorder-notice">
               <span class="product__preorder-dot">&nbsp;</span>
               <span>{{- 'product.preorder_notice' | t: date: product_preorder_date -}}</span>
@@ -488,9 +518,14 @@
             continue
           endif
         -%}
-        {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities | where: 'pick_up_enabled', true -%}
+        {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities
+          | where: 'pick_up_enabled', true
+        -%}
         {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %}
-          {%- assign product_block_class = 'product__pickup-availabilities' | append: ' ' | append: product_block_class -%}
+          {%- assign product_block_class = 'product__pickup-availabilities'
+            | append: ' '
+            | append: product_block_class
+          -%}
           <div class="{{ product_block_class }}" {{ block.shopify_attributes }}>
             {{- 'component-pickup-availability.css' | asset_url | stylesheet_tag -}}
             <pickup-availability
@@ -520,7 +555,12 @@
       {%- when 'complementary_products' -%}
         {%- assign product_block_class = 'product__complementaries' | append: ' ' | append: product_block_class -%}
         <div class="{{ product_block_class }}" {{ block.shopify_attributes }}>
-          {%- render 'product-recommendations', area: 'product', title: block.settings.heading, icon: block.settings.icon, limit: block.settings.limit -%}
+          {%- render 'product-recommendations',
+            area: 'product',
+            title: block.settings.heading,
+            icon: block.settings.icon,
+            limit: block.settings.limit
+          -%}
         </div>
 
       {%- when 'content_block' -%}
@@ -535,7 +575,11 @@
             <summary class="accordion__button h5 js-btn" id="Details-Summary-{{- block.id -}}">
               <span>
                 {% if block.settings.custom_icon != blank %}
-                  {{ block.settings.custom_icon | image_url: width: 24 | image_tag: alt: block.settings.custom_icon.alt }}
+                  {{
+                    block.settings.custom_icon
+                    | image_url: width: 24
+                    | image_tag: alt: block.settings.custom_icon.alt
+                  }}
                 {% elsif block.settings.custom_icon == blank and block.settings.icon != blank %}
                   {% render 'icon', icon_name: block.settings.icon %}
                 {% endif %}
@@ -606,7 +650,6 @@
         </accordion-default>
 
       {%- when 'content_tabs' -%}
-
         <script src="{{- 'main-product__tabs.js' | asset_url -}}" defer="defer"></script>
 
         {% liquid
@@ -631,7 +674,6 @@
           }
         {% endstyle %}
 
-
         {%- liquid
           assign tabs_count = 0
           assign tabs_start = 1
@@ -654,7 +696,11 @@
         -%}
 
         {%- assign product_block_class = 'product__tabs-wrapper' | append: ' ' | append: product_block_class -%}
-        <product-tabs class="{{ product_block_class }}" id="product__tabs-wrapper--{{- block.id -}}" {{ block.shopify_attributes }}>
+        <product-tabs
+          class="{{ product_block_class }}"
+          id="product__tabs-wrapper--{{- block.id -}}"
+          {{ block.shopify_attributes }}
+        >
           <div class="product__tabs">
             {%- for item_index in (tabs_start..tabs_count) -%}
               {%- liquid
@@ -670,8 +716,8 @@
                 if active_tab == '0'
                   assign is_active = false
                 endif
-                -%}
-              {% if item_index == 0 and block.settings.display_description == 'start'  %}
+              -%}
+              {% if item_index == 0 and block.settings.display_description == 'start' %}
                 {%- render 'main-product__tab-item',
                   type: 'trigger',
                   index: item_index,
@@ -764,7 +810,7 @@
                 is_description: false,
                 block: block
               -%}
-            {% elsif item_index == 4 and block.settings.display_description == 'end'  %}
+            {% elsif item_index == 4 and block.settings.display_description == 'end' %}
               {%- render 'main-product__tab-item',
                 type: 'content',
                 index: item_index,
@@ -779,7 +825,10 @@
         {% assign content_grid_first = content_grid_settings | first %}
         {% if block.id == content_grid_first.id %}
           {%- assign product_block_class = 'product__content-grid' | append: ' ' | append: product_block_class -%}
-          <div class="{{ product_block_class }}{% if content_grid_settings.size == 1 %} product__content-grid--single{% endif %}" {{ block.shopify_attributes }}>
+          <div
+            class="{{ product_block_class }}{% if content_grid_settings.size == 1 %} product__content-grid--single{% endif %}"
+            {{ block.shopify_attributes }}
+          >
             {% for item in content_grid_settings %}
               <div class="product__content-grid-item icon {% if content_grid_settings.size > 1 %} small-hide{% endif %}">
                 {%- liquid
@@ -816,22 +865,22 @@
                 </div>
               </div>
               <script type="text/javascript">
-                document.addEventListener("DOMContentLoaded", () => {
+                document.addEventListener('DOMContentLoaded', () => {
                   function initSwiper() {
-                    const sliderContentGrid = document.querySelector(".swiper__content-grid");
-                    if (window.innerWidth < 750 &&sliderContentGrid) {
+                    const sliderContentGrid = document.querySelector('.swiper__content-grid');
+                    if (window.innerWidth < 750 && sliderContentGrid) {
                       const swiperContentGrid = new Swiper(sliderContentGrid, {
                         slidesPerView: 1,
                         spaceBetween: 16,
                         autoplay: {
-                          delay: 3000
+                          delay: 3000,
                         },
-                        loop: true
-                      })
+                        loop: true,
+                      });
                     }
                   }
                   initSwiper();
-                  window.addEventListener("resize", initSwiper);
+                  window.addEventListener('resize', initSwiper);
                 });
               </script>
             {% endif %}
@@ -844,7 +893,12 @@
         </div>
       {%- when 'feature_rating' -%}
         {% if block.settings.rating != blank %}
-          {%- assign product_block_class = 'product__feature-rating' | append: ' block-' | append: block.id | append: ' ' | append: product_block_class -%}
+          {%- assign product_block_class = 'product__feature-rating'
+            | append: ' block-'
+            | append: block.id
+            | append: ' '
+            | append: product_block_class
+          -%}
           <div class="{{ product_block_class }}" {{ block.shopify_attributes }}>
             {%- if block.settings.heading -%}
               <label class="label">
