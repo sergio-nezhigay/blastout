@@ -135,6 +135,11 @@ if (!customElements.get("quick-cart-drawer")) {
           productCard.querySelector(".quick-cart-product")
         );
 
+        // Add preorder elements if product has preorder flag
+        if (trigger.dataset.preorder === "true") {
+          this.addPreorderElements();
+        }
+
         this.sliderInstance = new Swiper(".quick-cart-drawer__media-swiper", {
           slidesPerView: 1.25,
           spaceBetween: 8,
@@ -262,6 +267,28 @@ if (!customElements.get("quick-cart-drawer")) {
       toggle.addEventListener('click', () => {
         moreInfo.classList.toggle('is--expanded');
       });
+    }
+
+    addPreorderElements() {
+      const productTitle = this.querySelector('.product__title .text-link--on-load');
+      const quantityDiv = this.querySelector('.product-selector__quantity');
+
+      if (productTitle && !productTitle.querySelector('.inline-badge')) {
+        const badgeText = document.querySelector('[data-preorder-badge-text]')?.dataset.preorderBadgeText || 'ЛІМІТОВАНА ПАРТІЯ ТКАНИН';
+        const badge = document.createElement('span');
+        badge.className = 'inline-badge';
+        badge.textContent = badgeText;
+        productTitle.insertAdjacentElement('afterend', document.createElement('br'));
+        productTitle.insertAdjacentElement('afterend', badge);
+      }
+
+      if (quantityDiv && !quantityDiv.nextElementSibling?.classList.contains('product__preorder-warning')) {
+        const warningText = document.querySelector('[data-preorder-warning-text]')?.dataset.preorderWarningText || 'ВАЖЛИВО! ТОВАРИ ЗА ПОПЕРЕДНІМ ЗАМОВЛЕННЯМ ВИГОТОВЛЯЮТЬСЯ ПРОТЯГОМ 7-15 РОБОЧИХ ДНІВ. ДЯКУЄМО ЗА ВАШУ ДОВІРУ.';
+        const warning = document.createElement('div');
+        warning.className = 'product__preorder-warning';
+        warning.innerHTML = warningText;
+        quantityDiv.insertAdjacentElement('afterend', warning);
+      }
     }
 
     setActiveMedia(id) {

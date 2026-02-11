@@ -169,6 +169,9 @@
         aria-expanded="false"
         aria-controls="quick-cart-drawer"
         data-product-url="{{- product_ref.handle | prepend: '/products/'  -}}"
+        {%- if product_ref.metafields.theme.preorder.value -%}
+          data-preorder="true"
+        {%- endif -%}
         {%- unless product_ref.available -%}disabled{%- endunless -%}
       >
         {{- button_content -}}

@@ -13,7 +13,7 @@
       "open_in_new_window": "Opens in a new window.",
       "refresh_page": "Choosing a selection results in a full page refresh.",
       "skip_to_content": "Skip to content",
-      "slideshow": "Use left/right arrows to navigate the slideshow or swipe left/right if using a mobile device"
+      "slideshow": "Use left\/right arrows to navigate the slideshow or swipe left\/right if using a mobile device"
     },
     "actions": {
       "add": "Add",
@@ -48,7 +48,7 @@
       "search": "Search"
     },
     "date": {
-      "format_day_month_year": "%d/%m/%Y",
+      "format_day_month_year": "%d\/%m\/%Y",
       "format_month_year": "%B %Y",
       "format_numbers": "%d.%m.%Y",
       "format_short": "%B %d, %Y"
@@ -117,7 +117,7 @@
     "price_from": "From",
     "subscription": "Subscription",
     "view_subscription_policy": "View subscription policy",
-    "from_price_per_html": "from {{price}}/each",
+    "from_price_per_html": "from {{price}}\/each",
     "inventory_in_stock": "In stock",
     "inventory_in_stock_show_count": "{{quantity}} in stock",
     "inventory_low_stock": "Just a few left. Order soon.",
@@ -126,9 +126,9 @@
     "inventory_out_of_stock_continue_selling": "In stock",
     "pickup_available": "Pickup available",
     "pickup_availability": "Pickup availability",
-    "pickup_available_at_html": "Pickup available at <span class=\"color-foreground\">{{location_name}}</span>",
+    "pickup_available_at_html": "Pickup available at <span class=\"color-foreground\">{{location_name}}<\/span>",
     "pickup_unavailable": "Pickup unavailable",
-    "pickup_unavailable_at_html": "Pickup currently unavailable at <span class=\"color-foreground\">{{location_name}}</span>",
+    "pickup_unavailable_at_html": "Pickup currently unavailable at <span class=\"color-foreground\">{{location_name}}<\/span>",
     "pickup_refresh_availability": "Refresh availability",
     "pickup_view_store_info": "View store information",
     "pickup_check_other_stores": "Check availability at other stores",
@@ -138,7 +138,7 @@
     "quantity": "Quantity",
     "quantity_decrease_for_product": "Decrease quantity for {{product}}",
     "quantity_increase_for_product": "Increase quantity for {{product}}",
-    "shipping_policy_html": "<a href=\"{{link}}\">Shipping</a> calculated at checkout.",
+    "shipping_policy_html": "<a href=\"{{link}}\">Shipping<\/a> calculated at checkout.",
     "media_gallery": "Media gallery",
     "media_open_with_index": "Open media {{index}} in modal",
     "media_xr_button": "View in your space",
@@ -150,13 +150,13 @@
     "optional": "Optional",
     "variant_sold_out_or_unavailable": "Variant sold out or unavailable",
     "value_unavailable": "{{ option_value }} - Unavailable",
-    "quantity_in_cart_html": "<span class=\"quantity-cart\">{{quantity}}</span> in cart",
+    "quantity_in_cart_html": "<span class=\"quantity-cart\">{{quantity}}<\/span> in cart",
     "quantity_multiplies_of": "Increments of {{quantity}}",
     "quantity_minimum_of": "Minimum of {{quantity}}",
     "quantity_maximum_of": "Maximum of {{quantity}}",
     "selling_plan_subscription_type": "Subscription type",
     "discount_badge": "{{percentage}}% off",
-    "discount_badge_html": "<span class=\"percentage\">{{percentage}}</span>% off",
+    "discount_badge_html": "<span class=\"percentage\">{{percentage}}<\/span>% off",
     "variant_info": "Available in ",
     "variant_info_one_option": "Available in {{ option_count_and_name }}",
     "variant_info_multiple_options": "Available in {{ options_count_and_name }} and {{ option_last_count_and_name }}",
@@ -192,7 +192,7 @@
       "one": "{{product_count}} of {{count}} product",
       "other": "{{product_count}} of {{count}} products"
     },
-    "product_count_html": "<span class=\"product-count-of-all\">{{product_count}}</span> of {{count}} products",
+    "product_count_html": "<span class=\"product-count-of-all\">{{product_count}}<\/span> of {{count}} products",
     "product_count_simple": {
       "one": "{{count}} product",
       "other": "{{count}} products"
@@ -325,9 +325,9 @@
       "city_placeholder": "Enter your city",
       "province": "Province",
       "province_placeholder": "Enter your province",
-      "country": "Country / Region",
-      "zip": "Postal/ZIP code",
-      "zip_placeholder": "Enter your postal/ZIP code",
+      "country": "Country \/ Region",
+      "zip": "Postal\/ZIP code",
+      "zip_placeholder": "Enter your postal\/ZIP code",
       "phone": "Phone",
       "phone_placeholder": "Enter your phone number",
       "default": "Default address",
@@ -340,7 +340,7 @@
   "cart": {
     "label": "Cart",
     "title": "Your cart",
-    "empty_title_html": "It’s a little<br><em>empty</em> here",
+    "empty_title_html": "It’s a little<br><em>empty<\/em> here",
     "empty_subtitle": "Your cart is currently empty",
     "empty_button_label": "Start Shopping",
     "error": "There was an error while updating your cart. Please try again.",
@@ -354,7 +354,7 @@
     "heading_quantity": "Quantity",
     "heading_total": "Total",
     "quantity_error_html": "You can only add {{quantity}} of this item to your cart.",
-    "free_shipping_text_html": "Spend <span class=\"money\">{{amount}}</span> more for free shipping",
+    "free_shipping_text_html": "Spend <span class=\"money\">{{amount}}<\/span> more for free shipping",
     "free_shipping_text_success": "Congrats! You're qualified for free shipping!"
   },
   "search": {
@@ -426,7 +426,7 @@
     "button": "Enter using password",
     "submit": "Enter",
     "error": "The password you entered is incorrect. Please try again.",
-    "admin_link_html": "Are you the store owner? <a href=\"/admin\">Log in here</a>",
+    "admin_link_html": "Are you the store owner? <a href=\"\/admin\">Log in here<\/a>",
     "powered_by_shopify_html": "This shop will be powered by {{shopify}}"
   },
   "sections": {
@@ -470,7 +470,7 @@
   "product_options": {
     "size": "SIZE",
     "color": "COLOUR",
-    "colour": "COLOR",
+    "colour": "COLOUR",
     "material": "MATERIAL",
     "style": "STYLE"
   },
@@ -479,16 +479,7 @@
       "err_msg_default": "Can't send email. Please try again later."
     },
     "StockCounter": {
-      "let_buy_now": "<mark> HURRY!</mark> LET'S BUY NOW"
-    }
-  },
-  "shopify": {
-    "filters": {
-      "availability": {
-        "value": {
-          "out_of_stock": "Pre-order"
-        }
-      }
+      "let_buy_now": "<mark> HURRY!<\/mark> LET'S BUY NOW"
     }
   }
 }

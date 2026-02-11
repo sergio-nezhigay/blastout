@@ -9,7 +9,10 @@
     }
   {%- endstyle -%}
 
-  <quick-cart-drawer>
+  <quick-cart-drawer
+    data-preorder-badge-text="{{ settings.product_inline_badge_text }}"
+    data-preorder-warning-text="{{ 'product.preorder_warning_html' | t }}"
+  >
     <div class='quick-cart-drawer__blocks slim-scrollbar color-{{ section.settings.color_scheme }}' tabindex="-1">
       <div class="quick-cart-drawer__header">
         <h5>{{ 'product.choose_options' | t }}</h5>

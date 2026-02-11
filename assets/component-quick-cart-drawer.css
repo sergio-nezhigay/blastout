@@ -296,6 +296,11 @@ quick-cart-drawer .product__title {
   gap: .8rem;
 }
 
+quick-cart-drawer .product__title .inline-badge {
+  display: inline-block;
+  margin-top: 0.6rem;
+}
+
 quick-cart-drawer .product-card__variants--list {
   gap: 2.4rem;
 }
@@ -359,6 +364,11 @@ quick-cart-drawer .product__more-info--collapsible.is--expanded .more-info-toggl
 
 quick-cart-drawer .product__more-info--collapsible.is--expanded .more-info-toggle__less {
   display: inline;
+}
+
+quick-cart-drawer .product__preorder-warning {
+  margin-bottom: 1.6rem;
+  margin-top: 0;
 }
 
 quick-cart-drawer .product__price--info {

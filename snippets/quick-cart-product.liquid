@@ -92,7 +92,7 @@
                       {%- if options.size > 0 -%}
                         <fieldset class="product__variant-options js-product-card-options">
                           <legend>
-                            {{ 'product_options.' | append: product.options_with_values[forloop.index0].name | downcase | t | upcase -}}
+                            {{ product.options_with_values[forloop.index0].name -}}
                             <span data-selected-variant>
                               {{- product.options_with_values[forloop.index0].selected_value -}}
                             </span>

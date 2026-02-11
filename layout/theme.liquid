@@ -152,44 +152,32 @@
 
     {% render 'subify-snippet' %}
     
-  <script>
-(function() {
-  'use strict';
-  
-  function translateAllButtons() {
-    const locale = '{{ request.locale.iso_code }}';
-    const isEnglish = locale === 'en';
-    const newText = isEnglish ? 'BUY IT NOW' : 'КУПИТИ ЗАРАЗ';
-    
-    // Шукаємо ВСІ unbranded кнопки на сторінці (і в модалках теж)
-    const buttons = document.querySelectorAll('.shopify-payment-button__button--unbranded');
-    
-    buttons.forEach(function(btn) {
-      if (btn.textContent.trim() !== newText) {
-        btn.textContent = newText;
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  var btn = document.querySelector(".shopify-payment-button__button--unbranded");
+  if (btn && btn.textContent.trim() === "Buy it now") {
+    btn.textContent = "Купити зараз";
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  function fixButtons() {
+    // Динамічна кнопка Buy it now
+    document.querySelectorAll('shopify-payment-button button, .shopify-payment-button__button--unbranded').forEach(function(btn) {
+      var text = btn.textContent.trim();
+      if (text === 'Buy it now' || text === 'Buy Now') {
+        btn.textContent = 'Купити зараз';
       }
     });
   }
-  
-  // Перекладаємо при завантаженні
-  translateAllButtons();
-  
-  // Перекладаємо кожні 1 секунду протягом 10 секунд після завантаження
-  let count = 0;
-  const interval = setInterval(function() {
-    translateAllButtons();
-    count++;
-    if (count >= 10) {
-      clearInterval(interval);
-    }
-  }, 1000);
-  
-  // Також перекладаємо при будь-якому кліку на сторінці
-  document.addEventListener('click', function() {
-    setTimeout(translateAllButtons, 500);
-    setTimeout(translateAllButtons, 1500);
-  });
-})();
+
+  fixButtons();
+
+  // Якщо тема підвантажує форму товару динамічно (AJAX)
+  const observer = new MutationObserver(fixButtons);
+  observer.observe(document.body, { childList: true, subtree: true });
+});
 </script>
   </body>
 </html>
