@@ -152,32 +152,25 @@
 
     {% render 'subify-snippet' %}
     
-    <script>
-document.addEventListener("DOMContentLoaded", function() {
-  var btn = document.querySelector(".shopify-payment-button__button--unbranded");
-  if (btn && btn.textContent.trim() === "Buy it now") {
-    btn.textContent = "Купити зараз";
-  }
-});
-</script>
+{% if request.locale.iso_code == 'uk' %}
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  function fixButtons() {
-    // Динамічна кнопка Buy it now
-    document.querySelectorAll('shopify-payment-button button, .shopify-payment-button__button--unbranded').forEach(function(btn) {
-      var text = btn.textContent.trim();
-      if (text === 'Buy it now' || text === 'Buy Now') {
-        btn.textContent = 'Купити зараз';
-      }
-    });
-  }
+  document.addEventListener('DOMContentLoaded', function() {
+    function fixButtons() {
+      const selectors = '.shopify-payment-button button, .shopify-payment-button__button--unbranded';
+      document.querySelectorAll(selectors).forEach(btn => {
+        const text = btn.textContent.trim();
+        if (text === 'Buy it now' || text === 'Buy Now') {
+          btn.textContent = 'Купити зараз';
+        }
+      });
+    }
 
-  fixButtons();
+    fixButtons(); // Запуск при завантаженні
 
-  // Якщо тема підвантажує форму товару динамічно (AJAX)
-  const observer = new MutationObserver(fixButtons);
-  observer.observe(document.body, { childList: true, subtree: true });
-});
+    const observer = new MutationObserver(fixButtons);
+    observer.observe(document.body, { childList: true, subtree: true });
+  });
 </script>
+{% endif %}
   </body>
 </html>
