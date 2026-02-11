@@ -9,97 +9,9 @@
  */
 {
   "current": {
-    "type_heading_font": "sans_serif_n4",
-    "heading_font_scale": 69,
-    "heading_letter_spacing": "-0.04em",
-    "heading_text_transform": "none",
-    "type_body_font": "sans_serif_n4",
-    "body_font_scale": 100,
-    "type_italic_font": "cormorant_i4",
-    "italic_font_scale": 120,
-    "type_button_font": "poppins_n4",
-    "button_letter_spacing": "0.1em",
-    "button_text_transform": "uppercase",
-    "button_border_radius": "5rem",
-    "input_border_radius": "0.8rem",
     "arrow_type": "plain",
-    "icons_stroke_width": "1.5",
-    "icons_corner_shape": "round",
-    "page_width": 960,
-    "spacing_desktop": 1.2,
-    "spacing_mobile": 1.2,
-    "card_corner_radius": 0,
-    "card_text_alignment": "center",
-    "card_media_aspect_ratio": "3 / 4",
-    "product_card_media_aspect_ratio": "auto",
-    "product_card_media_object_fit": "cover",
-    "product_card_badge_position": "start",
-    "product_card_action_buttons_color_scheme": "scheme-6",
-    "product_card_add_to_cart_btn_content": "icon",
-    "swatches_option": "КОЛІР, РОЗМІР",
-    "product_card_variants_display_mobile": "button",
-    "product_card_option_button_size": 2.4,
-    "product_card_variants_display_limit": 3,
-    "swatches_shape": "circle",
-    "show_country_drawer_title": true,
-    "show_country_drawer_content": true,
-    "country_drawer_display_option": "country-name",
-    "enable_shipping_notification": false,
-    "shipping_notification_threshold": "150",
-    "cart_terms": "<p>Agree to <a href=\"/policies/terms-of-service\" target=\"_blank\" title=\"Terms of Service\">terms</a> of sale as per the merchants terms of service.</p>",
-    "enable_dynamic_checkout": true,
-    "enable_cart_upsell": true,
-    "cart_upsell_title": "Complete the set",
-    "search_suggestions": "search-suggestions",
-    "show_currency_codes": false,
-    "image_optimization": "false",
-    "disable_animations_on_mobile": false,
-    "social_instagram_link": "https://www.instagram.com/blastoutstudio/",
-    "social_youtube_link": "https://www.youtube.com/@BlastOutStudioo",
-    "social_pinterest_link": "https://ru.pinterest.com/blastoutstudio/",
-    "share_twitter": true,
-    "share_pinterest": true,
-    "share_linkedin": true,
-    "share_instagram": true,
-    "share_facebook": true,
-    "favicon": "shopify://shop_images/blastfav.png",
-    "size_guide_title": "РОЗМІРНА СІТКА",
-    "size_guide_table_html": "<table class=\"size-guide-table\">\n  <thead>\n    <tr>\n      <th>РОЗМІР</th>\n      <th>ГРУДИ</th>\n      <th>ТАЛІЯ</th>\n      <th>СТЕГНА</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>XS</td>\n      <td>82–88</td>\n      <td>60–64</td>\n      <td>88–92</td>\n    </tr>\n    <tr>\n      <td>S</td>\n      <td>88–94</td>\n      <td>64–68</td>\n      <td>92–96</td>\n    </tr>\n    <tr>\n      <td>M</td>\n      <td>94–98</td>\n      <td>68–72</td>\n      <td>96–100</td>\n    </tr>\n    <tr>\n      <td>L</td>\n      <td>98–102</td>\n      <td>72–76</td>\n      <td>100–104</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr class=\"size-guide-units-row\">\n      <td></td>\n      <td>(CM)</td>\n      <td>(CM)</td>\n      <td>(CM)</td>\n    </tr>\n  </tfoot>\n</table>",
-    "size_guide_exception_1_type": "взуття",
-    "size_guide_exception_1_html": "<table class=\"size-guide-table\">\n  <thead>\n    <tr>\n      <th>EU</th>\n      <th>US</th>\n      <th>UK</th>\n      <th>CM</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>35</td>\n      <td>5</td>\n      <td>3</td>\n      <td>22.5</td>\n    </tr>\n    <tr>\n      <td>36</td>\n      <td>5.5</td>\n      <td>3.5</td>\n      <td>23</td>\n    </tr>\n    <tr>\n      <td>37</td>\n      <td>6.5</td>\n      <td>4.5</td>\n      <td>24</td>\n    </tr>\n    <tr>\n      <td>38</td>\n      <td>7.5</td>\n      <td>5.5</td>\n      <td>25</td>\n    </tr>\n    <tr>\n      <td>39</td>\n      <td>8.5</td>\n      <td>6.5</td>\n      <td>26</td>\n    </tr>\n    <tr>\n      <td>40</td>\n      <td>9</td>\n      <td>7</td>\n      <td>27</td>\n    </tr>\n    <tr>\n      <td>41</td>\n      <td>10</td>\n      <td>8</td>\n      <td>28</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr class=\"size-guide-units-row\">\n      <td colspan=\"3\"></td>\n      <td>(CM)</td>\n    </tr>\n  </tfoot>\n</table>",
-    "card_product_layout": "card-product__layout--standard",
-    "disable_image_widths_limitation": true,
-    "max_image_url_width": "1",
-    "predictive_search_enabled": true,
-    "product_badge_style": "badge--transparent",
-    "product_card_add_to_cart_display": "quick-cart",
-    "product_card_add_to_cart_show": true,
-    "product_card_badge_hidden": false,
-    "product_card_badge_style": "product-card__badge--filled",
-    "product_card_media_radius": "product-card__media--rounded",
-    "product_card_variants_display": "button",
-    "product_swatches_on_card": true,
-    "quick_add_to_cart": "with_variant",
-    "sizes_option": "Size",
-    "sections": {
-      "main-password-header": {
-        "type": "main-password-header",
-        "settings": {
-          "logo": "",
-          "logo_svg_code": "",
-          "logo_width": 100,
-          "logo_width_mobile": 80,
-          "section_width": "max-w-page",
-          "color_scheme": "scheme-1",
-          "spacing_top": "0",
-          "spacing_bottom": "0"
-        }
-      }
-    },
-    "content_for_index": [],
     "blocks": {
       "10583289249535060075": {
-        "type": "shopify://apps/basic-wishlist/blocks/popup/1611f065-e251-4250-8609-2fa2f1877c57",
         "disabled": true,
         "settings": {
           "icon_width": 40,
@@ -127,15 +39,15 @@
           "popup_image_radius": 0,
           "popup_link": "#121212",
           "popup_backdrop": "#fdf2f4"
-        }
+        },
+        "type": "shopify://apps/basic-wishlist/blocks/popup/1611f065-e251-4250-8609-2fa2f1877c57"
       },
       "1232542678405107163": {
-        "type": "shopify://apps/instafeed/blocks/head-block/c447db20-095d-4a10-9725-b5977662c9d5",
         "disabled": false,
-        "settings": {}
+        "settings": {},
+        "type": "shopify://apps/instafeed/blocks/head-block/c447db20-095d-4a10-9725-b5977662c9d5"
       },
       "17625031072974348541": {
-        "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
         "disabled": false,
         "settings": {
           "storefront_layout_enabled": false,
@@ -148,14 +60,25 @@
           "storefront_layout_action_popup_position": "left",
           "storefront_layout_drawer_position": "left",
           "storefront_layout_as_section_page": ""
-        }
+        },
+        "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612"
       },
       "6478312753674380289": {
-        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
         "disabled": false,
-        "settings": {}
+        "settings": {},
+        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3"
       }
     },
+    "body_font_scale": 100,
+    "button_border_radius": "5rem",
+    "button_letter_spacing": "0.1em",
+    "button_text_transform": "uppercase",
+    "card_corner_radius": 0,
+    "card_media_aspect_ratio": "3 / 4",
+    "card_product_layout": "card-product__layout--standard",
+    "card_text_alignment": "center",
+    "cart_terms": "<p>Agree to <a href=\"/policies/terms-of-service\" target=\"_blank\" title=\"Terms of Service\">terms</a> of sale as per the merchants terms of service.</p>",
+    "cart_upsell_title": "Complete the set",
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -337,7 +260,85 @@
           "rating_stars": "#ffffff"
         }
       }
-    }
+    },
+    "content_for_index": [],
+    "country_drawer_display_option": "country-name",
+    "disable_animations_on_mobile": false,
+    "disable_image_widths_limitation": true,
+    "enable_cart_upsell": true,
+    "enable_dynamic_checkout": true,
+    "enable_shipping_notification": false,
+    "favicon": "shopify://shop_images/blastfav.png",
+    "heading_font_scale": 69,
+    "heading_letter_spacing": "-0.04em",
+    "heading_text_transform": "none",
+    "icons_corner_shape": "round",
+    "icons_stroke_width": "1.5",
+    "image_optimization": "false",
+    "input_border_radius": "0.8rem",
+    "italic_font_scale": 120,
+    "max_image_url_width": "1",
+    "page_width": 960,
+    "predictive_search_enabled": true,
+    "product_badge_style": "badge--transparent",
+    "product_card_action_buttons_color_scheme": "scheme-6",
+    "product_card_add_to_cart_btn_content": "icon",
+    "product_card_add_to_cart_display": "quick-cart",
+    "product_card_add_to_cart_show": true,
+    "product_card_badge_hidden": false,
+    "product_card_badge_position": "start",
+    "product_card_badge_style": "product-card__badge--filled",
+    "product_card_media_aspect_ratio": "auto",
+    "product_card_media_object_fit": "cover",
+    "product_card_media_radius": "product-card__media--rounded",
+    "product_card_option_button_size": 2.4,
+    "product_card_variants_display": "button",
+    "product_card_variants_display_limit": 3,
+    "product_card_variants_display_mobile": "button",
+    "product_inline_badge_text": "Лімітована партія тканин",
+    "product_swatches_on_card": true,
+    "quick_add_to_cart": "with_variant",
+    "search_suggestions": "search-suggestions",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "logo": "",
+          "logo_svg_code": "",
+          "logo_width": 100,
+          "logo_width_mobile": 80,
+          "section_width": "max-w-page",
+          "color_scheme": "scheme-1",
+          "spacing_top": "0",
+          "spacing_bottom": "0"
+        }
+      }
+    },
+    "share_facebook": true,
+    "share_instagram": true,
+    "share_linkedin": true,
+    "share_pinterest": true,
+    "share_twitter": true,
+    "shipping_notification_threshold": "150",
+    "show_country_drawer_content": true,
+    "show_country_drawer_title": true,
+    "show_currency_codes": false,
+    "size_guide_exception_1_html": "<table class=\"size-guide-table\">\n  <thead>\n    <tr>\n      <th>EU</th>\n      <th>US</th>\n      <th>UK</th>\n      <th>CM</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>35</td>\n      <td>5</td>\n      <td>3</td>\n      <td>22.5</td>\n    </tr>\n    <tr>\n      <td>36</td>\n      <td>5.5</td>\n      <td>3.5</td>\n      <td>23</td>\n    </tr>\n    <tr>\n      <td>37</td>\n      <td>6.5</td>\n      <td>4.5</td>\n      <td>24</td>\n    </tr>\n    <tr>\n      <td>38</td>\n      <td>7.5</td>\n      <td>5.5</td>\n      <td>25</td>\n    </tr>\n    <tr>\n      <td>39</td>\n      <td>8.5</td>\n      <td>6.5</td>\n      <td>26</td>\n    </tr>\n    <tr>\n      <td>40</td>\n      <td>9</td>\n      <td>7</td>\n      <td>27</td>\n    </tr>\n    <tr>\n      <td>41</td>\n      <td>10</td>\n      <td>8</td>\n      <td>28</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr class=\"size-guide-units-row\">\n      <td colspan=\"3\"></td>\n      <td>(CM)</td>\n    </tr>\n  </tfoot>\n</table>",
+    "size_guide_exception_1_type": "взуття",
+    "size_guide_table_html": "<table class=\"size-guide-table\">\n  <thead>\n    <tr>\n      <th>РОЗМІР</th>\n      <th>ГРУДИ</th>\n      <th>ТАЛІЯ</th>\n      <th>СТЕГНА</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>XS</td>\n      <td>82–88</td>\n      <td>60–64</td>\n      <td>88–92</td>\n    </tr>\n    <tr>\n      <td>S</td>\n      <td>88–94</td>\n      <td>64–68</td>\n      <td>92–96</td>\n    </tr>\n    <tr>\n      <td>M</td>\n      <td>94–98</td>\n      <td>68–72</td>\n      <td>96–100</td>\n    </tr>\n    <tr>\n      <td>L</td>\n      <td>98–102</td>\n      <td>72–76</td>\n      <td>100–104</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr class=\"size-guide-units-row\">\n      <td></td>\n      <td>(CM)</td>\n      <td>(CM)</td>\n      <td>(CM)</td>\n    </tr>\n  </tfoot>\n</table>",
+    "size_guide_title": "РОЗМІРНА СІТКА",
+    "sizes_option": "Size",
+    "social_instagram_link": "https://www.instagram.com/blastoutstudio/",
+    "social_pinterest_link": "https://ru.pinterest.com/blastoutstudio/",
+    "social_youtube_link": "https://www.youtube.com/@BlastOutStudioo",
+    "spacing_desktop": 1.2,
+    "spacing_mobile": 1.2,
+    "swatches_option": "КОЛІР, РОЗМІР",
+    "swatches_shape": "circle",
+    "type_body_font": "sans_serif_n4",
+    "type_button_font": "poppins_n4",
+    "type_heading_font": "sans_serif_n4",
+    "type_italic_font": "cormorant_i4"
   },
   "installed_preset_name": "Release",
   "presets": {

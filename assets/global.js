@@ -2923,7 +2923,10 @@ function formatPrice(moneyString, amount) {
     case "amount_no_decimals":
       newValue = moneyString.replace(
         money_format,
-        Math.round(amount)
+        Intl.NumberFormat("en-US", {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0
+        }).format(Math.round(amount))
       );
       break;
     case "amount_no_decimals_with_comma_separator":

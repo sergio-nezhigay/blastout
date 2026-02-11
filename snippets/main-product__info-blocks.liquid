@@ -71,7 +71,7 @@
         <h1 class="{{ product_block_class }}" {{ block.shopify_attributes }} id="Title-{{ section.id }}">
           {{- product.title | escape -}}
           {%- if product_preorder -%}
-            <span class="inline-badge">LIMITED</span>
+            <br><span class="inline-badge">{{ settings.product_inline_badge_text }}</span>
           {%- endif -%}
         </h1>
       {%- when 'badge' -%}

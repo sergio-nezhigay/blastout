@@ -198,6 +198,9 @@ if (!customElements.get("quick-cart-drawer")) {
           });
         }
 
+        // init more info toggle
+        this.initMoreInfoToggle();
+
         // short wait before opening drawer
         setTimeout(() => {
           this.open();
@@ -234,6 +237,31 @@ if (!customElements.get("quick-cart-drawer")) {
             });
           });
       }
+    }
+
+    initMoreInfoToggle() {
+      const moreInfo = this.querySelector('.product__more-info--collapsible');
+      if (!moreInfo) return;
+
+      const content = moreInfo.querySelector('.product__more-info-content');
+      const toggle = moreInfo.querySelector('[data-more-info-toggle]');
+      if (!content || !toggle) return;
+
+      // Check if content exceeds 3 lines after render
+      requestAnimationFrame(() => {
+        const lineHeight = parseFloat(getComputedStyle(content).lineHeight);
+        const maxHeight = lineHeight * 3;
+        if (content.scrollHeight <= maxHeight + 1) {
+          toggle.style.display = 'none';
+          content.style.webkitLineClamp = 'unset';
+          content.style.overflow = 'visible';
+          content.style.display = 'block';
+        }
+      });
+
+      toggle.addEventListener('click', () => {
+        moreInfo.classList.toggle('is--expanded');
+      });
     }
 
     setActiveMedia(id) {

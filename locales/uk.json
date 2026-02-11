@@ -38,8 +38,8 @@
   },
   "cart": {
     "label": "Cart",
-    "title": "Корзина",
-    "empty_title_html": "Ваша<br><em>корзина</em> зараз порожня",
+    "title": "Кошик",
+    "empty_title_html": "Ваш<br><em>кошик</em> зараз порожній",
     "empty_subtitle": "",
     "empty_button_label": "Зробити покупку",
     "error": "There was an error while updating your cart. Please try again.",
@@ -307,6 +307,8 @@
     "view_product": "Переглянути товар",
     "go_to_title": "Перейти до {{title}}",
     "go_back": "Повернутися",
+    "read_more": "ЧИТАТИ ДАЛІ +",
+    "read_less": "ЗГОРНУТИ −",
     "unavailable": "Недоступно",
     "sold_out": "Розпродано",
     "on_sale": "Розпродаж",
@@ -457,7 +459,7 @@
     },
     "page_titles": {
       "addresses": "Список адрес",
-      "shopping_cart": "Ваша корзина",
+      "shopping_cart": "Ваш кошик",
       "account": "Профіль"
     },
     "filters": {

@@ -1312,7 +1312,7 @@
         "heading_size": "h4",
         "subheading": "",
         "button_label": "ПОКАЗАТИ БІЛЬШЕ",
-        "button_link": "shopify://collections/нові-надходження",
+        "button_link": "shopify://collections/new-arrivals",
         "button_style": "button--filled",
         "max_products": 8,
         "enable_slideshow_overflow": false,

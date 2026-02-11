@@ -55,11 +55,7 @@
     data-label-price-sale="{{ 'product.price_sale' | t }}"
     data-label-price-from="{{ 'product.price_from' | t }}"
     data-label-price-min="{{ 'product.price_min' | t }}"
-    {% if settings.show_currency_codes %}
-      data-money-format = "{{ shop.money_with_currency_format }}"
-    {% else %}
-      data-money-format = "{{ shop.money_format }}"
-    {% endif %}
+    data-money-format = "{{ shop.money_with_currency_format }}"
   >
     {%- if target -%}
 

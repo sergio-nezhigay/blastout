@@ -27,6 +27,27 @@
         <div class="product__price">
           {%- render 'price', product: product, use_variant: true -%}
         </div>
+        {%- if product.metafields.custom.more_info != blank -%}
+          <div class="product__more-info product__more-info--collapsible">
+            <div class="product__more-info-content">
+              {{ product.metafields.custom.more_info }}
+            </div>
+            <button type="button" class="product__more-info-toggle" data-more-info-toggle>
+              <span class="more-info-toggle__more">{{ 'product.read_more' | t }}</span>
+              <span class="more-info-toggle__less">{{ 'product.read_less' | t }}</span>
+            </button>
+          </div>
+        {%- elsif product.description != blank -%}
+          <div class="product__more-info product__more-info--collapsible">
+            <div class="product__more-info-content">
+              {{ product.description }}
+            </div>
+            <button type="button" class="product__more-info-toggle" data-more-info-toggle>
+              <span class="more-info-toggle__more">{{ 'product.read_more' | t }}</span>
+              <span class="more-info-toggle__less">{{ 'product.read_less' | t }}</span>
+            </button>
+          </div>
+        {%- endif -%}
       </div>
 
       <product-card class="product-card product-card__quick-cart">
@@ -71,7 +92,7 @@
                       {%- if options.size > 0 -%}
                         <fieldset class="product__variant-options js-product-card-options">
                           <legend>
-                            {{ product.options_with_values[forloop.index0].name -}}
+                            {{ 'product_options.' | append: product.options_with_values[forloop.index0].name | downcase | t | upcase -}}
                             <span data-selected-variant>
                               {{- product.options_with_values[forloop.index0].selected_value -}}
                             </span>
@@ -120,7 +141,7 @@
                             -%}
 
                             <div class="button--variant{% if opt_swatch %} button--swatch{% if settings.swatches_shape == 'circle' %} button--swatch-rounded{% endif %}{% endif %}" tabindex="0">
-                              {%- render 'product-option', id: input_id, name: input_name, value: opt, swatch_value: opt.swatch, class: 'hidden variant-option-radio-input', visually_hidden: true, product: product, option: options, where: 'quick-cart-product' -%}
+                              {%- render 'product-option', id: input_id, name: input_name, value: opt, swatch_value: opt.swatch, checked: input_is_checked, class: 'hidden variant-option-radio-input', visually_hidden: true, product: product, option: options, where: 'quick-cart-product' -%}
                             </div>
                           {%- endfor -%}
                         </fieldset>

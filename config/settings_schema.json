@@ -1216,6 +1216,17 @@
         "id": "show_newsletter_form_terms",
         "label": "t:settings_schema.global.settings.show_newsletter_form_terms.label",
         "default": false
+      },
+      {
+        "type": "header",
+        "content": "Product inline badge"
+      },
+      {
+        "type": "text",
+        "id": "product_inline_badge_text",
+        "label": "Product inline badge text",
+        "default": "LIMITED",
+        "info": "Text displayed next to the product title for preorder/limited products. Leave empty to hide."
       }
     ]
   },

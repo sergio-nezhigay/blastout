@@ -100,6 +100,8 @@
     "view_product": "View product",
     "go_to_title": "Go to {{title}}",
     "go_back": "Go back",
+    "read_more": "READ MORE +",
+    "read_less": "SHOW LESS −",
     "unavailable": "Unavailable",
     "sold_out": "Sold out",
     "on_sale": "Sale",
@@ -468,7 +470,7 @@
   "product_options": {
     "size": "SIZE",
     "color": "COLOUR",
-    "colour": "COLOUR",
+    "colour": "COLOR",
     "material": "MATERIAL",
     "style": "STYLE"
   },
@@ -478,6 +480,15 @@
     },
     "StockCounter": {
       "let_buy_now": "<mark> HURRY!</mark> LET'S BUY NOW"
+    }
+  },
+  "shopify": {
+    "filters": {
+      "availability": {
+        "value": {
+          "out_of_stock": "Pre-order"
+        }
+      }
     }
   }
 }
