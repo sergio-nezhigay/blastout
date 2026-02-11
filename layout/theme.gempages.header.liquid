@@ -22,8 +22,6 @@
     {%- unless settings.type_heading_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
-    <link rel="stylesheet" href="https://cdn.yourcdn.com/fonts/helvetica-neue.css">
-
     {% render 'meta-tags' %}
     <script src="{{- 'swiper-bundle.min.js' | asset_url -}}" defer="defer"></script>
     <script src="{{- 'bodyScrollLock.min.js' | asset_url -}}" defer="defer"></script>
@@ -31,7 +29,9 @@
     <script src="{{- 'global.js' | asset_url -}}" defer="defer"></script>
     <noscript>
       <style>
-        img[loading='lazy'] { opacity: 1; }
+        img[loading='lazy'] {
+          opacity: 1;
+        }
       </style>
     </noscript>
     <script src="{{ 'cookies.js' | asset_url }}" defer="defer"></script>
@@ -55,7 +55,7 @@
     {%- endunless -%}
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
-      {%- endunless -%}
+    {%- endunless -%}
     {% comment %}theme-check-enable AssetPreload{% endcomment %}
 
     <script>
@@ -77,11 +77,7 @@
       {{ content_for_layout }}
     </main>
 
-    <footer class="js-animation-fade-in">
-      
-    </footer>
-
-    
+    <footer class="js-animation-fade-in"></footer>
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{- 'theme.accessibility.refresh_page' | t -}}</li>
@@ -129,12 +125,8 @@
 
     {% if settings.back_to_top_button != 'disable' %}
       <back-to-top class="hide">
-        <button href="#" class="button back-to-top {{ settings.back_to_top_button }}">
-          
-        </button>
+        <button href="#" class="button back-to-top {{ settings.back_to_top_button }}"></button>
       </back-to-top>
     {% endif %}
-
-    
   </body>
 </html>

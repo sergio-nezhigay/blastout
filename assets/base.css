@@ -1,8 +1,15 @@
 /* Release Theme - v2.0.1 */
 @font-face {
   font-family: 'Helvetica Neue';
-  src: url('https://cdn.yourcdn.com/fonts/helvetica-neue.woff2') format('woff2');
-  font-weight: 300 900;
+  src: url('HelveticaNeueCyr-Roman.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('HelveticaNeueCyr-Bold.woff2') format('woff2');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }

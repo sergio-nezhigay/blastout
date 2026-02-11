@@ -36,6 +36,20 @@
 
 {%- style -%}
   /* typography - body */
+  @font-face {
+    font-family: 'Helvetica Neue';
+    src: url('{{ "HelveticaNeueCyr-Roman.woff2" | asset_url }}') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Neue';
+    src: url('{{ "HelveticaNeueCyr-Bold.woff2" | asset_url }}') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
   {{ settings.type_body_font | font_face: font_display: 'swap' }}
   {{ body_font_normal | font_face: font_display: 'swap' }}
   {{ body_font_medium | font_face: font_display: 'swap' }}
