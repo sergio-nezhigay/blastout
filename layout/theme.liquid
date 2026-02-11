@@ -139,6 +139,9 @@
         addSubscriptionToCart: 'Add subscription to cart',
         preOrder: '{{ 'product.preorder' | t }}'
       }
+      window.paymentButtonStrings = {
+        buttonText: {{ 'product.payment_button' | t | json }}
+      };
       window.validationStrings = {
         invalidEmail: '{{ 'theme.form.invalid_email' | t }}'
       }
@@ -158,25 +161,9 @@
 
     {% render 'subify-snippet' %}
 
-    {% if request.locale.iso_code == 'uk' %}
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          function fixButtons() {
-            const selectors = '.shopify-payment-button button, .shopify-payment-button__button--unbranded';
-            document.querySelectorAll(selectors).forEach((btn) => {
-              const text = btn.textContent.trim();
-              if (text === 'Buy it now' || text === 'Buy Now') {
-                btn.textContent = 'Купити зараз';
-              }
-            });
-          }
-
-          fixButtons(); // Запуск при завантаженні
-
-          const observer = new MutationObserver(fixButtons);
-          observer.observe(document.body, { childList: true, subtree: true });
-        });
-      </script>
-    {% endif %}
+    {%- comment -%}
+      Payment Button Translation System - Loads external translator script
+    {%- endcomment -%}
+    <script src="{{- 'payment-button-translator.js' | asset_url -}}" defer="defer"></script>
   </body>
 </html>
