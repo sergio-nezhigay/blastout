@@ -25,8 +25,8 @@
         </div>
 
         {%- comment -%}Pre-order information - shows when variant is unavailable{%- endcomment -%}
-        <div class="preorder-note hidden" data-preorder-info>
-          limited edition fabrics!
+        <div class="preorder-note{% unless product_preorder %} hidden{% endunless %}" data-preorder-info>
+          Лімітована партія тканин!
         </div>
 
         <div class="product__price">

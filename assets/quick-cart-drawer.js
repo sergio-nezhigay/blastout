@@ -136,7 +136,8 @@ if (!customElements.get("quick-cart-drawer")) {
         );
 
         // Add preorder elements if product has preorder flag
-        if (trigger.dataset.preorder === "true") {
+        const loadedProductCard = this.querySelector("product-card");
+        if (loadedProductCard?.hasAttribute("data-is-preorder")) {
           this.addPreorderElements();
         }
 
@@ -270,19 +271,19 @@ if (!customElements.get("quick-cart-drawer")) {
     }
 
     addPreorderElements() {
-      const productTitle = this.querySelector('.product__title .text-link--on-load');
-      const quantityDiv = this.querySelector('.product-selector__quantity');
-
-      if (productTitle && !productTitle.querySelector('.inline-badge')) {
-        const badgeText = document.querySelector('[data-preorder-badge-text]')?.dataset.preorderBadgeText || 'ЛІМІТОВАНА ПАРТІЯ ТКАНИН';
-        const badge = document.createElement('span');
-        badge.className = 'inline-badge';
-        badge.textContent = badgeText;
-        productTitle.insertAdjacentElement('afterend', document.createElement('br'));
-        productTitle.insertAdjacentElement('afterend', badge);
+      // Show the preorder-note div that's already in the template
+      const preorderNote = this.querySelector('[data-preorder-info]');
+      if (preorderNote) {
+        preorderNote.classList.remove('hidden');
       }
 
-      if (quantityDiv && !quantityDiv.nextElementSibling?.classList.contains('product__preorder-warning')) {
+      // Show warning below quantity (create if doesn't exist)
+      const quantityDiv = this.querySelector('.product-selector__quantity');
+      const existingWarning = this.querySelector('.product__preorder-warning');
+
+      if (existingWarning) {
+        existingWarning.classList.remove('hidden');
+      } else if (quantityDiv) {
         const warningText = document.querySelector('[data-preorder-warning-text]')?.dataset.preorderWarningText || 'ВАЖЛИВО! ТОВАРИ ЗА ПОПЕРЕДНІМ ЗАМОВЛЕННЯМ ВИГОТОВЛЯЮТЬСЯ ПРОТЯГОМ 7-15 РОБОЧИХ ДНІВ. ДЯКУЄМО ЗА ВАШУ ДОВІРУ.';
         const warning = document.createElement('div');
         warning.className = 'product__preorder-warning';

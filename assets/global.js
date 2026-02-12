@@ -2739,7 +2739,9 @@ if (!customElements.get("product-card")) {
           // In quick cart, the form is a regular <form>, not <product-form>
           const form = this.querySelector('form.product__form');
           const paymentButton = form?.querySelector('.shopify-payment-button__button');
-          const preorderInfo = this.querySelector('[data-preorder-info]');
+          // preorder-info is outside product-card, so look in the parent container
+          const preorderInfo = this.closest('.quick-cart-product')?.querySelector('[data-preorder-info]');
+          const preorderWarning = this.closest('.quick-cart-product')?.querySelector('.product__preorder-warning');
 
           if (!currentVariantAvailable) {
             form?.setAttribute('data-is-preorder', 'true');
@@ -2750,6 +2752,20 @@ if (!customElements.get("product-card")) {
             if (preorderInfo) {
               preorderInfo.classList.remove('hidden');
             }
+            // Show pre-order warning (create if doesn't exist)
+            if (preorderWarning) {
+              preorderWarning.classList.remove('hidden');
+            } else {
+              // Create warning if it doesn't exist
+              const quantityDiv = this.querySelector('.product-selector__quantity');
+              if (quantityDiv) {
+                const warningText = document.querySelector('[data-preorder-warning-text]')?.dataset.preorderWarningText || 'ВАЖЛИВО! ТОВАРИ ЗА ПОПЕРЕДНІМ ЗАМОВЛЕННЯМ ВИГОТОВЛЯЮТЬСЯ ПРОТЯГОМ 7-15 РОБОЧИХ ДНІВ. ДЯКУЄМО ЗА ВАШУ ДОВІРУ.';
+                const warning = document.createElement('div');
+                warning.className = 'product__preorder-warning';
+                warning.innerHTML = warningText;
+                quantityDiv.insertAdjacentElement('afterend', warning);
+              }
+            }
           } else {
             form?.removeAttribute('data-is-preorder');
             if (paymentButton) {
@@ -2758,6 +2774,10 @@ if (!customElements.get("product-card")) {
             // Hide pre-order info
             if (preorderInfo) {
               preorderInfo.classList.add('hidden');
+            }
+            // Hide pre-order warning
+            if (preorderWarning) {
+              preorderWarning.classList.add('hidden');
             }
           }
         } else {
