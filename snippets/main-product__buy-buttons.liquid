@@ -28,16 +28,6 @@
     if current_selling_plan_allocation == null and current_variant.requires_selling_plan
       assign current_selling_plan_allocation = current_variant.selling_plan_allocations | first
     endif
-
-    # preorder - если товар недоступен или нет на складе, это предзаказ
-    assign product_preorder = false
-    if current_variant != nil
-      if current_variant.available == false
-        assign product_preorder = true
-      elsif current_variant.inventory_management != nil and current_variant.inventory_quantity <= 0
-        assign product_preorder = true
-      endif
-    endif
   -%}
 
   <product-form
@@ -47,9 +37,6 @@
     {% unless current_selling_plan_allocation == null %}
       data-has-selling-plan
     {% endunless %}
-    {% if product_preorder %}
-      data-has-pre-order
-    {% endif %}
   >
     {%- form 'product',
       product,
@@ -162,8 +149,6 @@
           <span>
             {%- if product.selected_or_first_available_variant == nil -%}
               {{ 'product.unavailable' | t }}
-            {%- elsif product_preorder -%}
-              {{ 'product.preorder' | t }}
             {%- else -%}
               {{ 'theme.actions.add_to_cart' | t }}
             {%- endif -%}

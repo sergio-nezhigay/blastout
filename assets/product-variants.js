@@ -464,16 +464,12 @@ if (!customElements.get('product-info')) {
           const inventoryQuantity = inventoryElement ? parseInt(inventoryElement.dataset.inventoryQuantity) : null;
           const isOutOfStock = inventoryQuantity !== null && inventoryQuantity <= 0;
 
-
-
-          // Update button text based on variant availability and inventory
+          // Update button text based on variant availability
           if (!variant) {
+            // No variant selected = disabled "Unavailable"
             this.productForm?.toggleSubmitButton(true, window.variantStrings.unavailable);
-          } else if (!variant.available || isOutOfStock) {
-            // Unavailable or out of stock = preorder (always enabled)
-            this.productForm?.toggleSubmitButton(false, window.variantStrings.preOrder);
           } else {
-            // Available = normal add to cart
+            // All other cases (in stock, out of stock, unavailable) = enabled "Add to cart"
             this.productForm?.toggleSubmitButton(false);
           }
 
