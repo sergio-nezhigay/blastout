@@ -40,22 +40,8 @@
                        document.querySelector('product-form[data-is-preorder]');
     const isPreorder = productForm?.hasAttribute('data-is-preorder');
 
-    console.log('🔍 PAYMENT BUTTON TRANSLATOR:');
-    console.log('  Button:', button);
-    console.log('  Button text BEFORE:', button.textContent);
-    console.log('  Closest product-form:', button.closest('product-form'));
-    console.log('  Closest form.product__form:', button.closest('form.product__form'));
-    console.log('  Found form:', productForm);
-    console.log('  Form has data-is-preorder attr:', productForm?.hasAttribute('data-is-preorder'));
-    console.log('  Is preorder:', isPreorder);
-    console.log('  Will set text to:', isPreorder ? preorderText : translatedText);
-    console.log('  preorderText value:', preorderText);
-    console.log('  translatedText value:', translatedText);
-
     // Apply appropriate translation
-    const newText = isPreorder ? preorderText : translatedText;
-    button.textContent = newText;
-    console.log('  Button text AFTER:', button.textContent);
+    button.textContent = isPreorder ? preorderText : translatedText;
     processedButtons.add(button);
   }
 
@@ -114,7 +100,6 @@
     if (observedForms.has(form)) return;
 
     const attrObserver = new MutationObserver(() => {
-      console.log('🔍 FORM ATTRIBUTE CHANGED:', form);
       // Force re-translation of all payment buttons
       document.querySelectorAll(BUTTON_SELECTOR).forEach(button => {
         translateButton(button, true);

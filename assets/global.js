@@ -2216,34 +2216,23 @@ if (!customElements.get("product-card")) {
         this.querySelector(".quick-cart-drawer__trigger")?.remove();
       }
 
-      // DEBUG: Check initial state for quick cart
+      // Initialize quick cart pre-order state
       if (this.classList.contains('product-card__quick-cart')) {
-        console.log('🔍 INITIAL STATE DEBUG:');
-        console.log('  Product card has data-is-preorder:', this.hasAttribute('data-is-preorder'));
         const form = this.querySelector('.product__form');
-        console.log('  Form has data-is-preorder BEFORE:', form?.hasAttribute('data-is-preorder'));
 
-        // CRITICAL FIX: Copy data-is-preorder from product-card to form
+        // Copy data-is-preorder from product-card to form
         // Inline scripts don't execute when content is loaded via innerHTML
         if (this.hasAttribute('data-is-preorder') && form) {
           form.setAttribute('data-is-preorder', 'true');
-          console.log('  ✅ COPIED data-is-preorder from product-card to form');
-          console.log('  Form has data-is-preorder AFTER:', form.hasAttribute('data-is-preorder'));
 
           // Manually trigger payment button translation
           setTimeout(() => {
             const paymentButton = form.querySelector('.shopify-payment-button__button, .shopify-payment-button__button--unbranded');
             if (paymentButton && window.paymentButtonStrings?.preorderButtonText) {
-              console.log('  🔄 Manually updating payment button text');
               paymentButton.textContent = window.paymentButtonStrings.preorderButtonText;
-              console.log('  Payment button text updated to:', paymentButton.textContent);
             }
           }, 100);
         }
-
-        const paymentButton = this.querySelector('.shopify-payment-button__button');
-        console.log('  Payment button text:', paymentButton?.textContent);
-        console.log('  Payment button found:', !!paymentButton);
       }
     }
 
@@ -2752,31 +2741,19 @@ if (!customElements.get("product-card")) {
           const paymentButton = form?.querySelector('.shopify-payment-button__button');
           const preorderInfo = this.querySelector('[data-preorder-info]');
 
-          console.log('🔍 VARIANT CHANGE DEBUG:');
-          console.log('  currentVariantAvailable:', currentVariantAvailable);
-          console.log('  paymentButton found:', !!paymentButton);
-          console.log('  form element:', form);
-          console.log('  window.paymentButtonStrings:', window.paymentButtonStrings);
-
           if (!currentVariantAvailable) {
-            console.log('  ✅ Setting PRE-ORDER mode');
             form?.setAttribute('data-is-preorder', 'true');
             if (paymentButton) {
-              const newText = window.paymentButtonStrings?.preorderButtonText || 'Pre-order now';
-              console.log('  Setting payment button to:', newText);
-              paymentButton.textContent = newText;
+              paymentButton.textContent = window.paymentButtonStrings?.preorderButtonText || 'Pre-order now';
             }
             // Show pre-order info
             if (preorderInfo) {
               preorderInfo.classList.remove('hidden');
             }
           } else {
-            console.log('  ✅ Setting NORMAL mode');
             form?.removeAttribute('data-is-preorder');
             if (paymentButton) {
-              const newText = window.paymentButtonStrings?.buttonText || 'Buy now';
-              console.log('  Setting payment button to:', newText);
-              paymentButton.textContent = newText;
+              paymentButton.textContent = window.paymentButtonStrings?.buttonText || 'Buy now';
             }
             // Hide pre-order info
             if (preorderInfo) {
@@ -2837,14 +2814,6 @@ if (!customElements.get("product-card")) {
         ) {
           currentVariantId = item.id;
 
-          // Debug: Log full variant object to see what data is available
-          console.log('🔍 VARIANT OBJECT:', item);
-          console.log('  ID:', item.id);
-          console.log('  available:', item.available);
-          console.log('  inventory_management:', item.inventory_management);
-          console.log('  inventory_quantity:', item.inventory_quantity);
-          console.log('  inventory_policy:', item.inventory_policy);
-
           // Use same pre-order logic as Liquid template
           // Check if variant is truly unavailable (not just "Continue selling when out of stock")
           let isPreorder = false;
@@ -2853,8 +2822,6 @@ if (!customElements.get("product-card")) {
           } else if (item.inventory_management && item.inventory_quantity <= 0) {
             isPreorder = true;
           }
-
-          console.log('  👉 Calculated isPreorder:', isPreorder);
 
           // For backward compatibility, currentVariantAvailable means "NOT preorder"
           currentVariantAvailable = !isPreorder;

@@ -76,16 +76,6 @@
         endif
       -%}
 
-      <script>
-        console.log('🔍 QUICK CART DEBUG - Product: {{ product.title }}');
-        console.log('  Variant ID: {{ current_variant.id }}');
-        console.log('  Available: {{ current_variant.available }}');
-        console.log('  Inventory Management: {{ current_variant.inventory_management }}');
-        console.log('  Inventory Quantity: {{ current_variant.inventory_quantity }}');
-        console.log('  Metafield Preorder: {{ product.metafields.theme.preorder.value }}');
-        console.log('  👉 Final product_preorder: {{ product_preorder }}');
-      </script>
-
       <product-card class="product-card product-card__quick-cart"{% if product_preorder %} data-is-preorder="true"{% endif %}>
         {% comment %} Product Variants || Options || Swatches {% endcomment %}
         {%- assign variants = product.variants -%}
@@ -215,43 +205,6 @@
           class: 'product-card__add-to-cart--form product__form product__form--inline',
           novalidate: 'novalidate'
         -%}
-          <script>
-            (function() {
-              // Set data-is-preorder on form for payment button translator
-              const form = document.currentScript.closest('form');
-              const isPreorder = {{ product_preorder | json }};
-
-              console.log('📝 FORM INITIALIZATION:');
-              console.log('  Form element:', form);
-              console.log('  product_preorder from Liquid:', isPreorder);
-              console.log('  Form classes:', form?.className);
-
-              if (isPreorder) {
-                form.setAttribute('data-is-preorder', 'true');
-                console.log('  ✅ Set data-is-preorder="true" on form');
-              }
-
-              // Force payment button check multiple times (wait for Shopify to inject button)
-              function checkAndUpdatePaymentButton(attempt = 1) {
-                const paymentBtn = form.querySelector('.shopify-payment-button__button, .shopify-payment-button__button--unbranded');
-                console.log(`  [Attempt ${attempt}] Payment button:`, paymentBtn);
-                console.log(`  [Attempt ${attempt}] Payment button text:`, paymentBtn?.textContent);
-                console.log(`  [Attempt ${attempt}] Form has data-is-preorder:`, form.hasAttribute('data-is-preorder'));
-
-                if (paymentBtn && isPreorder) {
-                  const targetText = window.paymentButtonStrings?.preorderButtonText || 'Pre-order now';
-                  console.log(`  [Attempt ${attempt}] Manually setting button text to:`, targetText);
-                  paymentBtn.textContent = targetText;
-                  console.log(`  [Attempt ${attempt}] Button text after manual set:`, paymentBtn.textContent);
-                } else if (attempt < 5) {
-                  // Try again
-                  setTimeout(() => checkAndUpdatePaymentButton(attempt + 1), 200);
-                }
-              }
-
-              checkAndUpdatePaymentButton();
-            })();
-          </script>
           <input type="hidden" name="id" value="{{- product.first_available_variant.id -}}">
           <div class="product-selector__quantity">
             {%- render 'quantity-input', product: product, hide_label: true -%}
