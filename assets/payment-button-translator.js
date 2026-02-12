@@ -33,12 +33,29 @@
     // Validate it's a payment button
     if (!button.matches(BUTTON_SELECTOR)) return;
 
-    // Check if product is in pre-order state
-    const productForm = button.closest('product-form') || document.querySelector('product-form[data-is-preorder]');
+    // Check if product is in pre-order state - try multiple selectors
+    const productForm = button.closest('product-form') ||
+                       button.closest('form.product__form') ||
+                       button.closest('form[data-is-preorder]') ||
+                       document.querySelector('product-form[data-is-preorder]');
     const isPreorder = productForm?.hasAttribute('data-is-preorder');
 
+    console.log('🔍 PAYMENT BUTTON TRANSLATOR:');
+    console.log('  Button:', button);
+    console.log('  Button text BEFORE:', button.textContent);
+    console.log('  Closest product-form:', button.closest('product-form'));
+    console.log('  Closest form.product__form:', button.closest('form.product__form'));
+    console.log('  Found form:', productForm);
+    console.log('  Form has data-is-preorder attr:', productForm?.hasAttribute('data-is-preorder'));
+    console.log('  Is preorder:', isPreorder);
+    console.log('  Will set text to:', isPreorder ? preorderText : translatedText);
+    console.log('  preorderText value:', preorderText);
+    console.log('  translatedText value:', translatedText);
+
     // Apply appropriate translation
-    button.textContent = isPreorder ? preorderText : translatedText;
+    const newText = isPreorder ? preorderText : translatedText;
+    button.textContent = newText;
+    console.log('  Button text AFTER:', button.textContent);
     processedButtons.add(button);
   }
 
@@ -60,6 +77,9 @@
             // Check for payment buttons in descendants
             if (node.querySelectorAll) {
               node.querySelectorAll(BUTTON_SELECTOR).forEach(translateButton);
+
+              // Also set up attribute observers for any new forms
+              node.querySelectorAll('product-form, form.product__form').forEach(observeFormAttributes);
             }
           }
         });
@@ -86,23 +106,36 @@
   }
 
   /**
-   * Setup attribute observer to re-translate when data-is-preorder changes
+   * Observe a single form for data-is-preorder attribute changes
    */
-  function setupAttributeObserver() {
-    const productForm = document.querySelector('product-form');
-    if (!productForm) return;
+  const observedForms = new WeakSet();
+  function observeFormAttributes(form) {
+    // Skip if already observing this form
+    if (observedForms.has(form)) return;
 
     const attrObserver = new MutationObserver(() => {
+      console.log('🔍 FORM ATTRIBUTE CHANGED:', form);
       // Force re-translation of all payment buttons
       document.querySelectorAll(BUTTON_SELECTOR).forEach(button => {
         translateButton(button, true);
       });
     });
 
-    attrObserver.observe(productForm, {
+    attrObserver.observe(form, {
       attributes: true,
       attributeFilter: ['data-is-preorder']
     });
+
+    observedForms.add(form);
+  }
+
+  /**
+   * Setup attribute observer to re-translate when data-is-preorder changes
+   */
+  function setupAttributeObserver() {
+    // Watch both <product-form> and regular <form> elements
+    const forms = document.querySelectorAll('product-form, form[data-is-preorder], form.product__form');
+    forms.forEach(observeFormAttributes);
   }
 
   /**

@@ -2215,6 +2215,36 @@ if (!customElements.get("product-card")) {
       if (!document.querySelector("quick-cart-drawer")) {
         this.querySelector(".quick-cart-drawer__trigger")?.remove();
       }
+
+      // DEBUG: Check initial state for quick cart
+      if (this.classList.contains('product-card__quick-cart')) {
+        console.log('🔍 INITIAL STATE DEBUG:');
+        console.log('  Product card has data-is-preorder:', this.hasAttribute('data-is-preorder'));
+        const form = this.querySelector('.product__form');
+        console.log('  Form has data-is-preorder BEFORE:', form?.hasAttribute('data-is-preorder'));
+
+        // CRITICAL FIX: Copy data-is-preorder from product-card to form
+        // Inline scripts don't execute when content is loaded via innerHTML
+        if (this.hasAttribute('data-is-preorder') && form) {
+          form.setAttribute('data-is-preorder', 'true');
+          console.log('  ✅ COPIED data-is-preorder from product-card to form');
+          console.log('  Form has data-is-preorder AFTER:', form.hasAttribute('data-is-preorder'));
+
+          // Manually trigger payment button translation
+          setTimeout(() => {
+            const paymentButton = form.querySelector('.shopify-payment-button__button, .shopify-payment-button__button--unbranded');
+            if (paymentButton && window.paymentButtonStrings?.preorderButtonText) {
+              console.log('  🔄 Manually updating payment button text');
+              paymentButton.textContent = window.paymentButtonStrings.preorderButtonText;
+              console.log('  Payment button text updated to:', paymentButton.textContent);
+            }
+          }, 100);
+        }
+
+        const paymentButton = this.querySelector('.shopify-payment-button__button');
+        console.log('  Payment button text:', paymentButton?.textContent);
+        console.log('  Payment button found:', !!paymentButton);
+      }
     }
 
     /**
@@ -2253,6 +2283,12 @@ if (!customElements.get("product-card")) {
       delete config.headers["Content-Type"];
 
       const formData = new FormData(event.target);
+      const variantId = formData.get('id');
+      const quantity = formData.get('quantity');
+
+      console.log('[DEBUG] Submitting to cart - variant ID:', variantId);
+      console.log('[DEBUG] Submitting to cart - quantity:', quantity);
+
       if (this.cart) {
         formData.append(
           "sections",
@@ -2266,9 +2302,73 @@ if (!customElements.get("product-card")) {
       config.body = formData;
 
       fetch(`${routes.cart_add_url}`, config)
-        .then(response => response.json())
         .then(response => {
+          console.log('[DEBUG] Cart add response status:', response.status);
+
+          // For unavailable items, Shopify returns 422
+          // We'll handle this by trying a non-AJAX form submit
+          if (response.status === 422) {
+            return response.json().then(errorData => {
+              console.log('[DEBUG] Got 422 error for unavailable item:', errorData);
+              // Return special marker to handle in next then()
+              return { _unavailable: true, _variantId: variantId, _quantity: quantity, _errorData: errorData };
+            });
+          }
+
+          return response.json();
+        })
+        .then(response => {
+          console.log('[DEBUG] Cart add response:', response);
+
+          // Handle unavailable item special case
+          if (response._unavailable) {
+            console.log('[DEBUG] Handling unavailable item - using form submit approach');
+
+            // Create a temporary form for non-AJAX submission
+            const tempForm = document.createElement('form');
+            tempForm.method = 'POST';
+            tempForm.action = '/cart/add';
+
+            const idInput = document.createElement('input');
+            idInput.type = 'hidden';
+            idInput.name = 'id';
+            idInput.value = response._variantId;
+            tempForm.appendChild(idInput);
+
+            const qtyInput = document.createElement('input');
+            qtyInput.type = 'hidden';
+            qtyInput.name = 'quantity';
+            qtyInput.value = response._quantity;
+            tempForm.appendChild(qtyInput);
+
+            // Add return_to parameter to stay on same page
+            const returnInput = document.createElement('input');
+            returnInput.type = 'hidden';
+            returnInput.name = 'return_to';
+            returnInput.value = 'back';
+            tempForm.appendChild(returnInput);
+
+            document.body.appendChild(tempForm);
+
+            // Submit form (will add to cart and redirect back)
+            tempForm.submit();
+            return;
+          }
+
+          if (response.status) {
+            console.error('[DEBUG] Cart API returned error status:', response.status);
+          }
+
+          if (response.message) {
+            console.error('[DEBUG] Cart API error message:', response.message);
+          }
+
+          if (response.description) {
+            console.error('[DEBUG] Cart API error description:', response.description);
+          }
+
           if (response.errors) {
+            console.error('[DEBUG] Cart API errors:', response.errors);
             this.handleErrorMessage(response.errors);
             return;
           }
@@ -2279,7 +2379,9 @@ if (!customElements.get("product-card")) {
 
           updateCartCounters();
         })
-        .catch((error) => { console.error(error) })
+        .catch((error) => {
+          console.error('[DEBUG] Cart add fetch error:', error);
+        })
         .finally(() => {
           this.submitButton.removeAttribute("disabled");
           this.submitButton.classList.remove(
@@ -2645,17 +2747,40 @@ if (!customElements.get("product-card")) {
           // Always keep button enabled in quick cart drawer
           submitBtn.removeAttribute("disabled");
 
-          // Set preorder attribute and update payment button text
-          const paymentButton = productForm?.querySelector('.shopify-payment-button__button');
+          // In quick cart, the form is a regular <form>, not <product-form>
+          const form = this.querySelector('form.product__form');
+          const paymentButton = form?.querySelector('.shopify-payment-button__button');
+          const preorderInfo = this.querySelector('[data-preorder-info]');
+
+          console.log('🔍 VARIANT CHANGE DEBUG:');
+          console.log('  currentVariantAvailable:', currentVariantAvailable);
+          console.log('  paymentButton found:', !!paymentButton);
+          console.log('  form element:', form);
+          console.log('  window.paymentButtonStrings:', window.paymentButtonStrings);
+
           if (!currentVariantAvailable) {
-            productForm?.setAttribute('data-is-preorder', 'true');
+            console.log('  ✅ Setting PRE-ORDER mode');
+            form?.setAttribute('data-is-preorder', 'true');
             if (paymentButton) {
-              paymentButton.textContent = window.paymentButtonStrings?.preorderButtonText || 'Pre-order now';
+              const newText = window.paymentButtonStrings?.preorderButtonText || 'Pre-order now';
+              console.log('  Setting payment button to:', newText);
+              paymentButton.textContent = newText;
+            }
+            // Show pre-order info
+            if (preorderInfo) {
+              preorderInfo.classList.remove('hidden');
             }
           } else {
-            productForm?.removeAttribute('data-is-preorder');
+            console.log('  ✅ Setting NORMAL mode');
+            form?.removeAttribute('data-is-preorder');
             if (paymentButton) {
-              paymentButton.textContent = window.paymentButtonStrings?.buttonText || 'Buy now';
+              const newText = window.paymentButtonStrings?.buttonText || 'Buy now';
+              console.log('  Setting payment button to:', newText);
+              paymentButton.textContent = newText;
+            }
+            // Hide pre-order info
+            if (preorderInfo) {
+              preorderInfo.classList.add('hidden');
             }
           }
         } else {
@@ -2711,7 +2836,28 @@ if (!customElements.get("product-card")) {
             currentCheckedOptions.length === 0)
         ) {
           currentVariantId = item.id;
-          currentVariantAvailable = item.available;
+
+          // Debug: Log full variant object to see what data is available
+          console.log('🔍 VARIANT OBJECT:', item);
+          console.log('  ID:', item.id);
+          console.log('  available:', item.available);
+          console.log('  inventory_management:', item.inventory_management);
+          console.log('  inventory_quantity:', item.inventory_quantity);
+          console.log('  inventory_policy:', item.inventory_policy);
+
+          // Use same pre-order logic as Liquid template
+          // Check if variant is truly unavailable (not just "Continue selling when out of stock")
+          let isPreorder = false;
+          if (item.available === false) {
+            isPreorder = true;
+          } else if (item.inventory_management && item.inventory_quantity <= 0) {
+            isPreorder = true;
+          }
+
+          console.log('  👉 Calculated isPreorder:', isPreorder);
+
+          // For backward compatibility, currentVariantAvailable means "NOT preorder"
+          currentVariantAvailable = !isPreorder;
           currentVariantMediaId = item.featured_media?.id || null;
         }
       });
