@@ -172,7 +172,7 @@
             {%- render 'loading-spinner' -%}
           </div>
         </button>
-        {%- if show_dynamic_checkout and product_preorder == false -%}
+        {%- if show_dynamic_checkout -%}
           {{ form | payment_button }}
         {%- endif -%}
       </div>
