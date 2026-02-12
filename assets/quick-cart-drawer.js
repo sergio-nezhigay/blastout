@@ -284,11 +284,13 @@ if (!customElements.get("quick-cart-drawer")) {
       if (existingWarning) {
         existingWarning.classList.remove('hidden');
       } else if (quantityDiv) {
-        const warningText = document.querySelector('[data-preorder-warning-text]')?.dataset.preorderWarningText || 'ВАЖЛИВО! ТОВАРИ ЗА ПОПЕРЕДНІМ ЗАМОВЛЕННЯМ ВИГОТОВЛЯЮТЬСЯ ПРОТЯГОМ 7-15 РОБОЧИХ ДНІВ. ДЯКУЄМО ЗА ВАШУ ДОВІРУ.';
-        const warning = document.createElement('div');
-        warning.className = 'product__preorder-warning';
-        warning.innerHTML = warningText;
-        quantityDiv.insertAdjacentElement('afterend', warning);
+        const warningText = this.dataset.preorderWarningText;
+        if (warningText) {
+          const warning = document.createElement('div');
+          warning.className = 'product__preorder-warning';
+          warning.innerHTML = warningText;
+          quantityDiv.insertAdjacentElement('afterend', warning);
+        }
       }
     }
 

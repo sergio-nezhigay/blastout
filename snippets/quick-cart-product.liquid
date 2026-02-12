@@ -25,9 +25,9 @@
         </div>
 
         {%- comment -%}Pre-order information - shows when variant is unavailable{%- endcomment -%}
-        <div class="preorder-note{% unless product_preorder %} hidden{% endunless %}" data-preorder-info>
-          Лімітована партія тканин!
-        </div>
+        <span class="inline-badge{% unless product_preorder %} hidden{% endunless %}" data-preorder-info>
+          {{ 'product.preorder_note' | t }}
+        </span>
 
         <div class="product__price">
           {%- render 'price', product: product, use_variant: true -%}

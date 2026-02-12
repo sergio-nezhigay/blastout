@@ -280,7 +280,7 @@ quick-cart-drawer .product__content.justify-center > * {
   }
 }
 /* Product title */
-quick-cart-drawer .product__title {
+.quick-cart-drawer__main .product__title {
   color: rgb(var(--color-primary-text));
   font-size: var(--font-size-static-lg);
   line-height: var(--line-height-static-sm);
@@ -296,9 +296,18 @@ quick-cart-drawer .product__title {
   gap: .8rem;
 }
 
-quick-cart-drawer .product__title .inline-badge {
+.quick-cart-drawer__main .inline-badge {
   display: inline-block;
+  background-color: #000;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.4rem 0.6rem;
+  text-transform: uppercase;
+  border-radius: 0.2rem;
+  font-weight: 600;
   margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
 }
 
 quick-cart-drawer .product-card__variants--list {
