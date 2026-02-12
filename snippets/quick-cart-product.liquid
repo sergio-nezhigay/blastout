@@ -175,7 +175,7 @@
           <div class="product-selector__quantity">
             {%- render 'quantity-input', product: product, hide_label: true -%}
           </div>
-          <button type="submit" class="button button--filled button--uppercase"{% unless product.available %} disabled{% endunless %}>
+          <button type="submit" class="button button--filled button--uppercase">
             <span>
               {%- if product_preorder -%}
                 {{- 'product.preorder' | t -}}
@@ -184,9 +184,7 @@
               {%- endif -%}
             </span>
           </button>
-          {% if product_preorder == false %}
-            {{- form | payment_button -}}
-          {% endif %}
+          {{- form | payment_button -}}
           <div class="product-form__error-message-wrapper" role="alert" hidden>
             <span class="product-form__error-icon">{% render 'icon', icon_name: 'theme-warning' %}</span>
             <span class="product-form__error-message"></span>
