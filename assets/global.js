@@ -2253,12 +2253,6 @@ if (!customElements.get("product-card")) {
       delete config.headers["Content-Type"];
 
       const formData = new FormData(event.target);
-
-      // Debug: Log form data
-      console.log('[DEBUG] Form submission - variant ID:', formData.get('id'));
-      console.log('[DEBUG] Form submission - quantity:', formData.get('quantity'));
-      console.log('[DEBUG] Form submission - all data:', Object.fromEntries(formData));
-
       if (this.cart) {
         formData.append(
           "sections",
@@ -2272,38 +2266,20 @@ if (!customElements.get("product-card")) {
       config.body = formData;
 
       fetch(`${routes.cart_add_url}`, config)
+        .then(response => response.json())
         .then(response => {
-          console.log('[DEBUG] Response status:', response.status);
-          console.log('[DEBUG] Response headers:', response.headers);
-          return response.text().then(text => {
-            console.log('[DEBUG] Raw response text:', text);
-            try {
-              return JSON.parse(text);
-            } catch (e) {
-              console.error('[DEBUG] Failed to parse JSON:', e);
-              console.error('[DEBUG] Response was:', text);
-              throw new Error('Invalid JSON response');
-            }
-          });
-        })
-        .then(response => {
-          console.log('[DEBUG] Add to cart response:', response);
           if (response.errors) {
-            console.error('[DEBUG] Add to cart errors:', response.errors);
             this.handleErrorMessage(response.errors);
             return;
           }
 
-          console.log('[DEBUG] Item added to cart successfully');
           if (this.cart) {
             this.cart.renderContents(response);
           }
 
           updateCartCounters();
         })
-        .catch((error) => {
-          console.error('[DEBUG] Add to cart fetch error:', error);
-        })
+        .catch((error) => { console.error(error) })
         .finally(() => {
           this.submitButton.removeAttribute("disabled");
           this.submitButton.classList.remove(
@@ -2525,16 +2501,8 @@ if (!customElements.get("product-card")) {
       const { currentVariantId } = this.findCurrentVariantFromOptionRadioInputs();
       const form = this.querySelector('.product-card__add-to-cart--form');
       const input = form?.querySelector('input[name="id"]');
-      console.log('[DEBUG] updateFormVariantIdInput - variantId:', currentVariantId, 'input exists:', !!input, 'form exists:', !!form);
-      if (input) {
-        console.log('[DEBUG] Current input value BEFORE update:', input.value);
-      }
       if (currentVariantId && input) {
         input.value = currentVariantId;
-        console.log('[DEBUG] Updated hidden input to variant ID:', currentVariantId);
-        console.log('[DEBUG] Verified input value AFTER update:', input.value);
-      } else {
-        console.warn('[DEBUG] Could not update variant ID input - variantId:', currentVariantId, 'input:', input);
       }
     }
 
@@ -2736,8 +2704,6 @@ if (!customElements.get("product-card")) {
         }
       );
 
-      console.log('[DEBUG] Checked options:', currentCheckedOptions);
-
       this.variantsObj?.forEach(item => {
         if (
           item.options.join() === currentCheckedOptions.join() ||
@@ -2747,13 +2713,8 @@ if (!customElements.get("product-card")) {
           currentVariantId = item.id;
           currentVariantAvailable = item.available;
           currentVariantMediaId = item.featured_media?.id || null;
-          console.log('[DEBUG] Found variant:', { id: currentVariantId, available: currentVariantAvailable, options: item.options });
         }
       });
-
-      if (!currentVariantId) {
-        console.warn('[DEBUG] No variant found for options:', currentCheckedOptions);
-      }
 
       return {
         currentVariantAvailable,
