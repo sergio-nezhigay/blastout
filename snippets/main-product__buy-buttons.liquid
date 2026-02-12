@@ -28,12 +28,25 @@
     if current_selling_plan_allocation == null and current_variant.requires_selling_plan
       assign current_selling_plan_allocation = current_variant.selling_plan_allocations | first
     endif
+
+    # Detect pre-order products (same logic as in main-product__info-blocks.liquid)
+    assign product_preorder = false
+    if current_variant != nil
+      if current_variant.available == false
+        assign product_preorder = true
+      elsif current_variant.inventory_management != nil and current_variant.inventory_quantity <= 0
+        assign product_preorder = true
+      endif
+    endif
   -%}
 
   <product-form
     class="product-form"
     data-hide-errors="{{ gift_card_recipient_feature_active }}"
     data-section-id="{{ section.id }}"
+    {% if product_preorder %}
+      data-is-preorder="true"
+    {% endif %}
     {% unless current_selling_plan_allocation == null %}
       data-has-selling-plan
     {% endunless %}

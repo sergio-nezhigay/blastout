@@ -473,6 +473,14 @@ if (!customElements.get('product-info')) {
             this.productForm?.toggleSubmitButton(false);
           }
 
+          // Update pre-order state for payment button
+          const isPreorder = !variant || !variant.available || isOutOfStock;
+          if (isPreorder) {
+            this.productForm?.setAttribute('data-is-preorder', 'true');
+          } else {
+            this.productForm?.removeAttribute('data-is-preorder');
+          }
+
           const preorderNote = this.querySelector('.preorder-note');
           if (preorderNote) {
             if (!variant || !variant.available || isOutOfStock) {

@@ -5,7 +5,8 @@
       "Bash(npm run push:*)",
       "Bash(npm run pull:*)",
       "Bash(curl:*)",
-      "Bash(shopify theme dev-console:*)"
+      "Bash(shopify theme dev-console:*)",
+      "Bash(dir:*)"
     ],
     "deny": [],
     "ask": []

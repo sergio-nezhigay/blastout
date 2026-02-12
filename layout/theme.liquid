@@ -140,7 +140,8 @@
         preOrder: '{{ 'product.preorder' | t }}'
       }
       window.paymentButtonStrings = {
-        buttonText: {{ 'product.payment_button' | t | json }}
+        buttonText: {{ 'product.payment_button' | t | json }},
+        preorderButtonText: {{ 'product.preorder_button' | t | json }}
       };
       window.validationStrings = {
         invalidEmail: '{{ 'theme.form.invalid_email' | t }}'

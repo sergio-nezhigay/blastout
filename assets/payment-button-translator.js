@@ -18,21 +18,27 @@
   }
 
   const translatedText = window.paymentButtonStrings.buttonText;
+  const preorderText = window.paymentButtonStrings.preorderButtonText;
   const processedButtons = new WeakSet();
 
   /**
    * Translates a single payment button
    * @param {HTMLElement} button - The button element to translate
+   * @param {boolean} forceUpdate - Force translation even if already processed
    */
-  function translateButton(button) {
-    // Skip if already processed (WeakSet prevents memory leaks)
-    if (processedButtons.has(button)) return;
+  function translateButton(button, forceUpdate = false) {
+    // Skip if already processed (unless forced)
+    if (!forceUpdate && processedButtons.has(button)) return;
 
     // Validate it's a payment button
     if (!button.matches(BUTTON_SELECTOR)) return;
 
-    // Apply translation
-    button.textContent = translatedText;
+    // Check if product is in pre-order state
+    const productForm = button.closest('product-form') || document.querySelector('product-form[data-is-preorder]');
+    const isPreorder = productForm?.hasAttribute('data-is-preorder');
+
+    // Apply appropriate translation
+    button.textContent = isPreorder ? preorderText : translatedText;
     processedButtons.add(button);
   }
 
@@ -80,6 +86,26 @@
   }
 
   /**
+   * Setup attribute observer to re-translate when data-is-preorder changes
+   */
+  function setupAttributeObserver() {
+    const productForm = document.querySelector('product-form');
+    if (!productForm) return;
+
+    const attrObserver = new MutationObserver(() => {
+      // Force re-translation of all payment buttons
+      document.querySelectorAll(BUTTON_SELECTOR).forEach(button => {
+        translateButton(button, true);
+      });
+    });
+
+    attrObserver.observe(productForm, {
+      attributes: true,
+      attributeFilter: ['data-is-preorder']
+    });
+  }
+
+  /**
    * Retry mechanism for race conditions
    * (handles cases where script runs before Shopify injects buttons)
    */
@@ -93,6 +119,7 @@
       setTimeout(initWithRetry, 500);
     } else {
       setupObserver();
+      setupAttributeObserver();
     }
   }
 
