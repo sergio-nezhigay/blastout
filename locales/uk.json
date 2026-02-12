@@ -310,7 +310,7 @@
     "read_more": "ЧИТАТИ ДАЛІ +",
     "read_less": "ЗГОРНУТИ −",
     "unavailable": "Недоступно",
-    "sold_out": "Розпродано",
+    "sold_out": "ПЕРЕДЗАМОВЛЕННЯ",
     "payment_button": "Купити зараз",
     "on_sale": "Розпродаж",
     "taxes_included": "Податки включено.",
@@ -381,7 +381,7 @@
       "on_sale": "Розпродаж",
       "coming_soon": "Скоро в продажу",
       "pre_order": "Передзамовлення",
-      "sold_out": "Розпродано"
+      "sold_out": "ПЕРЕДЗАМОВЛЕННЯ"
     }
   },
   "product_options": {

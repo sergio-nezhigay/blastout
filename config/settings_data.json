@@ -52,7 +52,7 @@
     "cart_upsell_title": "Complete the set",
     "search_suggestions": "search-suggestions",
     "show_currency_codes": false,
-    "product_inline_badge_text": "Лімітована партія тканин",
+    "product_inline_badge_text": "Лімітована партія тканин!",
     "image_optimization": "false",
     "disable_animations_on_mobile": false,
     "social_instagram_link": "https://www.instagram.com/blastoutstudio/",
@@ -341,6 +341,11 @@
     }
   },
   "installed_preset_name": "Release",
+  "platform_customizations": {
+    "custom_css": [
+      "/* live */.test {color: red;}"
+    ]
+  },
   "presets": {
     "Forest": {
       "type_heading_font": "chivo_n7",
@@ -1284,10 +1289,5 @@
       },
       "content_for_index": []
     }
-  },
-  "platform_customizations": {
-    "custom_css": [
-      "/* live */.test {color: red;}"
-    ]
   }
 }
