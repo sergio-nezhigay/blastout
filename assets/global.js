@@ -2063,6 +2063,161 @@ const PUB_SUB_EVENTS = {
   cartError: "cart-error"
 };
 
+// Dynamically manage drawer overflow based on active panel height
+function manageDrawerOverflow() {
+  console.log('=== DRAWER OVERFLOW DEBUG ===');
+
+  const drawerContent = document.querySelector('.header__drawer .drawer__content');
+  const slideOutMenu = document.querySelector('nav.slide-out-menu');
+  const primaryPanel = document.querySelector('.primary-menu-panel');
+  const activePanel = document.querySelector('.menu-panel.is-active');
+  const allPanels = document.querySelectorAll('.menu-panel');
+
+  if (!drawerContent || !slideOutMenu) {
+    console.log('Missing elements:', { drawerContent: !!drawerContent, slideOutMenu: !!slideOutMenu });
+    return;
+  }
+
+  // Determine which panel is currently visible
+  const visiblePanel = activePanel || primaryPanel;
+  if (!visiblePanel) {
+    console.log('No visible panel found');
+    return;
+  }
+
+  // Get available height (drawer content height)
+  const availableHeight = drawerContent.clientHeight;
+  const drawerScrollHeight = drawerContent.scrollHeight;
+  const slideOutMenuScrollHeight = slideOutMenu.scrollHeight;
+  const slideOutMenuClientHeight = slideOutMenu.clientHeight;
+
+  // Get content height - use the UL inside the panel for accurate measurement
+  const panelUL = visiblePanel.querySelector('ul');
+  const contentHeight = panelUL ? panelUL.scrollHeight : visiblePanel.scrollHeight;
+  const contentClientHeight = visiblePanel.clientHeight;
+  const panelPaddingTop = parseFloat(window.getComputedStyle(visiblePanel).paddingTop) || 0;
+  const panelPaddingBottom = parseFloat(window.getComputedStyle(visiblePanel).paddingBottom) || 0;
+  const totalContentHeight = contentHeight + panelPaddingTop + panelPaddingBottom;
+
+  console.log('Drawer content:', {
+    clientHeight: availableHeight,
+    scrollHeight: drawerScrollHeight,
+    needsScroll: drawerScrollHeight > availableHeight
+  });
+
+  console.log('Slide-out menu:', {
+    clientHeight: slideOutMenuClientHeight,
+    scrollHeight: slideOutMenuScrollHeight,
+    needsScroll: slideOutMenuScrollHeight > slideOutMenuClientHeight,
+    computedOverflowY: window.getComputedStyle(slideOutMenu).overflowY
+  });
+
+  console.log('Visible panel:', {
+    type: activePanel ? 'submenu (menu-panel.is-active)' : 'primary-menu-panel',
+    clientHeight: contentClientHeight,
+    scrollHeight: visiblePanel.scrollHeight,
+    ulScrollHeight: panelUL ? panelUL.scrollHeight : 'no UL found',
+    padding: { top: panelPaddingTop, bottom: panelPaddingBottom },
+    totalContentHeight: totalContentHeight,
+    needsScroll: totalContentHeight > availableHeight
+  });
+
+  // Debug all panels
+  console.log('All menu panels:', allPanels.length);
+  allPanels.forEach((panel, index) => {
+    const isActive = panel.classList.contains('is-active');
+    const isVisible = window.getComputedStyle(panel).visibility === 'visible';
+    const transform = window.getComputedStyle(panel).transform;
+    console.log(`  Panel ${index}:`, {
+      isActive,
+      visibility: window.getComputedStyle(panel).visibility,
+      transform,
+      scrollHeight: panel.scrollHeight,
+      clientHeight: panel.clientHeight,
+      offsetHeight: panel.offsetHeight
+    });
+  });
+
+  if (primaryPanel) {
+    console.log('Primary panel:', {
+      scrollHeight: primaryPanel.scrollHeight,
+      clientHeight: primaryPanel.clientHeight,
+      offsetHeight: primaryPanel.offsetHeight
+    });
+  }
+
+  // Add or remove overflow class based on content height
+  const shouldOverflow = totalContentHeight > availableHeight;
+  console.log('Decision:', {
+    totalContentHeight,
+    availableHeight,
+    difference: totalContentHeight - availableHeight,
+    shouldOverflow,
+    action: shouldOverflow ? 'ADD has-overflow' : 'REMOVE has-overflow'
+  });
+
+  // Hide all inactive panels so they don't contribute to height
+  allPanels.forEach(function(panel) {
+    if (panel.classList.contains('is-active') ||
+        panel.classList.contains('was-active') ||
+        panel.classList.contains('non-active')) {
+      panel.style.display = '';  // Keep visible during transitions
+    } else {
+      panel.style.display = 'none';  // Hide inactive panels
+    }
+  });
+
+  // Directly manipulate styles to force overflow behavior
+  if (shouldOverflow) {
+    drawerContent.classList.add('has-overflow');
+    drawerContent.style.overflowY = 'auto';
+    slideOutMenu.style.overflowY = 'visible';
+    slideOutMenu.style.maxHeight = 'none';
+    slideOutMenu.style.height = 'auto';
+  } else {
+    drawerContent.classList.remove('has-overflow');
+    drawerContent.style.overflowY = 'hidden';
+    slideOutMenu.style.overflowY = 'visible';
+    slideOutMenu.style.maxHeight = 'none';
+    slideOutMenu.style.height = 'auto';
+  }
+
+  console.log('Applied styles:', {
+    drawerContentOverflow: drawerContent.style.overflowY,
+    slideOutMenuOverflow: slideOutMenu.style.overflowY,
+    slideOutMenuHeight: slideOutMenu.style.height,
+    slideOutMenuMaxHeight: slideOutMenu.style.maxHeight
+  });
+
+  // Find all children contributing to height
+  console.log('Checking which child elements are causing height...');
+  const checkElement = (el, name, depth = 0) => {
+    const indent = '  '.repeat(depth);
+    if (el.scrollHeight > el.clientHeight + 5) {
+      console.log(`${indent}${name}:`, {
+        scrollHeight: el.scrollHeight,
+        clientHeight: el.clientHeight,
+        overflow: window.getComputedStyle(el).overflow,
+        overflowY: window.getComputedStyle(el).overflowY,
+        visibility: window.getComputedStyle(el).visibility,
+        display: window.getComputedStyle(el).display
+      });
+
+      // Check children
+      if (el.children.length > 0 && depth < 3) {
+        Array.from(el.children).forEach((child, i) => {
+          checkElement(child, `${name} > child[${i}] (${child.className || child.tagName})`, depth + 1);
+        });
+      }
+    }
+  };
+
+  checkElement(drawerContent, 'drawer__content');
+  checkElement(slideOutMenu, 'slide-out-menu');
+
+  console.log('=== END DEBUG ===\n');
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   var menuLinks = document.querySelectorAll("button.menu-link");
 
@@ -2125,6 +2280,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             targetPanel.classList.remove("is-instant");
           });
+          // Check overflow after panel transition
+          manageDrawerOverflow();
         }, 300);
       } else {
         primaryMenuPanel.style.opacity = "1";
@@ -2135,6 +2292,8 @@ document.addEventListener("DOMContentLoaded", function () {
             panel.classList.add("non-active");
             setTimeout(() => {
               panel.classList.remove("non-active");
+              // Check overflow after returning to primary panel
+              manageDrawerOverflow();
             }, 300);
           }
         })
@@ -2167,6 +2326,34 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // Check overflow when drawer opens
+  const drawerObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.attributeName === 'open') {
+        const drawerContainer = mutation.target;
+        if (drawerContainer.hasAttribute('open')) {
+          setTimeout(() => {
+            manageDrawerOverflow();
+          }, 100);
+        }
+      }
+    });
+  });
+
+  const drawerContainer = document.querySelector('#Navigation-drawer');
+  if (drawerContainer) {
+    drawerObserver.observe(drawerContainer, { attributes: true });
+  }
+
+  // Recalculate on window resize
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      manageDrawerOverflow();
+    }, 150);
+  });
 });
 
 /* swiper - hide swiper buttons element if both next and prev buttons are disabled */

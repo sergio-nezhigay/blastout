@@ -1077,11 +1077,16 @@ html.js .drawer--search>.drawer__container[open]>.drawer__content.drawer__conten
   html.js .header__drawer > .drawer__container.menu-opening > .drawer__content {
     opacity: 1;
     height: calc(100dvh - var(--header-height, 5.6rem) - var(--announcement-bars-before-header-visible-heights, 4.0rem) + 0.1rem);
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
     margin-block-start: -0.1rem;
     z-index: var(--z-modals);
     position: fixed;
+  }
+
+  /* Only enable scroll when content exceeds viewport */
+  html.js .header__drawer > .drawer__container.menu-opening > .drawer__content.has-overflow {
+    overflow-y: auto !important;
   }
 }
 
@@ -1226,7 +1231,7 @@ nav.slide-out-menu {
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0, 0, 0.24, 1);
   flex: 1;
-  overflow-y: auto;
+  overflow-y: visible !important;
   overflow-x: hidden;
   position: relative;
 }
@@ -1319,7 +1324,8 @@ nav.slide-out-menu div.menu-panel {
   z-index: 1;
   transition: transform 300ms cubic-bezier(0, 0, 0.24, 1);
   transform: translateX(999px);
-  max-height: none;
+  max-height: 100%;
+  visibility: hidden;
 }
 [dir='rtl'] nav.slide-out-menu div.menu-panel {
   transform: translateX(-999px);
@@ -1347,6 +1353,13 @@ nav.slide-out-menu div.menu-panel.is-active {
   transform: translateX(0);
 }
 
+/* Show panels during transitions */
+nav.slide-out-menu div.menu-panel.is-active,
+nav.slide-out-menu div.menu-panel.was-active,
+nav.slide-out-menu div.menu-panel.non-active,
+nav.slide-out-menu .primary-menu-panel {
+  visibility: visible;
+}
 
 nav.slide-out-menu div.menu-panel.non-active {
   transform: translateX(999px);
