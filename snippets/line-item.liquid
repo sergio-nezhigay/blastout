@@ -1,9 +1,9 @@
 {% comment %}
-    Renders line item
-    Accepts:
-    - line_item {Object} Liquid line_item object
-    Usage:
-    {%- render 'line-item', line_item: cart.items[0] -%}
+  Renders line item
+  Accepts:
+  - line_item {Object} Liquid line_item object
+  Usage:
+  {%- render 'line-item', line_item: cart.items[0] -%}
 {% endcomment %}
 
 {%- liquid
@@ -146,11 +146,29 @@
 
 {% comment %} CAPTURE: Product Title and Link {% endcomment %}
 {% capture product_title %}
+  {%- liquid
+    assign current_variant = line_item.variant
+    assign product_preorder = false
+    if current_variant != nil
+      if current_variant.available == false
+        assign product_preorder = true
+      elsif current_variant.inventory_management != nil and current_variant.inventory_quantity <= 0
+        assign product_preorder = true
+      endif
+    endif
+
+    if line_item.product.metafields.theme.preorder.value
+      assign product_preorder = true
+    endif
+  -%}
   <h3 class="cart-item__title h6 heading-static">
     <a href="{{- line_item.url -}}" class="full-unstyled-link">
       {{- line_item.product.title | escape -}}
     </a>
   </h3>
+  {%- if product_preorder -%}
+    <span class="inline-badge">{{ settings.product_inline_badge_text }}</span>
+  {%- endif -%}
 {% endcapture %}
 
 {% comment %} CAPTURE: Product Image {% endcomment %}
@@ -195,7 +213,6 @@
 
 {% comment %} MAIN TEMPLATE STRUCTURE {% endcomment %}
 <div class="cart-item" id="CartItem-{{- line_item_index -}}">
-
   {%- if cart_item != true -%}
     {% comment %} CART DRAWER LAYOUT {% endcomment %}
     <div class="cart-item__media">{{ product_image }}</div>
@@ -208,7 +225,7 @@
         {{ product_options }}
         {{ product_properties }}
 
-        {%- if line_item.selling_plan_allocation != nil -%}
+        {%- if line_item.selling_plan_allocation != null -%}
           <p class="cart-item__plan">{{- line_item.selling_plan_allocation.selling_plan.name -}}</p>
         {%- endif -%}
         <p class="cart-item__error color-red" role="alert" data-line-item-error data-line="{{- line_item_index -}}"></p>
@@ -236,7 +253,7 @@
           {{ product_properties }}
         </div>
 
-        {%- if line_item.selling_plan_allocation != nil -%}
+        {%- if line_item.selling_plan_allocation != null -%}
           <p class="cart-item__plan">{{- line_item.selling_plan_allocation.selling_plan.name -}}</p>
         {%- endif -%}
         <p class="cart-item__error color-red" role="alert" data-line-item-error data-line="{{- line_item_index -}}"></p>
