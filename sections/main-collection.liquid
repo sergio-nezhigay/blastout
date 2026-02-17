@@ -104,6 +104,9 @@
                 {%- liquid
                   for product_ref in collection.products
                     assign product_loop = forloop
+                    if section.settings.hide_unavailable_filters and product_ref.available == false
+                      continue
+                    endif
                     if section.blocks.size > 0 and paginate.current_page == 1
                       for block in section.blocks
                         assign display_card_text = false
