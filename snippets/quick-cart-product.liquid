@@ -118,7 +118,17 @@
                       {%- if options.size > 0 -%}
                         <fieldset class="product__variant-options js-product-card-options">
                           <legend>
-                            {{ product.options_with_values[forloop.index0].name -}}
+                            {%- liquid
+                              assign opt_name = product.options_with_values[forloop.index0].name
+                              assign option_key = 'product_options.' | append: opt_name | downcase
+                              assign translated_option = option_key | t
+                              assign translated_lower = translated_option | downcase
+                              if translated_lower contains 'translation missing'
+                                echo opt_name
+                              else
+                                echo translated_option
+                              endif
+                            -%}
                             <span data-selected-variant>
                               {{- product.options_with_values[forloop.index0].selected_value -}}
                             </span>
