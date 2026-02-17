@@ -2814,6 +2814,10 @@
         "enable_opened_filter_accordions": {
           "label": "Enable open state for filter accordions"
         },
+        "hide_unavailable_filters": {
+          "label": "Hide unavailable filter options",
+          "info": "When enabled, filter options with no matching products are hidden. When disabled, they are shown as greyed out."
+        },
         "show_top_border_for_utilities_bar": {
           "label": "Show top border for utilities bar"
         },

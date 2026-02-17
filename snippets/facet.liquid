@@ -39,6 +39,10 @@
           <ul class="facets__list list-unstyled" role="list">
 
             {%- for value in filter.values -%}
+              {%- assign hide_unavailable = section.settings.hide_unavailable_filters -%}
+              {%- if value.count == 0 and value.active == false -%}
+                {%- if hide_unavailable -%}{%- continue -%}{%- endif -%}
+              {%- endif -%}
               <li class="facets__item{% if value.active %} facets__item--checked{% endif %}">
                 {%- liquid
                   assign checkbox_additional_classes = ''
@@ -47,17 +51,21 @@
                       echo 'checked'
                     endif
 
-                    if value.count == 0 and value.active == false
-                      echo 'disabled'
-                    endif
+                    unless hide_unavailable
+                      if value.count == 0 and value.active == false
+                        echo 'disabled'
+                      endif
+                    endunless
                   endcapture
 
                   assign id = 'Filter-' | append: filter.param_name | escape | append: '-' | append: forloop.index | strip
                   assign checkbox_attr = checkbox_attr | strip
 
-                  if value.count == 0 and value.active == false
-                    assign checkbox_additional_classes = checkbox_additional_classes | append: 'checkbox--disabled'
-                  endif
+                  unless hide_unavailable
+                    if value.count == 0 and value.active == false
+                      assign checkbox_additional_classes = checkbox_additional_classes | append: 'checkbox--disabled'
+                    endif
+                  endunless
                 -%}
 
 
