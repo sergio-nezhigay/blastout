@@ -4472,7 +4472,7 @@ html.js:not(.shopify-design-mode) .animation-none {
   font-size: var(--font-size-static-md);
   line-height: var(--line-height-static-md);
   letter-spacing: var(--letter-spacing-md);
-  color: rgba(var(--color-foreground), 0.5);
+  color: rgb(var(--color-heading-text));
 }
 .product__preorder-warning strong {
   font-weight: var(--font-weight-semibold);

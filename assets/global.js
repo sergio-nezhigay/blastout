@@ -2647,15 +2647,12 @@ if (!customElements.get("product-card")) {
 
       const selectedOptionOneVariants = this.variantsObj?.filter(
         variant =>
-          this.querySelector(":checked")?.value === variant.option1
+          this.querySelector(":checked")?.value === variant.options[0]
       );
 
       const inputWrappers = [
         ...this.querySelectorAll(".js-product-card-options")
       ];
-
-      // Check if this is a quick cart drawer context
-      const isQuickCartDrawer = this.closest('quick-cart-drawer');
 
       inputWrappers.forEach((option, index) => {
         if (index === 0) return;
@@ -2665,14 +2662,13 @@ if (!customElements.get("product-card")) {
         const previousOptionSelected =
           inputWrappers[index - 1].querySelector(":checked")?.value;
 
-        // In quick cart drawer, allow all variant combinations (don't filter by availability)
         const availableOptionInputsValue = selectedOptionOneVariants
           ?.filter(
             variant =>
-              (isQuickCartDrawer || variant.available) &&
-              variant[`option${index}`] === previousOptionSelected
+              (variant.available || variant.inventory_policy === 'continue') &&
+              variant.options[index - 1] === previousOptionSelected
           )
-          .map(variantOption => variantOption[`option${index + 1}`]);
+          .map(variantOption => variantOption.options[index]);
 
         this.setInputAvailability(
           optionInputs,
