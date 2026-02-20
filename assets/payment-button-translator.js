@@ -40,6 +40,16 @@
                        document.querySelector('product-form[data-is-preorder]');
     const isPreorder = productForm?.hasAttribute('data-is-preorder');
 
+    console.log('[BuyBtn DEBUG] payment-button-translator translateButton:', {
+      forceUpdate,
+      isPreorder,
+      productFormFound: !!productForm,
+      productFormTag: productForm?.tagName,
+      productFormClass: productForm?.className,
+      currentText: button.textContent,
+      willSetText: isPreorder ? preorderText : translatedText,
+    });
+
     // Apply appropriate translation
     button.textContent = isPreorder ? preorderText : translatedText;
     processedButtons.add(button);

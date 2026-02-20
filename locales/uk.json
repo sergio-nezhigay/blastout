@@ -463,7 +463,9 @@
     "page_titles": {
       "addresses": "Список адрес",
       "shopping_cart": "Ваш кошик",
-      "account": "Профіль"
+      "account": "Профіль",
+      "products": "Всі товари",
+      "collections": "Всі колекції"
     },
     "filters": {
       "availability": {

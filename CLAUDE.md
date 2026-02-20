@@ -171,5 +171,10 @@ Defined in `layout/theme.liquid`:
 - Schema translations: `en.default.schema.json`
 - Supports RTL languages (Arabic, Hebrew) with automatic `dir="rtl"` attribute
 
-use
-"npm run dev" to debug locally if nesassary
+## Testing & Debugging Workflow
+
+**Always use `npm run dev` for local testing. Never use `npm run push` or `shopify theme push` to test changes.**
+
+- Run `npm run dev` to start the local dev server (proxies the live store with local file changes)
+- Test all changes locally before considering a push
+- Only push when explicitly asked by the user

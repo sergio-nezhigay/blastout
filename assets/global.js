@@ -2926,10 +2926,31 @@ if (!customElements.get("product-card")) {
           const preorderInfo = this.closest('.quick-cart-product')?.querySelector('[data-preorder-info]');
           const preorderWarning = this.closest('.quick-cart-product')?.querySelector('.product__preorder-warning');
 
+          console.log('[BuyBtn DEBUG] disableAddToCartButtons (quick cart path):', {
+            currentVariantAvailable,
+            formFound: !!form,
+            paymentButtonFound: !!form?.querySelector('.shopify-payment-button__button, .shopify-payment-button__button--unbranded'),
+            paymentButtonSelector: '.shopify-payment-button__button',
+            paymentButtonHTML: form?.querySelector('.shopify-payment-button__button')?.outerHTML?.slice(0, 200),
+            willShowPreorder: !currentVariantAvailable,
+            preorderText: window.paymentButtonStrings?.preorderButtonText,
+            buyNowText: window.paymentButtonStrings?.buttonText,
+          });
+
           if (!currentVariantAvailable) {
             form?.setAttribute('data-is-preorder', 'true');
             if (paymentButton) {
               paymentButton.textContent = window.paymentButtonStrings?.preorderButtonText || 'Pre-order now';
+              console.log('[BuyBtn DEBUG] → Set button to PREORDER text:', paymentButton.textContent);
+            } else {
+              console.warn('[BuyBtn DEBUG] → paymentButton NOT FOUND with selector .shopify-payment-button__button — trying unbranded variant');
+              const paymentButtonUnbranded = form?.querySelector('.shopify-payment-button__button--unbranded');
+              if (paymentButtonUnbranded) {
+                paymentButtonUnbranded.textContent = window.paymentButtonStrings?.preorderButtonText || 'Pre-order now';
+                console.log('[BuyBtn DEBUG] → Set unbranded button to PREORDER text:', paymentButtonUnbranded.textContent);
+              } else {
+                console.error('[BuyBtn DEBUG] → Payment button NOT FOUND at all in form');
+              }
             }
             // Show pre-order info
             if (preorderInfo) {
@@ -2955,6 +2976,13 @@ if (!customElements.get("product-card")) {
             form?.removeAttribute('data-is-preorder');
             if (paymentButton) {
               paymentButton.textContent = window.paymentButtonStrings?.buttonText || 'Buy now';
+              console.log('[BuyBtn DEBUG] → Set button to BUY NOW text:', paymentButton.textContent);
+            } else {
+              const paymentButtonUnbranded = form?.querySelector('.shopify-payment-button__button--unbranded');
+              if (paymentButtonUnbranded) {
+                paymentButtonUnbranded.textContent = window.paymentButtonStrings?.buttonText || 'Buy now';
+                console.log('[BuyBtn DEBUG] → Set unbranded button to BUY NOW text:', paymentButtonUnbranded.textContent);
+              }
             }
             // Hide pre-order info
             if (preorderInfo) {
@@ -3027,6 +3055,20 @@ if (!customElements.get("product-card")) {
           } else if (item.inventory_management && item.inventory_quantity <= 0) {
             isPreorder = true;
           }
+
+          // DEBUG: log the exact values used to determine button text
+          console.log('[BuyBtn DEBUG] findCurrentVariant matched:', {
+            id: item.id,
+            options: item.options,
+            available: item.available,
+            inventory_management: item.inventory_management,
+            inventory_quantity: item.inventory_quantity,
+            inventory_policy: item.inventory_policy,
+            isPreorder,
+            '⚠️ NOTE': item.inventory_policy === 'continue' && item.inventory_quantity <= 0
+              ? 'BUG: inventory_policy=continue is ignored — isPreorder will be true even though Shopify allows purchase!'
+              : 'ok'
+          });
 
           // For backward compatibility, currentVariantAvailable means "NOT preorder"
           currentVariantAvailable = !isPreorder;
