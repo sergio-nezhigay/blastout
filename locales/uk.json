@@ -45,7 +45,7 @@
     "error": "There was an error while updating your cart. Please try again.",
     "checkout": "Checkout",
     "note": "Коментар до замовлення",
-    "view_cart": "Переглянути корзину",
+    "view_cart": "Переглянути кошик",
     "quick_add": "Quick add",
     "remove": "Delete",
     "heading_product": "Продукт",
@@ -516,7 +516,7 @@
     },
     "actions": {
       "add": "Додати",
-      "add_to_cart": "Додати в корзину",
+      "add_to_cart": "Додати в кошик",
       "back_to_home": "Повернутися на головну",
       "cancel": "Скасувати",
       "close": "Закрити",
@@ -568,10 +568,10 @@
       "country": "Країна",
       "language": "Мова",
       "popular_countries": "Популярні країни",
-      "change_country": "Змінити країну",
+      "change_country": "Змінити мову",
       "change_currency": "Змінити валюту",
       "change_language": "Змінити мову",
-      "content": "Оновіть країну та мову, щоб вони відповідали місцезнаходженню, з якого ви здійснюєте перегляд.",
+      "content": "Оновіть мову, щоб вона відповідала місцезнаходженню, з якого ви здійснюєте перегляд.",
       "submit": "Підтвердити"
     },
     "pagination": {
