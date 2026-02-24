@@ -472,7 +472,6 @@
           <ul class="header__utils-items list-unstyled">
             @@additional_links_placeholder@@
 
-
             {%- if section.settings.country_drawer_header -%}
               <li class="header__utils-item">
                 <desktop-drawer class="drawer">
@@ -482,15 +481,6 @@
                   -%}
                 </desktop-drawer>
               </li>
-            {%- endif -%}
-
-            {% comment %}
-              wishlist
-            {% endcomment %}
-            {% if settings.enable_wishlist_buttons %}
-              <div class="wishpc">
-                <button class="st-wishlist-details-button st-wishlist-details-button--header-icon" data-type="manually" title="Open Wishlist Details" aria-label="Open Wishlist Details"></button>
-              </div>
             {%- endif -%}
 
             <li class="header__utils-item header__utils-item--search header__utils-item--mobile">

@@ -3535,9 +3535,3 @@ class SwiperComponent extends HTMLElement {
   }
 }
 customElements.define("swiper-component", SwiperComponent);
-
-
-
-
-
-

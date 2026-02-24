@@ -31,13 +31,6 @@
     "card_corner_radius": 0,
     "card_text_alignment": "center",
     "card_media_aspect_ratio": "3 / 4",
-    "enable_wishlist_buttons": true,
-    "wishlist_drawer_page": "shopify://pages/wishlist",
-    "tg_chat_icon": "shopify://shop_images/tg_bw.png",
-    "tg_chat_offset_bottom": 20,
-    "tg_chat_link": "https://t.me/+380502502040",
-    "product_card_media_hover": false,
-    "product_card_media_slider": true,
     "product_card_media_aspect_ratio": "auto",
     "product_card_media_object_fit": "cover",
     "product_card_badge_position": "start",
@@ -142,19 +135,14 @@
         "disabled": false,
         "settings": {}
       },
-      "6478312753674380289": {
-        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
-        "disabled": false,
-        "settings": {}
-      },
       "17625031072974348541": {
         "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "storefront_layout_enabled": false,
           "storefront_layout_primary_bg_color": "#000000",
           "storefront_layout_primary_text_color": "#ffffff",
-          "storefront_layout_secondary_bg_color": "#f4f8fe",
+          "storefront_layout_secondary_bg_color": "#F4F8FE",
           "storefront_layout_secondary_text_color": "#333333",
           "storefront_layout_ui_border_radius": 6,
           "storefront_layout_notification_position": "left",
@@ -163,17 +151,17 @@
           "storefront_layout_as_section_page": ""
         }
       },
+      "6478312753674380289": {
+        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
+        "disabled": false,
+        "settings": {}
+      },
       "6933373160360723723": {
         "type": "shopify://apps/swishlist-simple-wishlist/blocks/wishlist_settings/bfcb80f2-f00d-42ae-909a-9f00c726327b",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "custom_css": ""
         }
-      },
-      "2567389343055140935": {
-        "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
-        "disabled": false,
-        "settings": {}
       }
     },
     "color_schemes": {

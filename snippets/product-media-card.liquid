@@ -85,7 +85,7 @@
             <div class="product__gallery-opener{% if media.media_type == 'model' %} hidden{% endif %} main-product__media--feat{% if media_is_active %} is-active{% endif %} no-js-hidden color-{{ section.settings.color_scheme_gallery }} gradient" data-modal-opener-id="{{- media.media_type | handle -}}-{{- media.id -}}">
               {%- if media.media_type == 'image' -%}
                 <a
-                  href="#"
+                  href="{{- media.preview_image | image_url: width: media.preview_image.width -}}"
                   class="product__gallery-toggle motion-reduce"
                   type="button"
                   aria-haspopup="dialog"
@@ -95,7 +95,7 @@
                   data-pswp-srcset="{{- image_srcset -}}"
                   data-pswp-width="{{- media.preview_image.width -}}"
                   data-pswp-height="{{- media.preview_image.height -}}"
-                  
+                  target="_blank"
                   {% unless media.position == 1 %} tabindex="-1"{% endunless %}
                 >
                   {% render 'icon', icon_name: 'theme-expand' %}
@@ -111,7 +111,7 @@
                   aria-haspopup="dialog"
                   data-media-id="{{- media.id -}}"
                   data-pswp-type="html"
-                  data-pswp-html='{{- media | video_tag: image_size: '2160x', loop: true, autoplay: true, muted: true, controls: settings.show_controls_on_video -}}' 
+                  data-pswp-html='{{- media | video_tag: image_size: '2160x', loop: true, autoplay: true, muted: true, controls: settings.show_controls_on_video -}}' target="_blank"
                 >
                   {% render 'icon', icon_name: 'theme-expand' %}
                   <span class="visually-hidden">
@@ -130,7 +130,7 @@
                   data-media-id="{{- media.id -}}"
                   data-pswp-type="html"
                   data-pswp-html='{{- html_external_video -}}'
-               
+                  target="_blank"
                 >
                   {% render 'icon', icon_name: 'theme-expand' %}
                   <span class="visually-hidden">
@@ -153,7 +153,7 @@
           </div>
           {%- if media.media_type == 'image' -%}
             <a
-              href="#"
+              href="{{- media.preview_image | image_url: width: media.preview_image.width -}}"
               class="product__gallery-toggle motion-reduce"
               type="button"
               aria-haspopup="dialog"
@@ -163,7 +163,7 @@
               data-pswp-srcset="{{- image_srcset -}}"
               data-pswp-width="{{- media.preview_image.width -}}"
               data-pswp-height="{{- media.preview_image.height -}}"
-             
+              target="_blank"
               {% unless media.position == 1 %} tabindex="-1"{% endunless %}
             >
               {{- render_media -}}
@@ -176,7 +176,7 @@
               aria-haspopup="dialog"
               data-media-id="{{- media.id -}}"
               data-pswp-type="html"
-              data-pswp-html='{{- media | video_tag: image_size: '2160x', loop: true, autoplay: true, muted: true, controls: settings.show_controls_on_video -}}' 
+              data-pswp-html='{{- media | video_tag: image_size: '2160x', loop: true, autoplay: true, muted: true, controls: settings.show_controls_on_video -}}' target="_blank"
             >
               {{- render_media -}}
             </a>
@@ -192,7 +192,7 @@
               data-media-id="{{- media.id -}}"
               data-pswp-type="html"
               data-pswp-html='{{- html_external_video -}}'
-              
+              target="_blank"
             >
               {{- render_media -}}
             </a>
@@ -203,7 +203,7 @@
               type="button"
               aria-haspopup="dialog"
               data-media-id="{{- media.id -}}"
-             
+              target="_blank"
             >
               {{- render_media -}}
             </a>

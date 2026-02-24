@@ -1,3 +1,10 @@
+{% comment %}
+	GEMPAGES BUILDER (https://apps.shopify.com/gempages)
+
+	You SHOULD NOT modify source code in this file because
+	It is automatically generated from GEMPAGES BUILDER
+	Try to edit page with the live editor.
+{% endcomment %}
 <!doctype html>
 {%- liquid
   assign rtl_attr = ''
@@ -87,84 +94,8 @@
     ></script>
   </head>
 
-  <body class="template template--{{ template.name }}{% if template.suffix %} template--{{- template.suffix -}}{% endif %} is-at-top">
-    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-      {{- 'theme.accessibility.skip_to_content' | t -}}
-    </a>
-
-    {%- sections 'header-group' -%}
-
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-      {{ content_for_layout }}
-    </main>
-
-    <footer class="js-animation-fade-in">
-      {%- sections 'footer-group' -%}
-    </footer>
-
-    {%- sections 'overlay-group' -%}
-
-    <ul hidden>
-      <li id="a11y-refresh-page-message">{{- 'theme.accessibility.refresh_page' | t -}}</li>
-    </ul>
-
-    <script>
-      window.theme = window.theme || {};
-      theme = {
-        settings: {
-          money_format: {{ shop.money_format | json }},
-          money_with_currency_format: {{ shop.money_with_currency_format | json }},
-          cart_free_shipping_threshold: {{ settings.shipping_notification_threshold | times: 100 }},
-          cart_free_shipping_text: `{{ 'cart.free_shipping_text_html' | t: amount: '0' }}`,
-          cart_free_shipping_text_success: `{{ 'cart.free_shipping_text_success' | t }}`,
-        }
-      }
-      window.shopUrl = '{{ request.origin }}';
-      window.routes = {
-        cart_url: '{{ routes.cart_url }}',
-        cart_add_url: '{{ routes.cart_add_url }}',
-        cart_change_url: '{{ routes.cart_change_url }}',
-        cart_update_url: '{{ routes.cart_update_url }}',
-        search_url: '{{ routes.search_url }}',
-        predictive_search_url: '{{ routes.predictive_search_url }}',
-      };
-      window.cartStrings = {
-        error: `{{ 'cart.error' | t }}`,
-        quantityError: `{{ 'cart.quantity_error_html' | t: quantity: '[quantity]' }}`
-      }
-      window.variantStrings = {
-        addToCart: '{{ 'theme.actions.add_to_cart' | t }}',
-        unavailable: '{{ 'product.unavailable' | t }}',
-        soldOut: '{{ 'product.sold_out' | t }}',
-        addSubscriptionToCart: 'Add subscription to cart',
-        preOrder: '{{ 'product.preorder' | t }}'
-      }
-      window.paymentButtonStrings = {
-        buttonText: {{ 'product.payment_button' | t | json }},
-        preorderButtonText: {{ 'product.preorder_button' | t | json }}
-      };
-      window.validationStrings = {
-        invalidEmail: '{{ 'theme.form.invalid_email' | t }}'
-      }
-      window.accessibilityStrings = {
-        recipientFormExpanded: `{{ 'gift_card.recipient.expanded' | t }}`,
-        recipientFormCollapsed: `{{ 'gift_card.recipient.collapsed' | t }}`,
-      };
-    </script>
-
-    {% if settings.back_to_top_button != 'disable' %}
-      <back-to-top class="hide">
-        <button href="#" class="button back-to-top {{ settings.back_to_top_button }}">
-          {% render 'icon', icon_name: 'theme-chevron', class: 'icon--rotate-270' %}
-        </button>
-      </back-to-top>
-    {% endif %}
-
-    {% render 'subify-snippet' %}
-
-    {%- comment -%}
-      Payment Button Translation System - Loads external translator script
-    {%- endcomment -%}
-    <script src="{{- 'payment-button-translator.js' | asset_url -}}" defer="defer"></script>
-  </body>
+  <body>
+<div class="gem-container">
+	{{ content_for_layout }}
+</div><!-- end .gem-container --></body>
 </html>

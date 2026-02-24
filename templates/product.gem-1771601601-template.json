@@ -91,9 +91,9 @@
         "text_message_48XXJ7": {
           "type": "Text_message",
           "settings": {
-            "main_text-product": "<p>product.contact_manager</p>",
-            "main_url-product": "https://t.me/+380502502040",
-            "main_icon-product": "shopify://shop_images/telegram-logo-Vy5zx6bE.webp"
+            "main_text-product": "<p>product.contact_manager<\/p>",
+            "main_url-product": "https:\/\/t.me\/+380502502040",
+            "main_icon-product": "shopify:\/\/shop_images\/telegram-logo-Vy5zx6bE.webp"
           }
         },
         "b2dabe12-2158-4ba6-bc54-9baae453acf5": {
@@ -241,7 +241,7 @@
             "block_type": "collapsible",
             "heading": "More info",
             "link": "",
-            "content": "<p>{{ product.metafields.custom.more_info | metafield_tag }}</p>",
+            "content": "<p>{{ product.metafields.custom.more_info | metafield_tag }}<\/p>",
             "page": ""
           }
         },
@@ -251,7 +251,7 @@
             "block_type": "collapsible",
             "heading": "Склад і догляд",
             "link": "",
-            "content": "<p>Прати при температурі ...</p>",
+            "content": "<p>Прати при температурі ...<\/p>",
             "page": ""
           }
         },
@@ -262,7 +262,7 @@
             "block_type": "collapsible",
             "heading": "Stylist tip",
             "link": "",
-            "content": "<p>Stylist tips can be entered here.</p>",
+            "content": "<p>Stylist tips can be entered here.<\/p>",
             "page": ""
           }
         },
@@ -289,7 +289,7 @@
         "content_heading": "Similar items",
         "heading_size": "h5",
         "content_type": "products",
-        "featured_image_aspect_ratio": "4/3",
+        "featured_image_aspect_ratio": "4\/3",
         "open_first_collapsible": true,
         "flip_desktop": true,
         "flip_mobile": true,
@@ -310,7 +310,7 @@
             "row_factor": 1,
             "color_scheme": "",
             "gradient_background_color": "",
-            "tile_aspect_ratio": "1/1",
+            "tile_aspect_ratio": "1\/1",
             "content_position_vertical": "justify-center",
             "content_alignment": "align-center text-center",
             "content_alignment_for_mobile": "start",

@@ -7,8 +7,6 @@
   - append_id {String}
 {%- endcomment -%}
 
-
-{% comment %}
 {% liquid
   capture button_text
     case settings.country_drawer_display_option
@@ -30,14 +28,6 @@
   endcapture
 %}
 
-{% endcomment %}
-
-{% liquid
-  capture button_text
-    echo localization.language.endonym_name | capitalize
-  endcapture
-%}
-
 {%- if button_prepend_text -%}
   {%- assign button_text = button_text | prepend: ' ' | prepend: button_prepend_text -%}
 {%- endif -%}
@@ -50,19 +40,12 @@
   >
     <div class="text-link">
       <span class="text-link--on-hover">
-
-        {% comment %}
-          
-        
         {%- if settings.country_drawer_display_option == 'flag' or settings.country_drawer_display_option == 'flag--country-name' -%}
           <span class="drawer__button-flag">{{ localization.country | image_url: width: 18 | image_tag }}</span>
         {%- endif -%}
         {%- unless settings.country_drawer_display_option == 'flag' -%}
           <span class="drawer__button-text">{{- button_text -}}</span>
         {%- endunless -%}
-        {% endcomment %}
-         <span class="drawer__button-text">{{- button_text -}}</span>
-
         <noscript>
           {%- render 'icon', icon_name: 'theme-arrow' -%}
         </noscript>
@@ -95,10 +78,6 @@
       <div class="drawer__row">
         <localization-form>
           {% form 'localization', id: append_id %}
-
-            {% comment %}
-              
-            
             {%- if localization.available_countries.size > 1 -%}
               <div class="form-row">
                 <div class="select-input">
@@ -130,7 +109,6 @@
                 </div>
               </div>
             {%- endif -%}
-             {% endcomment %}
 
             {%- if localization.available_languages.size > 1 -%}
               <div class="form-row">

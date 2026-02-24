@@ -28,7 +28,6 @@
     },
     "main": {
       "type": "main-page",
-      "disabled": true,
       "custom_css": [
         "h1 {font-size: 24px;}"
       ],
@@ -43,43 +42,10 @@
         "spacing_top": "0",
         "spacing_bottom": "0"
       }
-    },
-    "1771701059cfaf8414": {
-      "type": "apps",
-      "blocks": {
-        "swishlist_simple_wishlist_wishlist_page_ymzCkW": {
-          "type": "shopify://apps/swishlist-simple-wishlist/blocks/wishlist_page/bfcb80f2-f00d-42ae-909a-9f00c726327b",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "swishlist_simple_wishlist_wishlist_page_ymzCkW"
-      ],
-      "settings": {
-        "section_layout": "normal",
-        "spacing_inner": "2",
-        "section_width": "max-w-page",
-        "color_scheme": "",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
-    },
-    "custom_liquid_AJaXye": {
-      "type": "custom-liquid",
-      "name": "currency",
-      "settings": {
-        "custom_liquid": "{% if request.page_type == 'page' and page.handle == 'wishlist' %}\n  <script>\n    (function () {\n \n      var currencySymbol = {{ localization.country.currency.symbol | default: cart.currency.symbol | json }};\n      var currencyCode   = {{ localization.country.currency.iso_code | default: cart.currency.iso_code | json }};\n      var suffix = (currencySymbol && currencySymbol.trim()) ? currencySymbol : currencyCode;\n\n      function injectCurrency(root) {\n        (root || document).querySelectorAll('p.st-js-price').forEach(function (p) {\n          if (p.querySelector('.st-currency')) return; \n\n          var cur = document.createElement('span');\n          cur.className = 'st-currency';\n          cur.textContent = '\\u00A0' + suffix; \n\n          var compare = p.querySelector('.st-js-compare-at-price');\n          if (compare) p.insertBefore(cur, compare);\n          else p.appendChild(cur);\n        });\n      }\n\n      // первый прогон\n      injectCurrency();\n\n    \n      var obs = new MutationObserver(function (mutations) {\n        for (var i = 0; i < mutations.length; i++) {\n          for (var j = 0; j < mutations[i].addedNodes.length; j++) {\n            var node = mutations[i].addedNodes[j];\n            if (node && node.nodeType === 1) {\n              if (node.matches('p.st-js-price') || node.querySelector('p.st-js-price')) {\n                injectCurrency();\n                return;\n              }\n            }\n          }\n        }\n      });\n\n      obs.observe(document.body, { childList: true, subtree: true });\n    })();\n  </script>\n\n  <style>\n    .st-currency { font: inherit; }\n  </style>\n{% endif %}",
-        "section_width": "max-w-page",
-        "color_scheme": "",
-        "spacing_top": "2",
-        "spacing_bottom": "2"
-      }
     }
   },
   "order": [
     "seo_content_JApz4C",
-    "main",
-    "1771701059cfaf8414",
-    "custom_liquid_AJaXye"
+    "main"
   ]
 }
