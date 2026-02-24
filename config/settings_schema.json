@@ -665,6 +665,86 @@
     ]
   },
   {
+    "name": "Wishlist",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_wishlist_buttons",
+        "label": "Enable wishlist buttons",
+        "info": "This option enable/disable all wishlist buttons on site.",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_wishlist_on_catalog",
+        "label": "Enable wishlist buttons on collection product cards",
+        "visible_if": "{{ settings.enable_wishlist_buttons == true }}",
+        "default": true
+      },
+      {
+        "label": "Wishlist button label in mobile drawer",
+        "type": "inline_richtext",
+        "id": "wishlist_drawer_label",
+        "default": "Wishlist",
+        "visible_if": "{{ settings.enable_wishlist_buttons == true }}",
+        "info": "Please note that the text in this form is automatically converted to uppercase. (Localize this button in Translate & Adapt app)"
+      },
+      {
+        "label": "Wishlist button link in mobile drawer",
+        "type": "url",
+        "id": "wishlist_drawer_page",
+        "visible_if": "{{ settings.enable_wishlist_buttons == true }}",
+        "info": "Please pick a link to make the drawer button visible."
+      }
+    ]
+  },
+  {
+    "name": "Telegram chat button",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "tg_chat_enable",
+        "label": "Enable Telegram chat button",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "tg_chat_icon",
+        "label": "Button icon (optional)"
+      },
+      {
+        "type": "range",
+        "id": "tg_chat_offset_bottom",
+        "label": "Bottom offset (px)",
+        "min": 0,
+        "max": 120,
+        "step": 5,
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "tg_chat_offset_right",
+        "label": "Right offset (px)",
+        "min": 0,
+        "max": 120,
+        "step": 5,
+        "default": 20
+      },
+      {
+        "type": "url",
+        "id": "tg_chat_link",
+        "label": "Telegram link"
+        
+      },
+      {
+        "type": "text",
+        "id": "tg_chat_text",
+        "label": "Panel text",
+        "default": "Написати менеджеру в телеграм"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.product_cards.name",
     "settings": [
       {
@@ -681,7 +761,16 @@
         "type": "checkbox",
         "id": "product_card_media_hover",
         "label": "t:settings_schema.product_cards.settings.product_card_media_hover.label",
-        "default": true
+        "default": true,
+        "info": "When enabled, the product card image slider (arrows/swipe) is disabled."
+      },
+      {
+        "type": "checkbox",
+        "id": "product_card_media_slider",
+        "label": "Enable product card image slider",
+        "default": false,
+        "visible_if": "{{ settings.product_card_media_hover == false }}",
+        "info": "Shows arrows on hover (desktop) and enables swipe on touch devices."
       },
       {
         "type": "select",

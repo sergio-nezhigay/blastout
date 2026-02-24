@@ -90,6 +90,7 @@
         },
         "text_message_48XXJ7": {
           "type": "Text_message",
+          "disabled": true,
           "settings": {
             "main_text-product": "<p>product.contact_manager</p>",
             "main_url-product": "https://t.me/+380502502040",

@@ -4601,7 +4601,7 @@ back-to-top.hide {
 .back-to-top {
   position: fixed;
   inset-block-end: var(--spacing-5);
-  inset-inline-end: var(--spacing-5);
+  inset-inline-start: var(--spacing-5);
   z-index: var(--z-fab);
   display: flex;
   align-items: center;
@@ -5014,5 +5014,91 @@ body .atw-button {
 
 
 
+/* custom */
 
 
+body.is-at-top:has(.shopify-section:first-child .header-is-transparent):not(:has(.section-header~.shopify-section-group-header-group))
+.header:not(.menu-open)
+.st-wishlist-details-button--header-icon{
+  --icon-color: var(--color-foreground) !important;
+  color: var(--color-foreground) !important;
+}
+
+
+
+
+
+/* Wishlist icon always follows header foreground color */
+.header .st-wishlist-details-button--header-icon{
+  --icon-color: var(--color-foreground) !important;
+  color: var(--color-foreground) !important;
+}
+
+
+
+
+.wishpc .st-wishlist-details-button[data-type=manually] .st-number {
+  height: 14px !important;
+  right: -6px !important;
+  width: 14px !important;
+}
+.wishpc .st-wishlist-details-button .st-number {
+  font-size: 10px;
+}
+.wishpc .st-wishlist-details-button .st-number {
+  line-height: 1.6 !important;
+}
+
+@media (max-width: 989px) {
+  .wishpc {
+    display: none;
+  }
+}
+@media (min-width: 990px) {
+  .wishmob {
+    display: none;
+  }
+}
+
+.wishmob {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 2rem 0;
+  border-block-start: .1rem solid rgba(var(--color-foreground), .1);
+}
+.wishmob .st-wishlist-details-button svg {
+  width: 2.2rem !important;
+  height: 2.2rem !important;
+}
+.wishmob .st-wishlist-details-button[data-type=manually] {
+  padding: 1px;
+}
+
+.wishmob .st-wishlist-details-button[data-type=manually] .st-number {
+  height: 15px;
+  right: 10px;
+  top: 2px;
+  width: 15px;
+  font-size: 10px;
+}
+
+.wishpp {
+  margin-right: 0.5rem;
+}
+
+
+.wishpp .st-wishlist-button {
+  flex-direction: row-reverse !important;
+  font-size: 12px !important;
+  width: max-content;
+  gap: 5px;
+  padding: 0 !important;
+  font-family: arial;
+}
+
+.wishpp .st-wishlist-icon {
+  height: 15px !important;
+  width: 15px !important;
+}

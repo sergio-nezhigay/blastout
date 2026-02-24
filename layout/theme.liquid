@@ -166,5 +166,9 @@
       Payment Button Translation System - Loads external translator script
     {%- endcomment -%}
     <script src="{{- 'payment-button-translator.js' | asset_url -}}" defer="defer"></script>
+
+    {%- if settings.tg_chat_enable -%}
+    {% render 'telegram-chat' %}
+    {%- endif -%}
   </body>
 </html>
