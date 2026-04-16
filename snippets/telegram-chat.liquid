@@ -41,7 +41,7 @@
       data-tg-chat-panel
     >
       <span class="tg-chat__text">
-        {{ settings.tg_chat_text | default: 'Написати менеджеру в телеграм' | escape }}
+        {{ 'tg.chat_text' | t | escape }}
       </span>
 
       <span class="tg-chat__arrow" aria-hidden="true">

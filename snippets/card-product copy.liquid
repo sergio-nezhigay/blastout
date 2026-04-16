@@ -1,0 +1,1197 @@
+{% comment %}
+  Renders a product card
+  Accepts:
+  - product_ref: {Object} Product Liquid object
+  - section_id: {String} Section id
+  - block_index: {Number} Block index for unique id
+  Usage:
+  {%- render 'card-product', product_ref: product_ref, section_id: section.id, block_index: block_index  -%}
+
+
+{% comment %} Product Media {% endcomment %}
+
+{%- liquid
+  assign image_per_view = image_per_view | default: 3
+  assign is_small = is_small | default: false
+
+  assign search_product = search_product | default: false
+  assign is_in_drawer = is_in_drawer | default: false
+  assign product_images = product_ref.variants | map: 'featured_image' | uniq
+
+  assign variants_display_desktop = settings.product_card_variants_display_desktop
+  assign variants_display_mobile = settings.product_card_variants_display_mobile
+
+  assign variants_display_limit = settings.product_card_variants_display_limit | default: 3
+
+  assign show_variants = show_variants | default: true
+
+  assign product_title_placeholder = 'product.label' | t
+-%}
+
+{%- capture media -%}
+  {% comment %} Variables | Product Media {% endcomment %}
+  {%- assign media_classes = "media product-card__media" -%}
+  {%- if settings.product_card_media_hover and product_ref.gift_card? == false -%}
+    {%- assign media_classes = media_classes | append: ' product-card__media--hoverable' -%}
+  {%- endif -%}
+
+  {%- liquid
+    assign enable_card_slider = false
+    if settings.product_card_media_hover == false and settings.product_card_media_slider == true
+      assign enable_card_slider = true
+    endif
+
+    assign image_media = blank
+    assign image_media = product_ref.media | where: 'media_type', 'image'
+
+    assign is_collection_page = false
+    if request.page_type == 'collection'
+      assign is_collection_page = true
+    endif
+  -%}
+
+  {% comment %} Styles | Product Media {% endcomment %}
+ <style>
+  .product-card__media {
+    --product-card-media-aspect-ratio: {{ settings.product_card_media_aspect_ratio }};
+    --product-card-media-object-fit: {{ settings.product_card_media_object_fit }};
+
+    /* ✅ Bigger arrows + bigger tap/click area */
+    --pc-nav-hit: 45px;  /* was 30px (+15px click area) */
+    --pc-nav-icon: 19px; /* was 14px (+5px icon) */
+  }
+
+  /* ===== Card media slider (only when hover setting is OFF + slider setting ON) ===== */
+  .product-card__media .pc-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-card__media .pc-slider__track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .product-card__media .pc-slide {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* fallback mode uses absolute slides */
+  .product-card__media .pc-slider[data-mode="fallback"] .pc-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+  }
+  .product-card__media .pc-slider[data-mode="fallback"] .pc-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .product-card__media .pc-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    border: 0;
+    padding: 0;
+    width: var(--pc-nav-hit);
+    height: var(--pc-nav-hit);
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .15s ease, transform .15s ease;
+  }
+
+  .product-card__media .pc-nav svg {
+    width: var(--pc-nav-icon);
+    height: var(--pc-nav-icon);
+    display: block;
+  }
+
+  .product-card__media .pc-nav--prev { left: 8px; }
+  .product-card__media .pc-nav--next { right: 8px; }
+
+  /* Disabled state (visual + cursor). */
+  .product-card__media .pc-nav.is-disabled,
+  .product-card__media .pc-nav[aria-disabled="true"] {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+
+  /* Desktop: arrows visible ONLY on hover */
+  @media (hover:hover) and (pointer:fine) {
+    .product-card__media .pc-nav {
+      opacity: 0 !important;
+      pointer-events: none;
+    }
+
+    .product-card__actions:hover .product-card__media .pc-nav,
+    .product-card__media:hover .pc-nav {
+      opacity: 1 !important;
+      pointer-events: auto;
+    }
+
+    .product-card__media:hover .pc-nav--prev { transform: translateY(-50%) translateX(-1px); }
+    .product-card__media:hover .pc-nav--next { transform: translateY(-50%) translateX(1px); }
+
+    .product-card__actions:hover .product-card__media .pc-nav.is-disabled,
+    .product-card__media:hover .pc-nav.is-disabled,
+    .product-card__actions:hover .product-card__media .pc-nav[aria-disabled="true"],
+    .product-card__media:hover .pc-nav[aria-disabled="true"] {
+      opacity: .5 !important;
+      cursor: not-allowed;
+      pointer-events: auto; /* to show not-allowed cursor */
+      transform: translateY(-50%);
+    }
+  }
+
+  /* Mobile tweaks */
+  @media (max-width: 749px) {
+    .product-card__media {
+      --pc-nav-hit: 43px; /* was 28px (+15px click area) */
+      --pc-nav-icon: 19px;
+    }
+
+    .product-card__media .pc-nav--prev { left: 6px; }
+    .product-card__media .pc-nav--next { right: 6px; }
+
+    /* ✅ Collection mobile: NO arrows (only finger swipe) */
+    .product-card__media .pc-slider[data-hide-mobile-arrows="true"] .pc-nav {
+      display: none !important;
+    }
+  }
+</style>
+
+  {% comment %} Render | Product Media {% endcomment %}
+  <div
+    class="{{ media_classes }}"
+    data-update-media="{% if product_ref.first_available_variant == product_ref.selected_variant %}true{% else %}false{% endif %}"
+  >
+    {% liquid
+      assign hover_media = product_ref.media[1]
+
+      if hover_media.media_type == 'video' or hover_media.media_type == 'external_video'
+        assign hover_media = product_ref.media[2]
+      endif
+    %}
+
+    {%- if product_ref.featured_image -%}
+
+      {%- comment -%}
+        NEW LOGIC:
+        1) Collection page:
+           - Desktop: arrows + mouse-drag
+           - Mobile <=749: finger swipe only (no arrows)
+        2) All other pages:
+           - Desktop + Mobile: arrows only
+           - No mouse-drag, no finger swipe
+      {%- endcomment -%}
+
+      {%- if enable_card_slider and image_media != blank and image_media.size > 1 and search_product == false and request.page_type != 'search' -%}
+        {%- assign slider_id = 'pc-slider-' | append: section_id | append: '-' | append: product_ref.id -%}
+
+        {%- assign allow_swipe = false -%}
+        {%- if is_collection_page -%}
+          {%- assign allow_swipe = true -%}
+        {%- endif -%}
+
+        <div
+          class="pc-slider"
+          data-pc-card-slider
+          id="{{ slider_id }}"
+          data-mode=""
+          data-allow-swipe="{% if allow_swipe %}true{% else %}false{% endif %}"
+          data-hide-mobile-arrows="{% if is_collection_page %}true{% else %}false{% endif %}"
+        >
+          <button class="pc-nav pc-nav--prev is-disabled" type="button" aria-label="Previous image" aria-disabled="true">
+            <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+              <path d="M12.7 15.6a1 1 0 0 1-1.4 0l-5-5a1 1 0 0 1 0-1.4l5-5a1 1 0 1 1 1.4 1.4L8.4 10l4.3 4.2a1 1 0 0 1 0 1.4z"></path>
+            </svg>
+          </button>
+
+          <button class="pc-nav pc-nav--next" type="button" aria-label="Next image" aria-disabled="false">
+            <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+              <path d="M7.3 4.4a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4l-5 5a1 1 0 1 1-1.4-1.4L11.6 10 7.3 5.8a1 1 0 0 1 0-1.4z"></path>
+            </svg>
+          </button>
+
+          <div class="pc-slider__track">
+            {%- for m in image_media limit: 10 -%}
+              {%- liquid
+                assign loading = 'lazy'
+                if product_index and product_index <= image_per_view and forloop.first
+                  assign loading = 'eager'
+                endif
+              -%}
+              <div class="pc-slide{% if forloop.first %} is-active{% endif %}">
+                {%- render 'image',
+                  image: m,
+                  alt: m.alt | default: product_ref.title,
+                  image_per_view: image_per_view,
+                  loading: loading
+                -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+      {%- else -%}
+        {%- comment -%} ORIGINAL MEDIA LOGIC (unchanged) {%- endcomment -%}
+        {%- if product_images.size > 1 and variants_display_desktop != 'none' or variants_display_mobile != 'none' -%}
+          {%- for product_image in product_images -%}
+            {%- if product_image != blank -%}
+              {%- liquid
+                assign data_product_images = ''
+                for variant in product_ref.variants
+                  if variant.featured_image == product_image
+                    assign data_product_images = data_product_images | append: variant.id | append: ','
+                  endif
+                endfor
+                assign data_product_images = data_product_images | split: ',' | uniq | join: ','
+                if data_product_images != ""
+                  assign attr = 'data-product-images="' | append: data_product_images | append: '"'
+                endif
+
+                assign image_render_condition = false
+                if product_ref.selected_or_first_available_variant.featured_image and product_ref.selected_or_first_available_variant.featured_image.id == product_image.id
+                  assign image_render_condition = true
+                elsif product_ref.selected_or_first_available_variant.featured_image == nil and forloop.first
+                  assign image_render_condition = true
+                endif
+
+                assign loading = 'lazy'
+                if product_index and product_index <= image_per_view and forloop.index0 < 1
+                  assign loading = 'eager'
+                endif
+              -%}
+
+              {%- if image_render_condition -%}
+                {%- render 'image', image: product_image, attr: attr, image_per_view: image_per_view, loading: loading -%}
+              {%- else -%}
+                {%- render 'image', image: product_image, attr: attr, image_per_view: image_per_view, loading: loading, class: 'hidden' -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          {%- render 'image', image: product_ref.featured_image, image_per_view: image_per_view, loading: loading -%}
+        {%- endif -%}
+
+        {%- if settings.product_card_media_hover and product_ref.media.size > 1 and hover_media != nil -%}
+          {%- render 'image', image: hover_media, alt: hover_media.alt | default: product_ref.title, class: 'hover-img', image_per_view: image_per_view -%}
+        {%- endif -%}
+      {%- endif -%}
+
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+
+  <script>
+    (function () {
+      if (window.__pcCardSliderInit) return;
+      window.__pcCardSliderInit = true;
+
+      function stopLinkClick(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      function setBtnState(btn, disabled) {
+        if (!btn) return;
+        if (disabled) {
+          btn.classList.add('is-disabled');
+          btn.setAttribute('aria-disabled', 'true');
+        } else {
+          btn.classList.remove('is-disabled');
+          btn.setAttribute('aria-disabled', 'false');
+        }
+      }
+
+      function isDisabled(btn) {
+        return !btn || btn.getAttribute('aria-disabled') === 'true' || btn.classList.contains('is-disabled');
+      }
+
+      function isSwipeAllowed(slider) {
+        return slider && slider.getAttribute('data-allow-swipe') === 'true';
+      }
+
+      function initFallback(slider, swipeAllowed) {
+        slider.dataset.mode = 'fallback';
+
+        var slides = Array.prototype.slice.call(slider.querySelectorAll('.pc-slide'));
+        var prevBtn = slider.querySelector('.pc-nav--prev');
+        var nextBtn = slider.querySelector('.pc-nav--next');
+        if (!slides.length || slides.length < 2) return;
+
+        var index = 0;
+
+        function syncButtons() {
+          setBtnState(prevBtn, index <= 0);
+          setBtnState(nextBtn, index >= slides.length - 1);
+        }
+
+        function setActive(i) {
+          index = Math.max(0, Math.min(i, slides.length - 1));
+          slides.forEach(function (s, k) {
+            s.classList.toggle('is-active', k === index);
+          });
+          syncButtons();
+        }
+
+        prevBtn && prevBtn.addEventListener('click', function (e) {
+          stopLinkClick(e);
+          if (isDisabled(prevBtn)) return;
+          setActive(index - 1);
+        });
+
+        nextBtn && nextBtn.addEventListener('click', function (e) {
+          stopLinkClick(e);
+          if (isDisabled(nextBtn)) return;
+          setActive(index + 1);
+        });
+
+        // ✅ Swipe (touch/mouse drag) only when allowed (collections)
+        if (swipeAllowed) {
+          var startX = 0;
+          var startY = 0;
+          var isDown = false;
+
+          slider.addEventListener('pointerdown', function (e) {
+            isDown = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            slider.setPointerCapture && slider.setPointerCapture(e.pointerId);
+          });
+
+          slider.addEventListener('pointerup', function (e) {
+            if (!isDown) return;
+            isDown = false;
+
+            var dx = e.clientX - startX;
+            var dy = e.clientY - startY;
+
+            if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+              stopLinkClick(e);
+
+              if (dx < 0) {
+                if (index < slides.length - 1) setActive(index + 1);
+              } else {
+                if (index > 0) setActive(index - 1);
+              }
+            }
+          });
+        }
+
+        setActive(0);
+      }
+
+      function initSwiper(slider, swipeAllowed) {
+        if (!window.Swiper) return false;
+
+        var track = slider.querySelector('.pc-slider__track');
+        var slides = Array.prototype.slice.call(slider.querySelectorAll('.pc-slide'));
+        var prevBtn = slider.querySelector('.pc-nav--prev');
+        var nextBtn = slider.querySelector('.pc-nav--next');
+        if (!track || slides.length < 2) return true;
+
+        slider.dataset.mode = 'swiper';
+
+        slider.classList.add('swiper');
+        track.classList.add('swiper-wrapper');
+        slides.forEach(function (s) {
+          s.classList.add('swiper-slide');
+          s.classList.remove('is-active');
+        });
+
+        // Always prevent navigation on arrow click (even disabled)
+        prevBtn && prevBtn.addEventListener('click', function(e){ stopLinkClick(e); });
+        nextBtn && nextBtn.addEventListener('click', function(e){ stopLinkClick(e); });
+
+        var sw = new window.Swiper(slider, {
+          slidesPerView: 1,
+          watchOverflow: true,
+          threshold: 8,
+          navigation: {
+            nextEl: nextBtn,
+            prevEl: prevBtn
+          },
+
+          // ✅ Key change:
+          // collections: allow drag/swipe
+          // other pages: arrows only
+          allowTouchMove: !!swipeAllowed,
+          simulateTouch: !!swipeAllowed,
+
+          on: {
+            init: function () {
+              setBtnState(prevBtn, this.isBeginning);
+              setBtnState(nextBtn, this.isEnd);
+            },
+            slideChange: function () {
+              setBtnState(prevBtn, this.isBeginning);
+              setBtnState(nextBtn, this.isEnd);
+            },
+            fromEdge: function () {
+              setBtnState(prevBtn, this.isBeginning);
+              setBtnState(nextBtn, this.isEnd);
+            }
+          }
+        });
+
+        // Prevent accidental click-through only when swipe is enabled
+        if (swipeAllowed) {
+          var moved = false;
+          sw.on('touchMove', function () { moved = true; });
+          sw.on('touchEnd', function () {
+            setTimeout(function(){ moved = false; }, 0);
+          });
+
+          slider.addEventListener('click', function (e) {
+            if (!moved) return;
+            stopLinkClick(e);
+          }, true);
+        }
+
+        return true;
+      }
+
+      function initAll() {
+        var sliders = document.querySelectorAll('[data-pc-card-slider]');
+        sliders.forEach(function (slider) {
+          if (slider.dataset.inited === 'true') return;
+          slider.dataset.inited = 'true';
+
+          var swipeAllowed = isSwipeAllowed(slider);
+
+          var ok = initSwiper(slider, swipeAllowed);
+          if (!ok) initFallback(slider, swipeAllowed);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAll);
+      } else {
+        initAll();
+      }
+
+      document.addEventListener('shopify:section:load', initAll);
+    })();
+  </script>
+{%- endcapture -%}
+
+{% comment %} Product Add-To-Cart Button {% endcomment %}
+{%- capture add_to_cart_button -%}
+  {%- if settings.product_card_enable_quick_add_to_cart_button or settings.product_card_enable_single_add_to_cart_button -%}
+    {% comment %} Variables | Product Add-To-Cart Button {% endcomment %}
+    {%- assign button_classes = 'button product-card__add-to-cart--button color-' | append: settings.product_card_action_buttons_color_scheme | append: ' ' -%}
+    {%- if settings.product_card_add_to_cart_btn_content == 'icon-hover' -%}
+      {%- assign button_classes = button_classes | append: ' product-card__add-to-cart--button-icon-with-hover ' -%}
+    {%- endif -%}
+    {% if is_small %}
+      {% assign button_classes = button_classes | append: 'product-card-small__button ' %}
+    {% endif %}
+    {%- if settings.product_card_add_to_cart_btn_content == 'icon' or settings.product_card_add_to_cart_btn_content == 'icon-hover' -%}
+      {%- assign button_classes = button_classes | append: 'button--icon' -%}
+      {%- if settings.button_border_radius == '0' -%}
+        {%- assign button_classes = button_classes | append: ' button--rounded-0' -%}
+      {%- endif -%}
+    {%- else -%}
+      {%- assign button_classes = button_classes | append: 'button--uppercase button--filled' -%}
+    {%- endif -%}
+
+    {%- capture button_content -%}
+      {%- assign button_label = '' -%}
+      {%- if product_ref.metafields.theme.preorder.value -%}
+        {%- assign button_label = 'product.preorder' | t  -%}
+      {%- else -%}
+        {%- if product_ref.variants.size == 1 -%}
+          {%- assign button_label = 'theme.actions.add_to_cart' | t  -%}
+        {%- elsif product_ref.variants.size > 1  -%}
+          {%- assign button_label = 'product.choose_options' | t  -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- if is_in_drawer -%}
+        {%- assign button_label = 'product.select_size' | t  -%}
+      {%- endif -%}
+      {%- if settings.product_card_add_to_cart_btn_content contains 'icon' -%}
+        {% render 'icon', icon_name: 'theme-plus' %}
+      {%- endif -%}
+      {%- if settings.product_card_add_to_cart_btn_content contains 'hover' -%}
+        <span class="product-card__add-to-cart--text">{{- settings.product_card_add_to_cart_icon_hover_text -}}</span>
+      {%- endif -%}
+      {%- if settings.product_card_add_to_cart_btn_content contains 'text' -%}
+        <span>{{- button_label -}}</span>
+      {%- else -%}
+        <span class="visually-hidden">{{- button_label -}}</span>
+      {%- endif -%}
+    {%- endcapture -%}
+
+    {% comment %} Render | Product Add-To-Cart Button {% endcomment %}
+    {%- if product_ref.variants.size == 1 and settings.product_card_enable_single_add_to_cart_button -%}
+      <button
+        type="submit"
+        class="{{ button_classes }}"
+        {%- unless product_ref.available -%}disabled{%- endunless -%}
+      >
+        {{- button_content -}}
+      </button>
+    {%- endif -%}
+    {%- if product_ref.variants.size > 1 and settings.product_card_enable_quick_add_to_cart_button -%}
+      <button
+        type="button"
+        class="quick-cart-drawer__trigger {{ button_classes }}"
+        tabindex="{% if is_in_drawer == true %}-1{% else %}0{% endif %}"
+        aria-expanded="false"
+        aria-controls="quick-cart-drawer"
+        data-product-url="{{- product_ref.handle | prepend: '/products/'  -}}"
+        {%- if product_ref.metafields.theme.preorder.value -%}
+          data-preorder="true"
+        {%- endif -%}
+        {%- unless product_ref.available -%}disabled{%- endunless -%}
+      >
+        {{- button_content -}}
+        <div class="quick-cart-drawer__trigger--loading">
+          {%- render 'loading-spinner' -%}
+        </div>
+      </button>
+    {%- endif -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{% comment %} Product Add-To-Cart Form {% endcomment %}
+{%- capture add_to_cart -%}
+  {%- if product_ref.available -%}
+    {%- capture variant_id_input -%}
+      <input type='hidden' name='id' value='{{- product_ref.selected_or_first_available_variant.id -}}'>
+    {%- endcapture -%}
+
+    {%- if product_ref.variants.size == 1 and settings.product_card_enable_single_add_to_cart_button -%}
+      {% comment %} Render | Product Add-To-Cart Form {% endcomment %}
+      <form class="product-card__add-to-cart--form">
+        {{ variant_id_input }}
+        <input type='hidden' name='quantity' value='1'>
+        {{ add_to_cart_button }}
+      </form>
+    {%- else -%}
+      {{ variant_id_input }}
+    {%- endif -%}
+    {%- if product_ref.variants.size > 1 and settings.product_card_enable_quick_add_to_cart_button -%}
+      {{ add_to_cart_button }}
+    {%- endif -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{% comment %} Product Variants || Options || Swatches {% endcomment %}
+{%- capture product_variants -%}
+  {%- if product_ref.available and variants_display_desktop != 'none' or variants_display_mobile != 'none' -%}
+    {% comment %} Variables | Product Swatches {% endcomment %}
+    {%- assign swatch_options = settings.swatches_option | split: ',' -%}
+    {%- assign current_swatch_options = '' -%}
+    {%- for swatch_opt in swatch_options -%}
+      {%- assign swatch_opt_striped = swatch_opt | strip -%}
+      {%- assign swatch_option = product_ref.options_by_name[swatch_opt_striped].values | join: ',' -%}
+      {%- assign current_swatch_options = current_swatch_options | append: swatch_option | append: ',' -%}
+    {%- endfor -%}
+    {%- assign current_swatch_options = current_swatch_options | split: ','-%}
+
+    {% comment %} Check for variant priorty  {% endcomment %}
+    {% assign swatches_option_array = settings.swatches_option | split: ',' %}
+
+    {%- liquid
+      assign variants_available_arr = product_ref.variants | map: 'available'
+      assign variants_option_first_arr = product_ref.variants | map: 'option1'
+      assign variants_option_second_arr = product_ref.variants | map: 'option2'
+      assign variants_option_third_arr = product_ref.variants | map: 'option3'
+    -%}
+
+    {% comment %} Render | Product Variants & Swatches {% endcomment %}
+    <div class="product-card__variants">
+      {%- capture swatch_info_class -%}
+        {%- if variants_display_desktop == 'info' and variants_display_mobile != 'info'  -%}
+          small-hide
+        {%- elsif variants_display_mobile == 'info' and variants_display_desktop != 'info' -%}
+          small-up-hide
+        {%- endif -%}
+      {%- endcapture -%}
+      {%- if variants_display_desktop == 'info' or variants_display_mobile == 'info' -%}
+        <span class="product-card__variants--info {{ swatch_info_class }}">
+        {%- liquid
+          if product_ref.options_with_values.size > 1
+            assign options_count_and_name = ''
+            assign option_last_count_and_name = ''
+            for option_with_value in product_ref.options_with_values
+              if forloop.last == false
+                assign options_count_and_name = options_count_and_name | append: option_with_value.values.size | append: ' ' | append: option_with_value.name | append: ', '
+              else
+                assign option_last_count_and_name = option_last_count_and_name | append: option_with_value.values.size | append: ' ' | append: option_with_value.name
+              endif
+            endfor
+            assign options_count_and_name = options_count_and_name | replace_last: ', ', '' | downcase
+            assign option_last_count_and_name = option_last_count_and_name | downcase
+            echo 'product.variant_info_multiple_options' | t: options_count_and_name: options_count_and_name, option_last_count_and_name: option_last_count_and_name
+          else
+            for option_with_value in product_ref.options_with_values
+              assign option_count_and_name = option_with_value.values.size | append: ' ' | append: option_with_value.name
+              assign option_count_and_name = option_count_and_name | downcase
+              echo 'product.variant_info_one_option' | t: option_count_and_name: option_count_and_name
+            endfor
+          endif
+        -%}
+        </span>
+      {%- endif -%}
+      <ul class="product-card__variants--list product-card__variants--list--{{ settings.product_card_product_options_position }}">
+        {%- comment -%}digifist-note -- this part is a need max variant setting{%- endcomment -%}
+        {%- for opts in (1..3) -%}
+          {%- assign options = blank -%}
+          {%- if opts == 1 -%}
+            {%- assign options = product_ref.options_with_values[0] -%}
+          {%- elsif opts == 2 -%}
+            {%- assign options = product_ref.options_with_values[1] -%}
+          {%- elsif opts == 3 -%}
+            {%- assign options = product_ref.options_with_values[2] -%}
+          {%- endif -%}
+          {%- if options.values != blank -%}
+            {%- if options.values.size > 1 -%}
+              {%- capture swatch_button_class -%}
+                {%- unless swatches_option_array contains options.name -%}
+                  hidden
+                {%- else -%}
+                  {%- if variants_display_desktop != 'button' and variants_display_mobile == 'button' -%}
+                    small-up-hide
+                  {%- elsif variants_display_mobile != 'button' and variants_display_desktop == 'button' -%}
+                    small-hide
+                  {%- elsif variants_display_desktop != 'button' and variants_display_mobile != 'button' -%}
+                    hidden
+                  {%- endif -%}
+                {%- endunless -%}
+              {%- endcapture -%}
+              <li class="{{ swatch_button_class }}">
+                <fieldset class="product__variant-options js-product-card-options" role="radiogroup">
+                  {%- for opt in options.values -%}
+
+                    {%- liquid
+                      assign section_id = section.id | default: 'section'
+                      assign block_id = block.id | default: 'block'
+                      assign variant_id = section_id | append: '-' | append: product_ref.id | append: '-variant-option-' | append: opts | append: '-' | append: forloop.index | append: '-' | append: block_id
+
+                      assign selected_variant = product_ref.selected_or_first_available_variant
+
+                      assign variant_is_checked = false
+                      for selected_variant_option in selected_variant.options
+                        if selected_variant_option == opt
+                          assign variant_is_checked = true
+                        endif
+                      endfor
+
+                      assign input_is_checked = false
+                      if variant_is_checked
+                        assign input_is_checked = true
+                      endif
+
+                      assign option_disabled = false
+                      assign all_variants = product_ref.variants
+                      for each_variant in all_variants
+                        for each_variant_option in each_variant.options
+                          if each_variant_option == opt and each_variant.available == false
+                            assign option_disabled = true
+                          endif
+                        endfor
+                      endfor
+
+                      assign input_name = product_ref.id | append: '-option[' | append: opts | append: ']'
+                    -%}
+
+                    <div class="button--variant" tabindex="0">
+                      {%- render 'product-option', id: variant_id, name: input_name, value: opt, swatch_value: opt.swatch, checked: input_is_checked, class: 'hidden variant-option-radio-input', visually_hidden: true, block: block, product: product_ref, option: options, where: 'card-product' -%}
+                    </div>
+                    {%- if forloop.index == variants_display_limit -%}
+                      {%- assign more_variants_size = options.values.size | minus: variants_display_limit -%}
+                      {%- unless more_variants_size == 0 -%}
+                        <li class="product-card__variants--more">{{- "+" | append: more_variants_size -}}</li>
+                      {%- endunless -%}
+                      {%- break -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                </fieldset>
+              </li>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  {%- endif -%}
+
+  <script data-product-variants-json type="application/json">
+    {{- product_ref.variants | json -}}
+  </script>
+{%- endcapture -%}
+
+{%- assign product_link_with_variant = product_ref.url | append: '?variant=' | append: product_ref.selected_or_first_available_variant.id -%}
+
+{%- if search_product -%}
+  {%- assign product_link_with_variant = product_ref.url -%}
+{%- endif -%}
+
+
+
+<product-card class="product-card{% if is_small %} product-card--small{% endif %}{% unless product_ref.available %} product-card__sold-out{% endunless %}">
+
+
+
+
+
+  <div class="product-card__actions">
+    <a href="{{ product_link_with_variant }}" tabindex="-1" class="product-card__link" data-product-link title="{{ 'product.go_to_title' | t : title: product_ref.title }}">
+      {{ media }}
+    </a>
+    {% if is_small == false %}
+      {{ add_to_cart }}
+    {% endif %}
+  </div>
+  <div class="product-card__content">
+    {%- liquid
+      assign product_card_info_classes = 'product-card__info'
+      if settings.product_card_badge_position == 'start'
+        assign product_card_info_classes = product_card_info_classes | append: ' product-card__badge--on-start'
+      endif
+      if settings.product_card_price_position == 'inline'
+        assign product_card_info_classes = product_card_info_classes | append: ' product-card__price--inline'
+      endif
+    -%}
+    <div class="{{ product_card_info_classes }}">
+      {%- if settings.show_product_card_vendor -%}
+        <span class="product-card__vendor">
+          {{ product_ref.vendor | link_to_vendor }}
+        </span>
+      {%- endif -%}
+      <h3 class="product-card__title">
+        <a href="{{ product_link_with_variant }}" class="product-card__link" tabindex="{% if is_in_drawer == true %}-1{% else %}0{% endif %}" data-product-link title="{{ 'product.go_to_title' | t : title: product_ref.title }}">
+          <span>{{ product_ref.title | default: product_title_placeholder }}</span>
+        </a>
+        {% render 'product-badges', product: product_ref %}
+      </h3>
+      <span class="product-card__price">
+        {%- render 'price', product: product_ref -%}
+      </span>
+    </div>
+    <div class="product-card__options product-card__options--{{ settings.product_card_product_options_position }}">
+      {% if settings.show_product_groups_on_product_card %}
+        {% render 'product-groups', product: product_ref, on: 'card' %}
+      {% endif %}
+      {{ product_variants }}
+    </div>
+    {% if is_in_drawer %}
+      {{ add_to_cart }}
+    {% endif %}
+  </div>
+
+
+
+{% if settings.enable_wishlist_buttons and settings.show_wishlist_on_catalog %}
+  <button title="Add to wishlist" aria-label="Add to wishlist" class="st-wishlist-button" type="button" data-type="product-card" data-handle="{{ product_ref.handle }}" aria-label="Add product to wishlist"></button>
+{%- endif -%}
+
+
+</product-card>
+
+
+
+
+{% endcomment %}
+
+
+
+{% comment %}
+  facets backup
+
+
+
+
+
+
+
+
+
+class FacetFiltersForm extends HTMLElement {
+  constructor() {
+    super();
+
+    this.onActiveFilterClick = this.onActiveFilterClick.bind(this);
+
+    this.debouncedOnSubmit = debounce((event) => {
+      this.onSubmitHandler(event);
+    }, 800);
+
+    const facetForm = this.querySelector('form');
+    facetForm.addEventListener('input', this.debouncedOnSubmit.bind(this));
+
+    const facetWrapper = this.querySelector('#FacetsWrapperDesktop');
+    if (facetWrapper) facetWrapper.addEventListener('keyup', onKeyUpEscape);
+  }
+
+  static setListeners() {
+    const onHistoryChange = (event) => {
+      const searchParams = event.state ? event.state.searchParams : FacetFiltersForm.searchParamsInitial;
+      if (searchParams === FacetFiltersForm.searchParamsPrev) return;
+      FacetFiltersForm.renderPage(searchParams, null, false);
+    };
+    window.addEventListener('popstate', onHistoryChange);
+  }
+
+  static toggleActiveFacets(disable = true) {
+    document.querySelectorAll('.js-facet-remove').forEach((element) => {
+      element.classList.toggle('disabled', disable);
+    });
+  }
+
+  static renderPage(searchParams, event, updateURLHash = true) {
+    FacetFiltersForm.searchParamsPrev = searchParams;
+    const sections = FacetFiltersForm.getSections();
+    const countContainer = document.getElementById('ProductCount');
+    const countContainerDesktop = document.getElementById('ProductCountDesktop');
+
+    document.getElementById('ProductGridContainer').querySelector('.collection-grid-container').classList.add('loading');
+    if (countContainer) {
+      countContainer.classList.add('loading');
+    }
+    if (countContainerDesktop) {
+      countContainerDesktop.classList.add('loading');
+    }
+
+    sections.forEach((section) => {
+      const url = `${window.location.pathname}?section_id=${section.section}&${searchParams}`;
+      const filterDataUrl = (element) => element.url === url;
+
+      FacetFiltersForm.filterData.some(filterDataUrl)
+        ? FacetFiltersForm.renderSectionFromCache(filterDataUrl, event)
+        : FacetFiltersForm.renderSectionFromFetch(url, event);
+    });
+
+    if (updateURLHash) FacetFiltersForm.updateURLHash(searchParams);
+  }
+
+  static renderSectionFromFetch(url, event) {
+    fetch(url)
+      .then((response) => response.text())
+      .then((responseText) => {
+        const html = responseText;
+        FacetFiltersForm.filterData = [...FacetFiltersForm.filterData, { html, url }];
+        FacetFiltersForm.renderFilters(html, event);
+        FacetFiltersForm.renderProductGridContainer(html);
+        FacetFiltersForm.renderProductCount(html);
+        if (document.getElementById('SortBy')) {
+          document.getElementById('SortBy').dispatchEvent(new Event('change', { bubbles: true }));
+        }
+        if (typeof initializeScrollAnimationTrigger === 'function') initializeScrollAnimationTrigger(html.innerHTML);
+      });
+  }
+
+  static renderSectionFromCache(filterDataUrl, event) {
+    const html = FacetFiltersForm.filterData.find(filterDataUrl).html;
+    FacetFiltersForm.renderFilters(html, event);
+    FacetFiltersForm.renderProductGridContainer(html);
+    FacetFiltersForm.renderProductCount(html);
+    if (document.getElementById('SortBy')) {
+      document.getElementById('SortBy').dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    if (typeof initializeScrollAnimationTrigger === 'function') initializeScrollAnimationTrigger(html.innerHTML);
+  }
+
+  static renderProductGridContainer(html) {
+    document.getElementById('ProductGridContainer').innerHTML = new DOMParser()
+      .parseFromString(html, 'text/html')
+      .getElementById('ProductGridContainer').innerHTML;
+
+    document
+      .getElementById('ProductGridContainer')
+      .querySelectorAll('.scroll-trigger')
+      .forEach((element) => {
+        element.classList.add('scroll-trigger--cancel');
+      });
+  }
+
+  static renderProductCount(html) {
+    const count = new DOMParser().parseFromString(html, 'text/html').getElementById('ProductCount').innerHTML;
+    const container = document.getElementById('ProductCount');
+    const containerDesktop = document.getElementById('ProductCountDesktop');
+    container.innerHTML = count;
+    container.classList.remove('loading');
+    if (containerDesktop) {
+      containerDesktop.innerHTML = count;
+      containerDesktop.classList.remove('loading');
+    }
+  }
+
+  static renderFilters(html, event) {
+    const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
+    const facetDetailsElementsFromFetch = parsedHTML.querySelectorAll('#FacetFiltersForm .js-filter');
+    const facetDetailsElementsFromDom = document.querySelectorAll('#FacetFiltersForm .js-filter');
+
+    // Remove facets that are no longer returned from the server
+    Array.from(facetDetailsElementsFromDom).forEach((currentElement) => {
+      if (!Array.from(facetDetailsElementsFromFetch).some(({ id }) => currentElement.id === id)) {
+        currentElement.remove();
+      }
+    });
+
+    const matchesId = (element) => {
+      const jsFilter = event ? event.target.closest('.js-filter') : undefined;
+      return jsFilter ? element.id === jsFilter.id : false;
+    };
+
+    const facetsToRender = Array.from(facetDetailsElementsFromFetch).filter((element) => !matchesId(element));
+    const countsToRender = Array.from(facetDetailsElementsFromFetch).find(matchesId);
+
+    facetsToRender.forEach((elementToRender, index) => {
+      const currentElement = document.getElementById(elementToRender.id);
+      // Element already rendered in the DOM so just update the innerHTML
+      if (currentElement) {
+        document.getElementById(elementToRender.id).innerHTML = elementToRender.innerHTML;
+      } else {
+        if (index > 0) {
+          const { className: previousElementClassName, id: previousElementId } = facetsToRender[index - 1];
+          if (elementToRender.className === previousElementClassName) {
+            document.getElementById(previousElementId).after(elementToRender);
+            return;
+          }
+        }
+
+        /*
+        if (elementToRender.parentElement) {
+          document.querySelector(`#${elementToRender.parentElement.id} .js-filter`).before(elementToRender);
+        }
+        */
+      }
+    });
+
+    FacetFiltersForm.renderActiveFacets(parsedHTML);
+
+    if (countsToRender) {
+      const closestJSFilterID = event.target.closest('.js-filter').id;
+
+      if (closestJSFilterID) {
+        FacetFiltersForm.renderCounts(countsToRender, event.target.closest('.js-filter'));
+
+        const newFacetDetailsElement = document.getElementById(closestJSFilterID);
+        const newElementToActivate = newFacetDetailsElement.querySelector('.facets__summary');
+
+        const isTextInput = event.target.getAttribute('type') === 'text';
+
+        if (newElementToActivate && !isTextInput) newElementToActivate.focus();
+      }
+    }
+  }
+
+  static renderActiveFacets(html) {
+    const activeFacetElementSelectors = ['.active-facets'];
+
+    activeFacetElementSelectors.forEach((selector) => {
+      const activeFacetsElement = html.querySelector(selector);
+      if (!activeFacetsElement) return;
+      document.querySelector(selector).innerHTML = activeFacetsElement.innerHTML;
+    });
+
+    FacetFiltersForm.toggleActiveFacets(false);
+  }
+
+  static renderCounts(source, target) {
+    const targetSummary = target.querySelector('.facets__summary');
+    const sourceSummary = source.querySelector('.facets__summary');
+
+    if (sourceSummary && targetSummary) {
+      targetSummary.outerHTML = sourceSummary.outerHTML;
+    }
+
+    const targetHeaderElement = target.querySelector('.facets__header');
+    const sourceHeaderElement = source.querySelector('.facets__header');
+
+    if (sourceHeaderElement && targetHeaderElement) {
+      targetHeaderElement.outerHTML = sourceHeaderElement.outerHTML;
+    }
+
+    const targetWrapElement = target.querySelector('.facets-wrap');
+    const sourceWrapElement = source.querySelector('.facets-wrap');
+
+    if (sourceWrapElement && targetWrapElement) {
+      const isShowingMore = Boolean(target.querySelector('show-more-button .label-show-more.hidden'));
+      if (isShowingMore) {
+        sourceWrapElement
+          .querySelectorAll('.facets__item.hidden')
+          .forEach((hiddenItem) => hiddenItem.classList.replace('hidden', 'show-more-item'));
+      }
+
+      targetWrapElement.outerHTML = sourceWrapElement.outerHTML;
+    }
+  }
+
+  static updateURLHash(searchParams) {
+    history.pushState({ searchParams }, '', `${window.location.pathname}${searchParams && '?'.concat(searchParams)}`);
+  }
+
+  static getSections() {
+    return [
+      {
+        section: document.getElementById('product-grid').dataset.id,
+      },
+    ];
+  }
+
+  createSearchParams(form) {
+    const formData = new FormData(form);
+    // console.log(new URLSearchParams(formData).toString());
+    return new URLSearchParams(formData).toString();
+  }
+
+  onSubmitForm(searchParams, event) {
+    FacetFiltersForm.renderPage(searchParams, event);
+  }
+
+  onSubmitHandler(event) {
+    event.preventDefault();
+
+    const params = new URLSearchParams();
+
+    const currentUrl = new URL(window.location.href);
+    const sortParam = currentUrl.searchParams.get('sort_by');
+    if (sortParam) {
+      params.set('sort_by', sortParam);
+    }
+
+    const sortBySelect = document.getElementById('SortBy');
+    if (sortBySelect && sortBySelect.value) {
+      params.set('sort_by', sortBySelect.value);
+    }
+
+    const sortFilterForms = document.querySelectorAll('facet-filters-form form');
+
+    sortFilterForms.forEach((form) => {
+      const checkboxInputs = form.querySelectorAll('input[type="checkbox"]');
+      checkboxInputs.forEach(input => {
+        if (input.checked) {
+          params.append(input.name, input.value);
+        }
+      });
+
+      const otherInputs = form.querySelectorAll('input:not([type="checkbox"])');
+      otherInputs.forEach(input => {
+        if (input.value && input.name !== 'sort_by') {
+          params.set(input.name, input.value);
+        }
+      });
+
+      const selectElements = form.querySelectorAll('select');
+      selectElements.forEach(select => {
+        if (select.value && select.name === 'sort_by') {
+          params.set('sort_by', select.value);
+        }
+      });
+    });
+
+    this.onSubmitForm(params.toString(), event);
+  }
+
+  onActiveFilterClick(event) {
+    event.preventDefault();
+    FacetFiltersForm.toggleActiveFacets();
+    const url =
+      event.currentTarget.href.indexOf('?') == -1
+        ? ''
+        : event.currentTarget.href.slice(event.currentTarget.href.indexOf('?') + 1);
+    FacetFiltersForm.renderPage(url);
+  }
+}
+
+FacetFiltersForm.filterData = [];
+FacetFiltersForm.searchParamsInitial = window.location.search.slice(1);
+FacetFiltersForm.searchParamsPrev = window.location.search.slice(1);
+customElements.define('facet-filters-form', FacetFiltersForm);
+FacetFiltersForm.setListeners();
+
+class PriceRange extends HTMLElement {
+  constructor() {
+    super();
+    this.querySelectorAll('input').forEach((element) => {
+      element.addEventListener('change', this.onRangeChange.bind(this));
+      element.addEventListener('keydown', this.onKeyDown.bind(this));
+    });
+    this.setMinAndMaxValues();
+  }
+
+  onRangeChange(event) {
+    this.adjustToValidValues(event.currentTarget);
+    this.setMinAndMaxValues();
+  }
+
+  onKeyDown(event) {
+    const allowedKeys = ['Backspace', 'Tab', 'Enter', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Delete', 'Escape'];
+    if (!allowedKeys.includes(event.key) && !/[0-9.,]/.test(event.key)) {
+      event.preventDefault();
+    }
+  }
+
+  setMinAndMaxValues() {
+    const inputs = this.querySelectorAll('input');
+    const minInput = inputs[0];
+    const maxInput = inputs[1];
+
+    if (maxInput.value) {
+      minInput.setAttribute('data-max', maxInput.value);
+    } else {
+      minInput.setAttribute('data-max', maxInput.getAttribute('max'));
+    }
+
+    if (minInput.value) {
+      maxInput.setAttribute('data-min', minInput.value);
+    } else {
+      maxInput.setAttribute('data-min', minInput.getAttribute('min'));
+    }
+  }
+
+  adjustToValidValues(input) {
+    const value = Number(input.value);
+    const min = Number(input.getAttribute('min')) || 0; // Default to input's min attribute
+    const max = Number(input.getAttribute('max')); // Default to input's max attribute
+
+    if (!isNaN(min) && value < min) input.value = min;
+    if (!isNaN(max) && value > max) input.value = max;
+  }
+}
+
+customElements.define('price-range', PriceRange);
+
+class FacetRemove extends HTMLElement {
+  constructor() {
+    super();
+    const facetLink = this.querySelector('a');
+    facetLink.setAttribute('role', 'button');
+    facetLink.addEventListener('click', this.closeFilter.bind(this));
+    facetLink.addEventListener('keyup', (event) => {
+      event.preventDefault();
+      if (event.code.toUpperCase() === 'SPACE') this.closeFilter(event);
+    });
+  }
+
+  closeFilter(event) {
+    event.preventDefault();
+    const form = this.closest('facet-filters-form') || document.querySelector('facet-filters-form');
+    form.onActiveFilterClick(event);
+  }
+}
+
+customElements.define('facet-remove', FacetRemove);
+
+
+
+
+
+
+{% endcomment %}

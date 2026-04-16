@@ -7,7 +7,13 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
+  "wishlist": {
+    "drawer_label": "Wishlist"
+  },
+    "tg": {
+    "chat_text": "Write to the manager in Telegram"
+  },
   "theme": {
     "accessibility": {
       "open_in_new_window": "Opens in a new window.",
@@ -69,10 +75,10 @@
       "country": "Country",
       "language": "Language",
       "popular_countries": "Popular countries",
-      "change_country": "Change country",
+      "change_country": "Change language",
       "change_currency": "Change currency",
       "change_language": "Change language",
-      "content": "Update your country and language to be accurate with the place you're browsing from.",
+      "content": "Update your language to be accurate with the place you're browsing from.",
       "submit": "Submit"
     },
     "pagination": {

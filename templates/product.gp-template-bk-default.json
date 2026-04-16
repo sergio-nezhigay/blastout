@@ -313,6 +313,7 @@
           "type": "inventory_notice"
         },
         "text_message_48XXJ7": {
+          "disabled": true,
           "settings": {
             "main_icon-product": "shopify://shop_images/telegram-logo-Vy5zx6bE.webp",
             "main_text-product": "<p>product.contact_manager</p>",

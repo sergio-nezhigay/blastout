@@ -31,7 +31,7 @@
         "section_layout": "normal",
         "heading": "КОНТАКТИ",
         "heading_size": "h5",
-        "text": "<p><strong>ВІДДІЛ МАРКЕТИНГУ:</strong><br/>blastoutmarketing@gmail.com<br/>+38 050 250 20 40<br/><br/><strong>ДЛЯ КЛІЄНТІВ:</strong><br/>blastoutua@gmail.com<br/>+38 050 250 20 40<br/><br/><strong>СТУДІЯ:</strong><br/>КИЇВ, УКРАЇНА<br/>ВУЛ. ОЛЬГИНСЬКА, 6 <br/><br/>ПН-СБ<br/>11.00-20.00<br/>НД<br/>11.00-19.00</p>",
+        "text": "<p><strong>ВІДДІЛ МАРКЕТИНГУ:</strong><br/><a href=\"mailto:marketing@blastoutstudio.com\" title=\"mailto:marketing@blastoutstudio.com\">marketing@blastoutstudio.com</a><br/>+38 050 250 20 40<br/><br/><strong>ДЛЯ КЛІЄНТІВ:</strong><br/><a href=\"mailto:sales@blastoutstudio.com\" title=\"mailto:sales@blastoutstudio.com\">sales@blastoutstudio.com</a><br/>+38 050 250 20 40<br/><br/><strong>СТУДІЯ:</strong><br/>КИЇВ, УКРАЇНА<br/>ВУЛ. ОЛЬГИНСЬКА, 6 <br/><br/>ПН-СБ<br/>11.00-20.00<br/>НД<br/>11.00-19.00</p>",
         "content_alignment": "center",
         "section_width": "max-w-page",
         "color_scheme": "",

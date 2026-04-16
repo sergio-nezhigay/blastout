@@ -91,7 +91,7 @@
             "enable_media_overlay_mobile": true,
             "header_menu_text_color": "#ffffff",
             "heading": "",
-            "image": "shopify://shop_images/9c6532345323a6be0e5bd8839f3fdcb0.jpg",
+            "image": "shopify://shop_images/DSC04151.jpg",
             "image_mobile": "shopify://shop_images/633fbe3ee62d95183fab2c8c10069085.jpg",
             "show_controls_on_video": false,
             "show_controls_on_video_mobile": false,
@@ -100,7 +100,7 @@
             "text": "<p> </p>",
             "video_external": "",
             "video_external_mobile": "",
-            "video_mobile": "shopify://files/videos/blast.mp4"
+            "video_mobile": "shopify://files/videos/3.mp4"
           },
           "type": "slide"
         },
@@ -140,7 +140,7 @@
         "color_scheme_arrows": "scheme-2",
         "enable_transparent_header": true,
         "floating_bar": false,
-        "main_product": "alladin-pants-with-cucumber-print",
+        "main_product": "sweater-peru",
         "show_slideshow_navigation": true,
         "show_slideshow_pagination": true,
         "slider_height": 100,

@@ -1,0 +1,250 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_banner_jWtyM4": {
+      "type": "page-banner",
+      "disabled": true,
+      "settings": {
+        "enable_transparent_header": true,
+        "heading": "",
+        "heading_size": "h3",
+        "text": "",
+        "show_default_description": true,
+        "show_on_description": "desktop",
+        "content_position": "center",
+        "content_alignment": "center",
+        "media_position": "background",
+        "page_menu": "",
+        "enable_breadcrumbs": true,
+        "section_height": "50svh",
+        "content_width": "100%",
+        "video_external": "",
+        "show_controls_on_video": false,
+        "section_height_mobile": "50svh",
+        "video_external_mobile": "",
+        "show_controls_on_video_mobile": false,
+        "section_width": "max-w-narrow",
+        "color_scheme": "scheme-1",
+        "color_scheme_for_media": "scheme-6",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "featured_collections_ybC3xQ": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_slide_LQym8A": {
+          "type": "collection-slide",
+          "settings": {
+            "collection": "",
+            "heading": "Shampoo",
+            "heading_size": "h4",
+            "subheading": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_slide_LQym8A"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "layout-2",
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "content_padding": "0",
+        "button_label": "",
+        "button_link": "shopify://collections",
+        "button_style": "button--filled",
+        "card_layout": "product",
+        "card_style": "compact",
+        "image_aspect_ratio": "3/4",
+        "card_content_alignment": "start",
+        "card_title_style": "card-single-text",
+        "collection_product_count": "show",
+        "slides_per_view": 3,
+        "slides_per_view_mobile": 1,
+        "show_carousel_arrows": true,
+        "slideshow_alignment_center": false,
+        "enable_slideshow_overflow": false,
+        "slideshow_border": "none",
+        "section_width": "max-w-page",
+        "color_scheme": "",
+        "color_scheme_for_cards": "",
+        "spacing_top": "2",
+        "spacing_bottom": "2"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "disabled": true,
+      "custom_css": [
+        ".block-text_card_bMpqkN {order: 1;}"
+      ],
+      "settings": {
+        "show_top_border_for_utilities_bar": false,
+        "enable_products_count": true,
+        "enable_sorting": true,
+        "enable_opened_accordions": false,
+        "hide_unavailable_filters": true,
+        "filters": "drawer",
+        "products_per_row": "4",
+        "products_per_row_mobile": "1",
+        "products_per_page": 19,
+        "pagination_style": "default",
+        "enable_infinity_scroll": false,
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-5",
+        "spacing_top": "2",
+        "spacing_bottom": "6"
+      }
+    },
+    "f8303da3-c3cb-4a90-a63a-7a628615aa6f": {
+      "type": "seo-content",
+      "settings": {
+        "section_layout": "normal",
+        "heading": "SPRING EDITION 26",
+        "heading_size": "h2",
+        "text": "<p>Весняний дроп, натхненний образом жінки в динаміці, яка прокидається з бажанням діяти, створювати та змінювати простір навколо себе. Саме ця внутрішня енергія стала відправною точкою колекції.</p>",
+        "content_alignment": "start",
+        "section_width": "max-w-fluid",
+        "color_scheme": "scheme-1",
+        "spacing_inner": "2",
+        "spacing_top": "2",
+        "spacing_bottom": "0"
+      }
+    },
+    "collection_banner_section_8zDxaC": {
+      "type": "collection-banner-section",
+      "blocks": {
+        "product_item_X6j9pn": {
+          "type": "product_item",
+          "settings": {
+            "product": "khaki-cotton-trench",
+            "custom_image": "shopify://shop_images/AEA8F480-ADBB-4D78-9B13-58C08C23B937.jpg",
+            "is_wide": true
+          }
+        },
+        "product_item_R9Wb6M": {
+          "type": "product_item",
+          "settings": {
+            "product": "",
+            "is_wide": true
+          }
+        },
+        "product_item_gNbhaM": {
+          "type": "product_item",
+          "settings": {
+            "product": "ballon-sant-cotton-pants",
+            "custom_image": "shopify://shop_images/A1239101-1A55-4878-8035-0B3976E1BE44.jpg",
+            "is_wide": true
+          }
+        },
+        "product_item_h7xGhQ": {
+          "type": "product_item",
+          "settings": {
+            "product": "brown-cotton-t-shirt",
+            "custom_image": "shopify://shop_images/6041F36E-09E0-4DD9-BF2A-D4F18F4863DE.jpg",
+            "is_wide": true
+          }
+        },
+        "product_item_9tErKz": {
+          "type": "product_item",
+          "settings": {
+            "product": "",
+            "is_wide": true
+          }
+        },
+        "product_item_G7gYTn": {
+          "type": "product_item",
+          "settings": {
+            "product": "khaki-cotton-trench",
+            "custom_image": "shopify://shop_images/C693A7AE-4F5D-40AF-990A-11E87BCC860A.jpg",
+            "is_wide": true
+          }
+        },
+        "product_item_ci9yRz": {
+          "type": "product_item",
+          "settings": {
+            "product": "black-classic-pants",
+            "custom_image": "shopify://shop_images/A0687861-DD32-4797-BE63-21B5E46B2A24.jpg",
+            "is_wide": true
+          }
+        },
+        "product_item_kQcRPT": {
+          "type": "product_item",
+          "settings": {
+            "product": "trench-sand",
+            "is_wide": true
+          }
+        },
+        "product_item_VpR4LC": {
+          "type": "product_item",
+          "settings": {
+            "product": "brown-leather-crop-jacket",
+            "is_wide": true
+          }
+        },
+        "product_item_NcQ8Dz": {
+          "type": "product_item",
+          "settings": {
+            "product": "brown-cashmere-jumper",
+            "custom_image": "shopify://shop_images/9509E244-1963-492B-8E87-63D492BA5C80.jpg",
+            "is_wide": true
+          }
+        }
+      },
+      "block_order": [
+        "product_item_X6j9pn",
+        "product_item_R9Wb6M",
+        "product_item_gNbhaM",
+        "product_item_h7xGhQ",
+        "product_item_9tErKz",
+        "product_item_G7gYTn",
+        "product_item_ci9yRz",
+        "product_item_kQcRPT",
+        "product_item_VpR4LC",
+        "product_item_NcQ8Dz"
+      ],
+      "name": "Collection Description",
+      "settings": {
+        "custom_class": "",
+        "max_width": "1400px",
+        "background_color": "rgba(0,0,0,0)",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_horizontal_desktop": 40,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40,
+        "padding_horizontal_mobile": 0,
+        "show_title": true,
+        "title": "",
+        "title_size_desktop": 32,
+        "title_size_mobile": 24,
+        "title_color": "#000000",
+        "show_description": true,
+        "description": "",
+        "description_size_desktop": 16,
+        "description_size_mobile": 14,
+        "description_color": "#000000",
+        "description_alignment": "flex-start",
+        "description_max_width": 450
+      }
+    }
+  },
+  "order": [
+    "page_banner_jWtyM4",
+    "featured_collections_ybC3xQ",
+    "main",
+    "f8303da3-c3cb-4a90-a63a-7a628615aa6f",
+    "collection_banner_section_8zDxaC"
+  ]
+}

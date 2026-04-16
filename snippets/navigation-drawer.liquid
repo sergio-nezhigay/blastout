@@ -66,7 +66,7 @@
             {% if settings.enable_wishlist_buttons and settings.wishlist_drawer_page != blank %}
               <a href="{{ settings.wishlist_drawer_page }}">
                 <div class="wishmob">
-                  <li>{{ settings.wishlist_drawer_label }}</li>
+                  <li>{{ 'wishlist.drawer_label' | t }}</li>
                   <button class="st-wishlist-details-button st-wishlist-details-button--header-icon" data-type="manually" title="Open Wishlist Details" aria-label="Open Wishlist Details"></button>
                 </div>
               </a>

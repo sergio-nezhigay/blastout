@@ -507,6 +507,9 @@
     "cm": "CM",
     "length": "ДОВЖИНА"
   },
+  "tg": {
+    "chat_text": "Написати менеджеру в телеграм"
+  },
   "theme": {
     "accessibility": {
       "open_in_new_window": "Opens in a new window.",
@@ -588,5 +591,8 @@
       "button_label": "Підписатись",
       "success": "Дякуємо за підписку"
     }
+  },
+  "wishlist": {
+    "drawer_label": "Список бажань"
   }
 }

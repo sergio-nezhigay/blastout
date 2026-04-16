@@ -57,6 +57,17 @@
     "main": {
       "type": "main-list-collections",
       "blocks": {
+        "collection_XBrLwN": {
+          "type": "collection",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "collection": "spring-edition-26",
+            "image": "shopify://shop_images/C693A7AE-4F5D-40AF-990A-11E87BCC860A.jpg",
+            "heading": "SPRING EDITION 26",
+            "heading_size": "h4",
+            "subheading": ""
+          }
+        },
         "collection_eathwm": {
           "type": "collection",
           "settings": {
@@ -124,6 +135,7 @@
         }
       },
       "block_order": [
+        "collection_XBrLwN",
         "collection_eathwm",
         "collection_4bXr8z",
         "collection_nmMjBb",

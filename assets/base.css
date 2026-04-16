@@ -5102,3 +5102,9 @@ body.is-at-top:has(.shopify-section:first-child .header-is-transparent):not(:has
   height: 15px !important;
   width: 15px !important;
 }
+
+/* Hide Swishlist floating button (we use header icon instead) */
+.st-wishlist-details-button[data-type="floating"],
+.st-wishlist-details-button--bottom_right {
+  display: none !important;
+}

@@ -51,118 +51,125 @@
   -%}
 
   {% comment %} Styles | Product Media {% endcomment %}
-  <style>
-    .product-card__media {
-      --product-card-media-aspect-ratio: {{ settings.product_card_media_aspect_ratio }};
-      --product-card-media-object-fit: {{ settings.product_card_media_object_fit }};
-    }
+ <style>
+  .product-card__media {
+    --product-card-media-aspect-ratio: {{ settings.product_card_media_aspect_ratio }};
+    --product-card-media-object-fit: {{ settings.product_card_media_object_fit }};
 
-    /* ===== Card media slider (only when hover setting is OFF + slider setting ON) ===== */
-    .product-card__media .pc-slider {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
+    /* ✅ Bigger arrows + bigger tap/click area */
+    --pc-nav-hit: 45px;  /* was 30px (+15px click area) */
+    --pc-nav-icon: 19px; /* was 14px (+5px icon) */
+  }
 
-    .product-card__media .pc-slider__track {
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
+  /* ===== Card media slider (only when hover setting is OFF + slider setting ON) ===== */
+  .product-card__media .pc-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 
-    .product-card__media .pc-slide {
-      width: 100%;
-      height: 100%;
-    }
+  .product-card__media .pc-slider__track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
 
-    /* fallback mode uses absolute slides */
-    .product-card__media .pc-slider[data-mode="fallback"] .pc-slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
+  .product-card__media .pc-slide {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* fallback mode uses absolute slides */
+  .product-card__media .pc-slider[data-mode="fallback"] .pc-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+  }
+  .product-card__media .pc-slider[data-mode="fallback"] .pc-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .product-card__media .pc-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    border: 0;
+    padding: 0;
+    width: var(--pc-nav-hit);
+    height: var(--pc-nav-hit);
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .15s ease, transform .15s ease;
+  }
+
+  .product-card__media .pc-nav svg {
+    width: var(--pc-nav-icon);
+    height: var(--pc-nav-icon);
+    display: block;
+  }
+
+  .product-card__media .pc-nav--prev { left: 8px; }
+  .product-card__media .pc-nav--next { right: 8px; }
+
+  /* Disabled state (visual + cursor). */
+  .product-card__media .pc-nav.is-disabled,
+  .product-card__media .pc-nav[aria-disabled="true"] {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+
+  /* Desktop: arrows visible ONLY on hover */
+  @media (hover:hover) and (pointer:fine) {
+    .product-card__media .pc-nav {
+      opacity: 0 !important;
       pointer-events: none;
-      transition: opacity .2s ease;
     }
-    .product-card__media .pc-slider[data-mode="fallback"] .pc-slide.is-active {
-      opacity: 1;
+
+    .product-card__actions:hover .product-card__media .pc-nav,
+    .product-card__media:hover .pc-nav {
+      opacity: 1 !important;
       pointer-events: auto;
     }
 
-    .product-card__media .pc-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 3;
-      border: 0;
-      padding: 0;
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: rgba(255, 255, 255, 0);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
-      cursor: pointer;
-      opacity: 1;
-      transition: opacity .15s ease, transform .15s ease;
-    }
-    .product-card__media .pc-nav svg {
-      width: 14px;
-      height: 14px;
-      display: block;
-    }
-    .product-card__media .pc-nav--prev { left: 8px; }
-    .product-card__media .pc-nav--next { right: 8px; }
+    .product-card__media:hover .pc-nav--prev { transform: translateY(-50%) translateX(-1px); }
+    .product-card__media:hover .pc-nav--next { transform: translateY(-50%) translateX(1px); }
 
-    /* Disabled state (visual + cursor). */
-    .product-card__media .pc-nav.is-disabled,
-    .product-card__media .pc-nav[aria-disabled="true"] {
-      opacity: .5;
+    .product-card__actions:hover .product-card__media .pc-nav.is-disabled,
+    .product-card__media:hover .pc-nav.is-disabled,
+    .product-card__actions:hover .product-card__media .pc-nav[aria-disabled="true"],
+    .product-card__media:hover .pc-nav[aria-disabled="true"] {
+      opacity: .5 !important;
       cursor: not-allowed;
+      pointer-events: auto; /* to show not-allowed cursor */
+      transform: translateY(-50%);
+    }
+  }
+
+  /* Mobile tweaks */
+  @media (max-width: 749px) {
+    .product-card__media {
+      --pc-nav-hit: 43px; /* was 28px (+15px click area) */
+      --pc-nav-icon: 19px;
     }
 
-    /* Desktop: arrows visible ONLY on hover */
-    @media (hover:hover) and (pointer:fine) {
-      .product-card__media .pc-nav {
-        opacity: 0 !important;
-        pointer-events: none;
-      }
+    .product-card__media .pc-nav--prev { left: 6px; }
+    .product-card__media .pc-nav--next { right: 6px; }
 
-      .product-card__actions:hover .product-card__media .pc-nav,
-      .product-card__media:hover .pc-nav {
-        opacity: 1 !important;
-        pointer-events: auto;
-      }
-
-      .product-card__media:hover .pc-nav--prev { transform: translateY(-50%) translateX(-1px); }
-      .product-card__media:hover .pc-nav--next { transform: translateY(-50%) translateX(1px); }
-
-      .product-card__actions:hover .product-card__media .pc-nav.is-disabled,
-      .product-card__media:hover .pc-nav.is-disabled,
-      .product-card__actions:hover .product-card__media .pc-nav[aria-disabled="true"],
-      .product-card__media:hover .pc-nav[aria-disabled="true"] {
-        opacity: .5 !important;
-        cursor: not-allowed;
-        pointer-events: auto; /* to show not-allowed cursor */
-        transform: translateY(-50%);
-      }
+    /* ✅ Collection mobile: NO arrows (only finger swipe) */
+    .product-card__media .pc-slider[data-hide-mobile-arrows="true"] .pc-nav {
+      display: none !important;
     }
-
-    /* Mobile tweaks */
-    @media (max-width: 749px) {
-      .product-card__media .pc-nav {
-        width: 28px;
-        height: 28px;
-      }
-      .product-card__media .pc-nav--prev { left: 6px; }
-      .product-card__media .pc-nav--next { right: 6px; }
-
-      /* ✅ Collection mobile: NO arrows (only finger swipe) */
-      .product-card__media .pc-slider[data-hide-mobile-arrows="true"] .pc-nav {
-        display: none !important;
-      }
-    }
-  </style>
+  }
+</style>
 
   {% comment %} Render | Product Media {% endcomment %}
   <div
@@ -189,7 +196,7 @@
            - No mouse-drag, no finger swipe
       {%- endcomment -%}
 
-      {%- if enable_card_slider and image_media != blank and image_media.size > 1 -%}
+      {%- if enable_card_slider and image_media != blank and image_media.size > 1 and search_product == false and request.page_type != 'search' -%}
         {%- assign slider_id = 'pc-slider-' | append: section_id | append: '-' | append: product_ref.id -%}
 
         {%- assign allow_swipe = false -%}
@@ -288,197 +295,204 @@
     {%- endif -%}
   </div>
 
-  <script>
-    (function () {
-      if (window.__pcCardSliderInit) return;
-      window.__pcCardSliderInit = true;
 
-      function stopLinkClick(e) {
-        e.preventDefault();
-        e.stopPropagation();
+
+
+
+
+<script>
+  (function () {
+    if (window.__pcCardSliderInit) return;
+    window.__pcCardSliderInit = true;
+
+    function stopLinkClick(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    function setBtnState(btn, disabled) {
+      if (!btn) return;
+      if (disabled) {
+        btn.classList.add('is-disabled');
+        btn.setAttribute('aria-disabled', 'true');
+      } else {
+        btn.classList.remove('is-disabled');
+        btn.setAttribute('aria-disabled', 'false');
+      }
+    }
+
+    function isDisabled(btn) {
+      return !btn || btn.getAttribute('aria-disabled') === 'true' || btn.classList.contains('is-disabled');
+    }
+
+    function isSwipeAllowed(slider) {
+      return slider && slider.getAttribute('data-allow-swipe') === 'true';
+    }
+
+    function initFallback(slider, swipeAllowed) {
+      slider.dataset.mode = 'fallback';
+
+      var slides = Array.prototype.slice.call(slider.querySelectorAll('.pc-slide'));
+      var prevBtn = slider.querySelector('.pc-nav--prev');
+      var nextBtn = slider.querySelector('.pc-nav--next');
+      if (!slides.length || slides.length < 2) return;
+
+      var index = 0;
+
+      function syncButtons() {
+        setBtnState(prevBtn, index <= 0);
+        setBtnState(nextBtn, index >= slides.length - 1);
       }
 
-      function setBtnState(btn, disabled) {
-        if (!btn) return;
-        if (disabled) {
-          btn.classList.add('is-disabled');
-          btn.setAttribute('aria-disabled', 'true');
-        } else {
-          btn.classList.remove('is-disabled');
-          btn.setAttribute('aria-disabled', 'false');
-        }
+      function setActive(i) {
+        index = Math.max(0, Math.min(i, slides.length - 1));
+        slides.forEach(function (s, k) {
+          s.classList.toggle('is-active', k === index);
+        });
+        syncButtons();
       }
 
-      function isDisabled(btn) {
-        return !btn || btn.getAttribute('aria-disabled') === 'true' || btn.classList.contains('is-disabled');
-      }
+      prevBtn && prevBtn.addEventListener('click', function (e) {
+        stopLinkClick(e);
+        if (isDisabled(prevBtn)) return;
+        setActive(index - 1);
+      });
 
-      function isSwipeAllowed(slider) {
-        return slider && slider.getAttribute('data-allow-swipe') === 'true';
-      }
+      nextBtn && nextBtn.addEventListener('click', function (e) {
+        stopLinkClick(e);
+        if (isDisabled(nextBtn)) return;
+        setActive(index + 1);
+      });
 
-      function initFallback(slider, swipeAllowed) {
-        slider.dataset.mode = 'fallback';
+      if (swipeAllowed) {
+        var startX = 0;
+        var startY = 0;
+        var isDown = false;
 
-        var slides = Array.prototype.slice.call(slider.querySelectorAll('.pc-slide'));
-        var prevBtn = slider.querySelector('.pc-nav--prev');
-        var nextBtn = slider.querySelector('.pc-nav--next');
-        if (!slides.length || slides.length < 2) return;
-
-        var index = 0;
-
-        function syncButtons() {
-          setBtnState(prevBtn, index <= 0);
-          setBtnState(nextBtn, index >= slides.length - 1);
-        }
-
-        function setActive(i) {
-          index = Math.max(0, Math.min(i, slides.length - 1));
-          slides.forEach(function (s, k) {
-            s.classList.toggle('is-active', k === index);
-          });
-          syncButtons();
-        }
-
-        prevBtn && prevBtn.addEventListener('click', function (e) {
-          stopLinkClick(e);
-          if (isDisabled(prevBtn)) return;
-          setActive(index - 1);
+        slider.addEventListener('pointerdown', function (e) {
+          isDown = true;
+          startX = e.clientX;
+          startY = e.clientY;
+          slider.setPointerCapture && slider.setPointerCapture(e.pointerId);
         });
 
-        nextBtn && nextBtn.addEventListener('click', function (e) {
-          stopLinkClick(e);
-          if (isDisabled(nextBtn)) return;
-          setActive(index + 1);
-        });
+        slider.addEventListener('pointerup', function (e) {
+          if (!isDown) return;
+          isDown = false;
 
-        // ✅ Swipe (touch/mouse drag) only when allowed (collections)
-        if (swipeAllowed) {
-          var startX = 0;
-          var startY = 0;
-          var isDown = false;
+          var dx = e.clientX - startX;
+          var dy = e.clientY - startY;
 
-          slider.addEventListener('pointerdown', function (e) {
-            isDown = true;
-            startX = e.clientX;
-            startY = e.clientY;
-            slider.setPointerCapture && slider.setPointerCapture(e.pointerId);
-          });
+          if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+            stopLinkClick(e);
 
-          slider.addEventListener('pointerup', function (e) {
-            if (!isDown) return;
-            isDown = false;
-
-            var dx = e.clientX - startX;
-            var dy = e.clientY - startY;
-
-            if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
-              stopLinkClick(e);
-
-              if (dx < 0) {
-                if (index < slides.length - 1) setActive(index + 1);
-              } else {
-                if (index > 0) setActive(index - 1);
-              }
-            }
-          });
-        }
-
-        setActive(0);
-      }
-
-      function initSwiper(slider, swipeAllowed) {
-        if (!window.Swiper) return false;
-
-        var track = slider.querySelector('.pc-slider__track');
-        var slides = Array.prototype.slice.call(slider.querySelectorAll('.pc-slide'));
-        var prevBtn = slider.querySelector('.pc-nav--prev');
-        var nextBtn = slider.querySelector('.pc-nav--next');
-        if (!track || slides.length < 2) return true;
-
-        slider.dataset.mode = 'swiper';
-
-        slider.classList.add('swiper');
-        track.classList.add('swiper-wrapper');
-        slides.forEach(function (s) {
-          s.classList.add('swiper-slide');
-          s.classList.remove('is-active');
-        });
-
-        // Always prevent navigation on arrow click (even disabled)
-        prevBtn && prevBtn.addEventListener('click', function(e){ stopLinkClick(e); });
-        nextBtn && nextBtn.addEventListener('click', function(e){ stopLinkClick(e); });
-
-        var sw = new window.Swiper(slider, {
-          slidesPerView: 1,
-          watchOverflow: true,
-          threshold: 8,
-          navigation: {
-            nextEl: nextBtn,
-            prevEl: prevBtn
-          },
-
-          // ✅ Key change:
-          // collections: allow drag/swipe
-          // other pages: arrows only
-          allowTouchMove: !!swipeAllowed,
-          simulateTouch: !!swipeAllowed,
-
-          on: {
-            init: function () {
-              setBtnState(prevBtn, this.isBeginning);
-              setBtnState(nextBtn, this.isEnd);
-            },
-            slideChange: function () {
-              setBtnState(prevBtn, this.isBeginning);
-              setBtnState(nextBtn, this.isEnd);
-            },
-            fromEdge: function () {
-              setBtnState(prevBtn, this.isBeginning);
-              setBtnState(nextBtn, this.isEnd);
+            if (dx < 0) {
+              if (index < slides.length - 1) setActive(index + 1);
+            } else {
+              if (index > 0) setActive(index - 1);
             }
           }
         });
+      }
 
-        // Prevent accidental click-through only when swipe is enabled
-        if (swipeAllowed) {
-          var moved = false;
-          sw.on('touchMove', function () { moved = true; });
-          sw.on('touchEnd', function () {
-            setTimeout(function(){ moved = false; }, 0);
-          });
+      setActive(0);
+    }
 
-          slider.addEventListener('click', function (e) {
-            if (!moved) return;
-            stopLinkClick(e);
-          }, true);
+    function initSwiper(slider, swipeAllowed) {
+      if (!window.Swiper) return false;
+
+      var track = slider.querySelector('.pc-slider__track');
+      var slides = Array.prototype.slice.call(slider.querySelectorAll('.pc-slide'));
+      var prevBtn = slider.querySelector('.pc-nav--prev');
+      var nextBtn = slider.querySelector('.pc-nav--next');
+      if (!track || slides.length < 2) return true;
+
+      slider.dataset.mode = 'swiper';
+
+      slider.classList.add('swiper');
+      track.classList.add('swiper-wrapper');
+      slides.forEach(function (s) {
+        s.classList.add('swiper-slide');
+        s.classList.remove('is-active');
+      });
+
+      prevBtn && prevBtn.addEventListener('click', function (e) { stopLinkClick(e); });
+      nextBtn && nextBtn.addEventListener('click', function (e) { stopLinkClick(e); });
+
+      var sw = new window.Swiper(slider, {
+        slidesPerView: 1,
+        watchOverflow: true,
+        threshold: 8,
+        navigation: {
+          nextEl: nextBtn,
+          prevEl: prevBtn
+        },
+        allowTouchMove: !!swipeAllowed,
+        simulateTouch: !!swipeAllowed,
+        on: {
+          init: function () {
+            setBtnState(prevBtn, this.isBeginning);
+            setBtnState(nextBtn, this.isEnd);
+          },
+          slideChange: function () {
+            setBtnState(prevBtn, this.isBeginning);
+            setBtnState(nextBtn, this.isEnd);
+          },
+          fromEdge: function () {
+            setBtnState(prevBtn, this.isBeginning);
+            setBtnState(nextBtn, this.isEnd);
+          }
         }
+      });
 
-        return true;
-      }
-
-      function initAll() {
-        var sliders = document.querySelectorAll('[data-pc-card-slider]');
-        sliders.forEach(function (slider) {
-          if (slider.dataset.inited === 'true') return;
-          slider.dataset.inited = 'true';
-
-          var swipeAllowed = isSwipeAllowed(slider);
-
-          var ok = initSwiper(slider, swipeAllowed);
-          if (!ok) initFallback(slider, swipeAllowed);
+      if (swipeAllowed) {
+        var moved = false;
+        sw.on('touchMove', function () { moved = true; });
+        sw.on('touchEnd', function () {
+          setTimeout(function () { moved = false; }, 0);
         });
+
+        slider.addEventListener('click', function (e) {
+          if (!moved) return;
+          stopLinkClick(e);
+        }, true);
       }
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAll);
-      } else {
-        initAll();
-      }
+      return true;
+    }
 
-      document.addEventListener('shopify:section:load', initAll);
-    })();
-  </script>
+    function initAll(root) {
+      var scope = root && root.querySelectorAll ? root : document;
+      var sliders = scope.querySelectorAll('[data-pc-card-slider]');
+
+      sliders.forEach(function (slider) {
+        if (slider.dataset.inited === 'true') return;
+        slider.dataset.inited = 'true';
+
+        var swipeAllowed = isSwipeAllowed(slider);
+        var ok = initSwiper(slider, swipeAllowed);
+        if (!ok) initFallback(slider, swipeAllowed);
+      });
+    }
+
+    window.initProductCardSliders = initAll;
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        initAll(document);
+      });
+    } else {
+      initAll(document);
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      initAll(event && event.target ? event.target : document);
+    });
+  })();
+</script>
+
+
+
 {%- endcapture -%}
 
 {% comment %} Product Add-To-Cart Button {% endcomment %}

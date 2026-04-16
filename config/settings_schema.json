@@ -682,14 +682,6 @@
         "default": true
       },
       {
-        "label": "Wishlist button label in mobile drawer",
-        "type": "inline_richtext",
-        "id": "wishlist_drawer_label",
-        "default": "Wishlist",
-        "visible_if": "{{ settings.enable_wishlist_buttons == true }}",
-        "info": "Please note that the text in this form is automatically converted to uppercase. (Localize this button in Translate & Adapt app)"
-      },
-      {
         "label": "Wishlist button link in mobile drawer",
         "type": "url",
         "id": "wishlist_drawer_page",
@@ -735,12 +727,6 @@
         "id": "tg_chat_link",
         "label": "Telegram link"
         
-      },
-      {
-        "type": "text",
-        "id": "tg_chat_text",
-        "label": "Panel text",
-        "default": "Написати менеджеру в телеграм"
       }
     ]
   },

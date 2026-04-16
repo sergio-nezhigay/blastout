@@ -242,6 +242,7 @@
         "enable_products_count": true,
         "enable_sorting": true,
         "filters": "drawer",
+        "hide_unavailable_filters": true,
         "pagination_style": "default",
         "products_per_page": 19,
         "products_per_row": "4",
